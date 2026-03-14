@@ -63,7 +63,7 @@ input {
   top: 0;
   z-index: 30;
   background: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  /*border-bottom: 1px solid rgba(0, 0, 0, 0.04);*/
   opacity: 0;
   animation: site-header-fade-in 0.75s ease-out 0.05s forwards;
 }
