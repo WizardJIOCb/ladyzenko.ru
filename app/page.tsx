@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RestartableGif } from "@/components/restartable-gif";
 import { getArticlePages, getHomeData, getLecturePages, getPageBySlug } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -102,7 +103,7 @@ export default function HomePage() {
               <div className="t-cover__wrapper t-valign_middle">
                 <div className="t001 t-align_center">
                   <div className="t001__wrapper" data-hook-content="covercontent">
-                    <img className="hero-tilda__lamp" src="/old-site/hero-lamp.gif" alt="Лампочка" />
+                    <RestartableGif className="hero-tilda__lamp" src="/old-site/hero-lamp.gif" alt="Lamp" />
                     <div className="t001__title t-title t-title_xl">
                       <div className="hero-tilda__titlebox">
                         <span className="hero-tilda__uptitle">Привет, я — психолог</span>
