@@ -1,0 +1,268 @@
+# Людмила Ладыженко
+
+- URL: https://ladyzenko.ru/
+- Slug: index
+- Canonical: https://ladyzenko.ru
+- Description: Опытный психолог, частная практика 28 лет, онлайн и очно
+- OG image: https://thb.tildacdn.com/tild6262-6530-4561-b532-303032383333/-/resize/504x/work-output-onlinegi.gif
+
+## H1
+
+- Психолог Людмила Ивановна Ладыженко
+
+## Headings
+
+- H1: Психолог Людмила Ивановна Ладыженко
+
+## Popups
+
+### Агрессия. Продуктивное поведение. Часть 1
+У агрессии, как водится две стороны медали. Светлая (в плюс) - злость помогает нам занимать "своё место под солнцем". Не просить, а добиваться. Не клянчить милости, а претендовать на внимание. Претендуй! И непременно будет в твоей жизни и любовь, и радость, и образование, и счастье. Ещё агрессия позволяет нам быть инициативными, активными, а это всё про жизненный тонус. Важная штука. Минусовой полюс агрессии - это неконтролируемые взрывы и выплески. Словесная агрессия - хамство, грубость, ехидство. Телесная агрессия - драки, рукоприкладство, крушение всех и вся. Идеологическая агрессия - разрушение ценностей в другом человеке через "промывание мозгов" и тотальный контроль. Только у человека агрессия может быть неконтролируемой, в мире животных - агрессия всегда ТОЛЬКО контролируемая. Как только одно животное в схватке принимает позу подчинения (наклон головы или хвоста), то победитель сразу прекращает нападение. никогда звери не бьются до крови в своём отряде (виде). Вот поди теперь разберись, кого называть зверем.... Человеконогое зверьё или гуманистичного представителя фауны? Важно уметь регулировать баланс в себе. Чтобы ты рулил сложной ситуацией, а не ситуация - тобой. Как-то, ученик спросил Учителя: "Какой волк внутри меня победит - злой или добрый?". "Тот, которого ты больше вскармливаешь..." - ответил Гуру. Подумайте, чем вы чаще питаете свой внутренний мир? Мщением и категоричностью или осознанностью, что именно сейчас я хочу в результате, куда веду собеседника? Война - это не единственный выход. Есть ещё компромисс, просто пауза в принятии решения. Варианты есть, если вы захотите. Где брать баланс внутри себя? Во-первых, развивать самооценку. Именно развивать, ваять, укреплять. Замечать то, что УЖЕ получается, наращивать мастерство. И не шибко важно, в какой сфере ты - Мастер. Может быть. пошутить умеешь вовремя, может быть руки правильные, т е "золотые", может быть книжки любишь читать, а может быть просто ты - хороший друг. Слово самооценка знают все. Но давайте разберёмся, о чём это? Самооценка – это когда ты себя воспринимаешь больше через собственные ощущения и результаты. А мнение окружающих, всё-таки на втором месте. Тогда это является взрослым уверенным поведением. Самооценку надобно укреплять, заниматься этим, иначе стрессы будут подтачивать, делать её (самооценку) зыбкой. Как это делать? Замечать свои успехи даже маленькие. Для себя отмечать то хорошее, что ты делаешь, не дожидаясь, когда окружающие заметят тебя в плюс. Тогда появляется внутренняя точка опоры, мало зависящая от обстоятельств. Есть, конечно же, и специальные упражнения (но придётся уделить этому время! теория не поможет). Например, быть в состоянии "охотника". Это значит, в разговоре напряжённом смотреть на человека особым образом: отслеживать, наблюдать, делать акцент на его телесных реакциях, а не словах. Например, как меняется его лицо (краснеет-бледнеет), и тело (замирает - мельтешит). Тогда его нападение не вводит в ступор ваш организм, не заводит с "полоборота" вашу нервную систему и вы можете быть адекватным, а значит устойчивым, а значит "над ситуацией" будете именно вы. В третьих, есть психологические тренинги про уверенность (смотри интернет), про устойчивость к агрессивному поведению. В четвёртых, при разрушительной агрессии, направленной на вас, надо уметь делать категорически правильный и единственно верный выбор - "делать ноги". Не надо доказывать лому или асфальтоукладчику, что вы - смельчак... А какие варианты у вас? Ваш психолог Людмила Ладыженко
+
+### Планы и ритмы нашей жизни.
+Человек устроен циклично внутри себя, поэтому ориентиры времени и пространства имеют большое значение. Психике человека важно иметь опорные точки, иначе тревога неопределённости может захватывать. Как в природе есть циклы: еженедельные, суточные, годовые, так и у нас они позволяют сохранять силы и положительную динамику движения жизни. Задумайтесь, к примеру, два раза в неделю я: тренируюсь, звоню бабушке, смотрю в телескоп, изучаю азбуку Морзе и т д. Раз в месяц я: наслаждаюсь концертом, навожу порядок в фотоальбоме на компе, избавляюсь от ненужного, выезжаю в интересное место. Как упорядочить планы? Способов много, каждый вырабатывает свой способ договориться с собой. Прежде чем заполнить ежедневник по времени, продуктивно набросать на бумаге основные или важные задачи следующего дня. Если это сделать вечером накануне перед сном, то ночью подсознание сделает для нас важную работу "переваривания" планов на завтра. Утром это начинает быстрее реализовываться. Важная деталь в этом вечернем списке — оптимальное количество пунктов 7 + - 2, больше хуже обрабатывается. Есть ещё интеллектуальные карты: в кружочках набросать версии дня, из этих кружочков больших целей будут вырастать меньшие круги-раскадровки, тактические инструменты для решения основной задачи. Проявляется конкретная карта дня. Кому-то понравятся цветные стикеры в машине, например, возить нескольких цветов: красные — срочно, зелёные — оптимальные задачи на ближайшее время, ну и фиолетовые те, которые можно отложить если времени не хватит. Кто-то расклеивает эти листочки на своём рабочем столе. Если задача выполнена, этот листочек торжественно отправляется в мусорную корзину. Психика удовлетворена. Наше время стремительно и поэтому долгосрочные планы работают хуже, их может быть минимальное количество, например, на год такие глобальные задачи -одна или две. В данное время чëтко получается планировать жизнь только на 3 месяца. Самое важное, когда эти планы будут выполняться, обязательно нужно себя награждать за этот результат. Психике важно получить от вас положительную обратную связь. Психологическая награда зависит от масштаба события. Может быть наградить себя чашкой и кофе а может быть поспать/погулять в обеденный перерыв, поваляться с котиком. Или просто междометиями искренне восхититься собой: "Ай, да Пушкин! Ай, да...молодец!" Спасибо классику за версию такой позитивной обратной связи которая нам очень нужна. В какие-то непростые времена, когда мало сил, мало ресурсов: финансовых, временных, творческих важно сохранять ритмическое расписание. В ковиде спасали ритмы которые зависят от тебя самого. Даже в депрессивные моменты, хотя бы, вымыть полы или, как у Маленького Принца Экзюпери "прибери свою планету". Потому что порядок снаружи и ритмы психики позволяют не рассыпаться, не растекаться в стрессе и возвращать себе опорные точки внутри себя. Не замалчивайте то, что вы делаете с результатом, хвалитесь и гордитесь собой! "Если в лесу расцвело дерево и никто не заметил, то расцвело ли оно?"– говорят мудрецы. Очень важно отмечать себе этапы дня, этапы недели осознанно и в плюс.
+
+### Двое или пара?
+Как понять, что у нас общее поле жизни, а не только пространство квартиры? Я люблю, я готов делать всё, что смогу для сохранения отношений, но при этом я остаюсь собой. Не требую жертв от тебя и вычëркивания того, что составляет твой мир. Компромиссы -да, жертвенность - нет. Твоя подруга/друг мне не интересен, поэтому встречайтесь без меня. Ты любишь походы, а я -комфорт:часть отпуска проводим в автономном режиме. Добровольные самоограничения. Умение учитывать друг друга в большом и малом. Я - ЗОЖ и "жаворонок" , мой выбор необязателен для тебя, но сарказм ни к чему. Отношения - не полигон для экстремальной проверки на прочность. Если кто-то из пары ритмично устраивает форс-мажорные события, то это о не пройденной подростковой сепарации или болезненном нарциссизме. Провоцировать ревность, "бодаться" без серьёзного повода - создавать непродуктивное напряжение, которое непременно "выстрелит". Тайные планы и одиночные решения по значимым темам - зыбкая почва, говорящая о повышенном уровне тревоги. И авторов у неё двое. Один партнёр требует абсолютной прозрачности, а это нереально. Второй начинает излишне перестраховываться, чтобы не получить "выволочку", дабы не чувствовать себя плохим. Поэтому надо бы договориться о разнице: непрозрачность и осознанная тайна (сокрытие). Юмор в паре - это подарок и безопасность. Помогает сделать "выдох" После напряжения. Сохранить эмоциональную волну и интеллектуальное удовольствие вдвоём. Вслух говорить о "солнечной" стороне друг друга. Сюрпризы и игра. В каждой паре - свой вариант и коленкор. Может быть вместе играть в "Что? Где? Когда?" Или в "Дурачка" на раздевание/одевание? Устроить на балконе посиделки, милые розыгрыши. Эти прекрасные моменты позволяют "выныривать" из заданной ежедневности внутри пары. Снимают риск заморозки представлений друг о друге.
+
+### Имя, как лучшая песня для человека.
+В жизни я встречала только двух человек, у которых не случилось гармонии и резонанса со своим именем. Мы искали глубину, прикасались к чувствам. Возможно и вам захочется поразмышлять над этой интересной темой. Даю психологические и символические ориентиры. В честь кого было дано имя и кто конкретно принял окончательное решение? Где живет имя, которое вам не дали (если были споры)? Как вы впервые осознали свое имя? Если есть такое воспоминание. Как вам было в детстве с вашим именем? Ваше тайное имя, которое никому не известно. Часто мы во внутреннем диалоге так себя называем и в этом много символов и очень личных чувств. Ваш псевдоним/ник, если есть. Как вас называют/называли среди "своих"? Подростки часто страдают, если есть только реальное имя. Важно обрести поименование на "птичьем языке". Имя как след. Кто и как "наследил" через ваше имя? Девочку мама назвала Динарой в честь талантливого режиссёра Асановой. Мальчика — Эдгаром, потому что отец зачитывался рассказами По. Есть и более глубокие вопросы для исследования этой заряженной темы. Но к ним лучше аккуратно прикасаться в диалоге с опытным психологом. Расскажите своим детям историю их имени. Дайте дополнительную точку опоры.
+
+## Text
+
+Обо мне
+Новости
+Школа Отцов
+Фото
+Дипломы и сертификаты
+Видео и Подкасты
+Услуги
+Задать вопрос
+Лекции в записи
+Статьи и публикации
+Контакты
+Трудноcти в отнoшeниях
+Слoжноcти в отнoшениях с детьми, родителями, коллегами
+Одиночество, неуверенность в себе, трудности с самооценкой
+Неумение говорить «нет» и отстаивать свои интересы
+Трудности в выражении эмоций (Эмоции захлёстывают, или, наоборот, ты часто ничего не чувствуешь)
+Усталость, апатия, потеря ресурсов или другие признаки депрессии
+Жизненные кризисы, в том числе в связи с переездом и другими значимыми изменениями
+Поддержка перед важным событием (повышение по карьере, экзамены, выступления, свадьба)
+Трудности в принятии решений
+Горевание: развод, расставание, потеря близкого человека
+Установление границ. Уважать свои потребности, не чувствуя вины
+Развитие сильных сторон
+Практические техники. Я использую техники, которые помогают на практике, а не только в теории
+Прояснение запроса
+Определение эмоциональных ресурсов для решения поставленной задачи
+Поиск вариантов достижения цели
+Расширение вариантов выхода из создавшейся ситуации
+Прояснение конструкта личности
+Работа с личной историей как с ресурсной платформой для изменений
+Гимназия или обычная школа? Готовность к школе. Для детей 6-7 лет Диагностика двенадцати параметров интеллекта и характера, поможет сориентироваться в возможностях ребёнка и смягчить адаптацию к школе
+Диагностика трудностей в обучении с 6-и до 17-и лет. Тест минимальных мозговых дисфункций и рекомендаций по преодолению неуспеваемости
+Тест на выбор профессии и личностных особенностей
+Тест врождённых и приобретённых черт характера, для внутреннего баланса личности
+Тест на уровень агрессии прямой и косвенной
+Хвастовство, здоровый нарциссизм — заявка на видимость в обществе. Тогда исчезает страх стыда, заморозки от оценок. Главный ценитель и мастер развития - это я сам.
+Что лучше: идеальная или достаточно хорошая мать? Шесть движений любви.
+Где корень анорексии, булимии и здорового отношения к потреблению? В каких точках детства возникают эти риски?
+Либидо надо «выгуливать»! Как обогатиться ресурсами детства, когда ты вырос?
+Какие важные ориентиры есть на карте детства от рождения и дальше? Можно ли переписать скрипты детства? Напитать их новой энергией жизни?
+Сексуальные нормы. Вы узнаете о трех критически важных пунктах «сексуальной безопасности», без которых интимная жизнь в паре начинает угасать.
+Устройство мозга. Как использовать наше воображение и речь для подпитки чувств.
+Мужская и женская природа. Разбор энергетических различий - почему мужчину сравнивают с «оголенным проводом», а женщину с «диэлектриком», и какие три врожденных таланта помогают женщине управлять атмосферой в союзе.
+Выгул либидо. Я познакомлю вас с концепцией либидо не как узко-сексуального влечения, а как общей «батарейки жизни». Флирт здесь представлен как способ подзарядки этой батарейки.
+Техники «оживления» партнера. Понятие уровней мобилизации - как и с помощью чего перевести партнера из состояния «объекта» в состояние живого, заинтересованного «субъекта».
+Игра и новизна. Почему паре жизненно важно отплывать от «берега стабильности» к «берегу новизны» и как делать это экологично, не разрушая доверия.
+Поработаем с «тенью». Как принимать свои и чужие «непричесанные» чувства, травмы и странности, превращая их в точки сближения, а не конфликта.
+Виртуальные плакаты. Интересная практика по изучению себя.
+Снятие обязательств. Психологическая формула, помогающая избавиться от навязанных обществом ролей (например, «всегда быть слабой» или «быть удобной») и позволить себе наслаждаться процессом жизни.
+И обязательно даю конкретные советы родителям по воспитанию телесности и здорового отношения к любви у детей и подростков.
+Агрессия Зачем и как быть в состоянии охотника в напряженном разговоре? Читать далее...
+Планы нашей жизни Наши циклы позволяют сохранять силы и положительную динамику движения жизни. Читать далее...
+Двое или пара? Как понять, что у нас общее поле жизни, а не только пространство квартиры? Читать далее...
+Имя, как лучшая песня для человека. Даю психологические и символические ориентиры. Читать далее...
+Светлая (в плюс) - злость помогает нам занимать "своё место под солнцем". Не просить, а добиваться. Не клянчить милости, а претендовать на внимание.
+Минусовой полюс агрессии - это неконтролируемые взрывы и выплески. Словесная агрессия - хамство, грубость, ехидство. Телесная агрессия - драки, рукоприкладство, крушение всех и вся. Идеологическая агрессия - разрушение ценностей в другом человеке через "промывание мозгов" и тотальный контроль.
+В честь кого было дано имя и кто конкретно принял окончательное решение?
+Где живет имя, которое вам не дали (если были споры)?
+Как вы впервые осознали свое имя? Если есть такое воспоминание.
+Как вам было в детстве с вашим именем?
+Ваше тайное имя, которое никому не известно. Часто мы во внутреннем диалоге так себя называем и в этом много символов и очень личных чувств.
+Ваш псевдоним/ник, если есть. Как вас называют/называли среди "своих"? Подростки часто страдают, если есть только реальное имя. Важно обрести поименование на "птичьем языке".
+Имя как след. Кто и как "наследил" через ваше имя? Девочку мама назвала Динарой в честь талантливого режиссёра Асановой. Мальчика — Эдгаром, потому что отец зачитывался рассказами По.
+Записи лекций
+Статьи
+Required field
+Please correct e-mail address
+Name Wrong. Correct please
+Please correct phone number
+Please enter letter, number or punctuation symbols.
+
+## Images
+
+- https://static.tildacdn.com/tild3164-6436-4533-b730-366332303439/WhatsApp_Image_2025-.jpeg -> export/assets/static.tildacdn.com/22ecc0a5ed0f-WhatsApp_Image_2025-.jpeg
+- https://static.tildacdn.com/tild6236-3665-4333-b237-363335663065/WhatsApp_Image_2025-.jpeg -> export/assets/static.tildacdn.com/8b440e48373d-WhatsApp_Image_2025-.jpeg
+- https://static.tildacdn.com/tild6137-3761-4532-b833-663364623865/WhatsApp_Image_2025-.jpeg -> export/assets/static.tildacdn.com/f385cee1cb0c-WhatsApp_Image_2025-.jpeg
+- https://static.tildacdn.com/tild6338-3837-4064-b731-303737313830/WhatsApp_Image_2025-.jpeg -> export/assets/static.tildacdn.com/91aabcd83f08-WhatsApp_Image_2025-.jpeg
+- https://static.tildacdn.com/tild3264-3066-4665-b336-336135636632/WhatsApp_Image_2025-.jpeg -> export/assets/static.tildacdn.com/eeeec07a3494-WhatsApp_Image_2025-.jpeg
+- https://static.tildacdn.com/tild6333-6639-4666-a537-333863643666/WhatsApp_Image_2025-.jpeg -> export/assets/static.tildacdn.com/3a9176f7be0a-WhatsApp_Image_2025-.jpeg
+- https://static.tildacdn.com/tild3433-3766-4030-a534-313637626365/WhatsApp_Image_2025-.jpeg -> export/assets/static.tildacdn.com/c37f35145045-WhatsApp_Image_2025-.jpeg
+- https://static.tildacdn.com/tild3736-3636-4363-b139-366130623463/WhatsApp_Image_2025-.jpeg -> export/assets/static.tildacdn.com/197cd3a42a57-WhatsApp_Image_2025-.jpeg
+- https://static.tildacdn.com/tild3465-3764-4333-b939-643635653732/WhatsApp_Image_2025-.jpeg -> export/assets/static.tildacdn.com/87c3cdda57c6-WhatsApp_Image_2025-.jpeg
+- https://static.tildacdn.com/tild3832-3739-4039-a331-376363316139/5199486618719872303.jpg -> export/assets/static.tildacdn.com/bc18ce0f0c10-5199486618719872303.jpg
+- https://static.tildacdn.com/tild6236-3235-4563-b336-383631666131/5199486618719872302.jpg -> export/assets/static.tildacdn.com/1859e93de06b-5199486618719872302.jpg
+- https://static.tildacdn.com/tild3230-3032-4262-b537-313064643865/5199486618719872301.jpg -> export/assets/static.tildacdn.com/9d70a641a7dd-5199486618719872301.jpg
+- https://static.tildacdn.com/tild6539-3533-4238-b762-333633613931/5199486618719872300.jpg -> export/assets/static.tildacdn.com/3262f2efa1f9-5199486618719872300.jpg
+- https://static.tildacdn.com/tild3636-3937-4135-b539-313532363536/5199486618719872299.jpg -> export/assets/static.tildacdn.com/06eec8822b01-5199486618719872299.jpg
+- https://static.tildacdn.com/tild3434-3764-4765-b434-353632393463/5199486618719872313.jpg -> export/assets/static.tildacdn.com/aeada008df91-5199486618719872313.jpg
+- https://static.tildacdn.com/tild3437-6634-4562-a264-613630343162/WhatsApp_Image_2025-.jpeg -> export/assets/static.tildacdn.com/dbfd7e1922a2-WhatsApp_Image_2025-.jpeg
+- https://static.tildacdn.com/tild6232-3634-4637-a336-343332366437/____.jpg -> export/assets/static.tildacdn.com/3246643da00e-____.jpg
+- https://static.tildacdn.com/tild3030-3639-4039-b763-333838353434/_.jpg -> export/assets/static.tildacdn.com/862b5a20bd63-_.jpg
+- https://static.tildacdn.com/tild3233-6363-4661-b565-353934373766/_121995.jpg -> export/assets/static.tildacdn.com/1b8d20bfe867-_121995.jpg
+- https://static.tildacdn.com/tild6166-3733-4834-a238-663939656430/_____.jpg -> export/assets/static.tildacdn.com/b5c3854402f1-_____.jpg
+- https://static.tildacdn.com/tild6361-6566-4236-a465-313664306334/_____.jpg -> export/assets/static.tildacdn.com/2d15cf2d3f68-_____.jpg
+- https://static.tildacdn.com/tild3361-3764-4565-b235-336165303637/-_.jpg -> export/assets/static.tildacdn.com/f3b291c69d40--_.jpg
+- https://static.tildacdn.com/tild3761-6535-4864-b337-626131303866/_____.jpg -> export/assets/static.tildacdn.com/a4dcfd17dd9b-_____.jpg
+- https://static.tildacdn.com/tild3366-3665-4438-b535-363432356339/_____.jpg -> export/assets/static.tildacdn.com/f8c2edc07faa-_____.jpg
+- https://static.tildacdn.com/tild3138-3830-4064-a266-386232653436/_______.jpg -> export/assets/static.tildacdn.com/255bf6bb947a-_______.jpg
+- https://static.tildacdn.com/tild3865-6234-4536-b363-366266316562/______.jpg -> export/assets/static.tildacdn.com/b8a90c314c43-______.jpg
+- https://static.tildacdn.com/tild3530-3139-4235-a261-623734373435/_.jpg -> export/assets/static.tildacdn.com/3b6cca95d57b-_.jpg
+- https://static.tildacdn.com/tild3661-3665-4564-a263-396361646436/____2.jpg -> export/assets/static.tildacdn.com/6d88ea6aeb5f-____2.jpg
+- https://static.tildacdn.com/tild3433-6537-4661-b965-643537393962/5.jpg -> export/assets/static.tildacdn.com/74f186d32ff9-5.jpg
+- https://static.tildacdn.com/tild3732-3663-4364-a634-346336323532/_1994.jpg -> export/assets/static.tildacdn.com/c1656486d3b3-_1994.jpg
+- https://static.tildacdn.com/tild3265-6263-4630-a265-343730356339/__.jpg -> export/assets/static.tildacdn.com/376aa14dc15f-__.jpg
+- https://static.tildacdn.com/tild6130-6232-4463-b037-353836363435/photo.jpg -> export/assets/static.tildacdn.com/efd24296959d-photo.jpg
+- https://static.tildacdn.com/tild3236-3061-4535-a334-303935316438/___.jpg -> export/assets/static.tildacdn.com/385b8a0e5514-___.jpg
+- https://static.tildacdn.com/tild3361-3736-4762-a330-633930663366/_.jpg -> export/assets/static.tildacdn.com/eb29ed18a37f-_.jpg
+- https://static.tildacdn.com/tild3362-3034-4336-a331-303632343766/6.jpg -> export/assets/static.tildacdn.com/0e3b254c7303-6.jpg
+- https://static.tildacdn.com/tild3063-6561-4366-a466-333566633365/_.jpg -> export/assets/static.tildacdn.com/42c687f21fac-_.jpg
+- https://static.tildacdn.com/tild6366-3164-4562-b962-653562323335/__.jpg -> export/assets/static.tildacdn.com/dbb53570c26c-__.jpg
+- https://static.tildacdn.com/tild6635-6232-4530-b631-326461623966/___.jpg -> export/assets/static.tildacdn.com/b33f1f9d0476-___.jpg
+- https://static.tildacdn.com/tild6364-3965-4531-b463-346135656461/__.jpg -> export/assets/static.tildacdn.com/b1088baf3f6a-__.jpg
+- https://static.tildacdn.com/tild6138-6233-4262-b333-386665316138/_.jpg -> export/assets/static.tildacdn.com/cfdddaebda33-_.jpg
+- https://static.tildacdn.com/tild3866-3530-4533-b866-323439386663/___.jpg -> export/assets/static.tildacdn.com/b176f3fae948-___.jpg
+- https://static.tildacdn.com/tild3466-3166-4533-b130-383136306132/_______.jpg -> export/assets/static.tildacdn.com/a381d09f2398-_______.jpg
+- https://static.tildacdn.com/tild3663-3731-4636-b036-613363656663/032D1.JPG -> export/assets/static.tildacdn.com/5d2674a3054c-032D1.JPG
+- https://static.tildacdn.com/tild3032-3430-4864-b061-343563383366/__.jpg -> export/assets/static.tildacdn.com/861e7af86e1e-__.jpg
+- https://static.tildacdn.com/tild3434-3764-4463-b632-353566346265/________.jpg -> export/assets/static.tildacdn.com/5dcf274027f1-________.jpg
+- https://static.tildacdn.com/tild3464-3736-4239-b564-646366626333/__.jpg -> export/assets/static.tildacdn.com/218be3167777-__.jpg
+- https://static.tildacdn.com/tild6163-3835-4530-b561-353264373733/_1.jpg -> export/assets/static.tildacdn.com/9adde8ee6b20-_1.jpg
+- https://static.tildacdn.com/tild3439-6166-4034-a537-393665633936/_.png -> export/assets/static.tildacdn.com/29d5ccb4868a-_.png
+- https://static.tildacdn.com/tild3633-3434-4834-a362-666635326234/_.jpg -> export/assets/static.tildacdn.com/864d4bab1474-_.jpg
+- https://static.tildacdn.com/tild3630-6266-4037-b564-613834336135/photo.jpg -> export/assets/static.tildacdn.com/2aee0db1b944-photo.jpg
+- https://static.tildacdn.com/tild6633-3334-4430-b336-323964323264/____.jpg -> export/assets/static.tildacdn.com/4aceef4eca4b-____.jpg
+- https://static.tildacdn.com/tild6630-6566-4463-b861-366162393432/___.jpg -> export/assets/static.tildacdn.com/41e71a69becc-___.jpg
+- https://static.tildacdn.com/tild3037-3434-4963-b031-333232636138/________.jpg -> export/assets/static.tildacdn.com/1755c238e72e-________.jpg
+- https://static.tildacdn.com/tild6163-3561-4636-b935-356439656535/___.jpg -> export/assets/static.tildacdn.com/83a1ed0a1269-___.jpg
+- https://static.tildacdn.com/tild3838-3237-4534-a566-303138653833/___.jpg -> export/assets/static.tildacdn.com/fcca286a84d3-___.jpg
+- https://static.tildacdn.com/tild3762-6466-4961-b730-393438353262/____.jpg -> export/assets/static.tildacdn.com/01108afde16c-____.jpg
+- https://static.tildacdn.com/tild3161-6230-4230-b165-343436386437/___.jpg -> export/assets/static.tildacdn.com/2d41cffad8de-___.jpg
+- https://static.tildacdn.com/tild3839-6334-4966-a138-656636613830/_.jpg -> export/assets/static.tildacdn.com/bfd77a616fc6-_.jpg
+- https://static.tildacdn.com/tild3939-3963-4965-b338-343732663339/__.jpg -> export/assets/static.tildacdn.com/97598279e9c7-__.jpg
+- https://static.tildacdn.com/tild6666-3736-4633-b036-393136643131/__1.jpg -> export/assets/static.tildacdn.com/ebc8a78e7ad6-__1.jpg
+- https://static.tildacdn.com/tild6432-3438-4537-a632-323265666463/__3.jpg -> export/assets/static.tildacdn.com/62feebddeca3-__3.jpg
+- https://static.tildacdn.com/tild3663-6236-4330-b064-383565356539/_B1BB1.JPG -> export/assets/static.tildacdn.com/66d8c4bb8b9f-_B1BB1.JPG
+- https://static.tildacdn.com/tild3065-6338-4234-b663-356561653166/__.jpg -> export/assets/static.tildacdn.com/c7b985cd0bdc-__.jpg
+- https://static.tildacdn.com/tild3136-6436-4137-b034-633664343537/__.jpg -> export/assets/static.tildacdn.com/7c945c6d994e-__.jpg
+- https://static.tildacdn.com/tild6436-6337-4934-b364-393530333465/___.jpg -> export/assets/static.tildacdn.com/4aabeaae6475-___.jpg
+- https://static.tildacdn.com/tild3934-6165-4035-b436-643632643965/__.jpg -> export/assets/static.tildacdn.com/f2a18cbd6e7e-__.jpg
+- https://static.tildacdn.com/tild6330-3164-4363-a430-626230663638/______-_.jpg -> export/assets/static.tildacdn.com/eb732a0c6d0a-______-_.jpg
+- https://static.tildacdn.com/tild6532-3831-4931-b366-363737376634/_.jpg -> export/assets/static.tildacdn.com/e8a2c64c29b2-_.jpg
+- https://static.tildacdn.com/tild6233-6338-4462-b061-306461323430/___.jpg -> export/assets/static.tildacdn.com/2054e52a20da-___.jpg
+- https://static.tildacdn.com/tild6336-3862-4632-b531-336533373138/___.jpg -> export/assets/static.tildacdn.com/a9c8b7be27d7-___.jpg
+- https://static.tildacdn.com/tild3932-3737-4361-b162-303766646365/____21_.jpg -> export/assets/static.tildacdn.com/86076d12b24a-____21_.jpg
+- https://static.tildacdn.com/tild3039-6539-4635-b865-646530633633/30.jpg -> export/assets/static.tildacdn.com/7b10709163a0-30.jpg
+- https://static.tildacdn.com/tild6666-3333-4165-b236-633664313734/_1995_09.jpg -> export/assets/static.tildacdn.com/d172b0587c1e-_1995_09.jpg
+- https://static.tildacdn.com/tild6165-3962-4065-b962-316637633630/_1996.jpg -> export/assets/static.tildacdn.com/1e2d01903a2e-_1996.jpg
+- https://static.tildacdn.com/tild6331-6662-4237-b634-366334623732/_.jpg -> export/assets/static.tildacdn.com/47e7c5392b1f-_.jpg
+- https://static.tildacdn.com/tild6462-6664-4533-b636-663663626135/1993.jpg -> export/assets/static.tildacdn.com/4fd4510fe2aa-1993.jpg
+- https://static.tildacdn.com/tild3163-3962-4461-a132-313332326638/photo.jpg -> export/assets/static.tildacdn.com/822c863575cf-photo.jpg
+- https://static.tildacdn.com/tild3733-6437-4237-b135-313031363033/__.jpg -> export/assets/static.tildacdn.com/c9492a0bad76-__.jpg
+- https://static.tildacdn.com/tild6632-3538-4936-b332-323835356632/__.jpg -> export/assets/static.tildacdn.com/ff7ca9990d9a-__.jpg
+- https://static.tildacdn.com/tild3232-6533-4263-b034-633061353661/___2014.jpg -> export/assets/static.tildacdn.com/1e6a9f254995-___2014.jpg
+- https://static.tildacdn.com/tild3264-3265-4339-b566-376166316634/___2015.jpg -> export/assets/static.tildacdn.com/16780b71690c-___2015.jpg
+- https://static.tildacdn.com/tild3265-6164-4531-b132-333964636631/__001.jpg -> export/assets/static.tildacdn.com/7db008f692bf-__001.jpg
+- https://static.tildacdn.com/tild3832-6663-4533-a632-323862353730/_.jpg -> export/assets/static.tildacdn.com/50458d3d32fd-_.jpg
+- https://static.tildacdn.com/tild6666-3163-4966-b366-643265396437/_.jpg -> export/assets/static.tildacdn.com/78e8286da5c6-_.jpg
+- https://static.tildacdn.com/tild3635-3232-4339-b634-616161663137/30.jpg -> export/assets/static.tildacdn.com/e01f07208798-30.jpg
+- https://static.tildacdn.com/tild3231-3933-4861-b930-653534663833/35.jpg -> export/assets/static.tildacdn.com/77e2d0c425c2-35.jpg
+- https://static.tildacdn.com/tild6565-6633-4230-b538-643730633336/36.jpg -> export/assets/static.tildacdn.com/ae21f8cb1547-36.jpg
+- https://static.tildacdn.com/tild3434-3639-4465-b130-633364663933/38.jpg -> export/assets/static.tildacdn.com/b683cc13b417-38.jpg
+- https://static.tildacdn.com/tild3137-3530-4539-b562-663234306138/39.jpg -> export/assets/static.tildacdn.com/868785d145a8-39.jpg
+- https://static.tildacdn.com/tild3639-3134-4265-b462-663865316138/40.jpg -> export/assets/static.tildacdn.com/ea57b2249fd3-40.jpg
+- https://static.tildacdn.com/tild6337-3665-4935-b264-356565313264/46.jpg -> export/assets/static.tildacdn.com/4f44ed3408b2-46.jpg
+- https://static.tildacdn.com/tild6661-3335-4465-b434-663334373666/47.jpg -> export/assets/static.tildacdn.com/a067b1e9462e-47.jpg
+- https://static.tildacdn.com/tild3838-3633-4139-b461-316462663433/48.jpg -> export/assets/static.tildacdn.com/49165438c49a-48.jpg
+- https://static.tildacdn.com/tild3863-3232-4531-b734-386337373465/49.jpg -> export/assets/static.tildacdn.com/50f65c775430-49.jpg
+- https://static.tildacdn.com/tild3931-6433-4363-b338-373430653839/50.jpg -> export/assets/static.tildacdn.com/9bad40ead6d2-50.jpg
+- https://static.tildacdn.com/tild3530-3738-4961-a530-333937646237/___.jpg -> export/assets/static.tildacdn.com/766d06e6533d-___.jpg
+- https://static.tildacdn.com/tild6161-3363-4836-b336-313130623865/1.png -> export/assets/static.tildacdn.com/f1311cb4e576-1.png
+- https://static.tildacdn.com/tild3662-3939-4431-a332-623038316163/2.png -> export/assets/static.tildacdn.com/ccd5eb096b67-2.png
+- https://static.tildacdn.com/tild6537-6235-4535-a233-626563653762/3.png -> export/assets/static.tildacdn.com/8039880b7f1b-3.png
+- https://static.tildacdn.com/tild3337-6465-4165-a265-393531306337/_-__.png -> export/assets/static.tildacdn.com/d2d27e2d54fd-_-__.png
+- https://static.tildacdn.com/tild3865-3639-4438-b337-323962316463/4.png -> export/assets/static.tildacdn.com/3405e412aff9-4.png
+- https://static.tildacdn.com/tild3333-6635-4965-b836-313966373831/5.png -> export/assets/static.tildacdn.com/975a4199c687-5.png
+- https://static.tildacdn.com/tild6265-3933-4537-b064-623137636330/6.png -> export/assets/static.tildacdn.com/c3f9a7926b20-6.png
+- https://static.tildacdn.com/tild6434-6333-4162-b637-643735383561/7.png -> export/assets/static.tildacdn.com/e0fab6076acc-7.png
+- https://static.tildacdn.com/tild6537-3531-4561-b732-383337386364/_-___2.png -> export/assets/static.tildacdn.com/4a9d4893b079-_-___2.png
+- https://static.tildacdn.com/tild6161-3734-4165-b930-343432636563/8.png -> export/assets/static.tildacdn.com/94446d11ebe7-8.png
+- https://static.tildacdn.com/tild3136-6133-4639-a233-393735663030/9.png -> export/assets/static.tildacdn.com/33cd8e34a9a8-9.png
+- https://static.tildacdn.com/tild3134-6332-4537-b037-346163353534/10.png -> export/assets/static.tildacdn.com/4884bc9bea77-10.png
+- https://static.tildacdn.com/tild3564-3964-4136-b636-393037653463/11.png -> export/assets/static.tildacdn.com/707a0bb1651b-11.png
+- https://static.tildacdn.com/tild6361-6436-4430-b362-353839373065/___7.png -> export/assets/static.tildacdn.com/c33ffd57a57f-___7.png
+- https://static.tildacdn.com/tild3666-3263-4263-b931-336139366430/___8.png -> export/assets/static.tildacdn.com/aefe92d417c3-___8.png
+- https://static.tildacdn.com/tild3330-3263-4631-b238-343738313334/___6.png -> export/assets/static.tildacdn.com/3ddbb8360533-___6.png
+- https://static.tildacdn.com/tild3561-3737-4937-a536-336466623838/___3.jpg -> export/assets/static.tildacdn.com/2d0d5cdbf681-___3.jpg
+- https://static.tildacdn.com/tild6563-3761-4430-a230-623536356364/35b613466f74eef8d033.jpg -> export/assets/static.tildacdn.com/18aa1ad2b408-35b613466f74eef8d033.jpg
+- https://static.tildacdn.com/tild3564-3964-4561-b531-333531326633/3fc15c7c4912cecf0d67.jpg -> export/assets/static.tildacdn.com/7d0faf4165ed-3fc15c7c4912cecf0d67.jpg
+- https://static.tildacdn.com/tild3230-3062-4262-a236-636531373466/19fbe3c2776a173d9758.jpg -> export/assets/static.tildacdn.com/88cb13e7b683-19fbe3c2776a173d9758.jpg
+- https://static.tildacdn.com/tild3335-6530-4661-a531-323434323365/95abb41348144fc9e67e.jpg -> export/assets/static.tildacdn.com/c0bf3c472a8a-95abb41348144fc9e67e.jpg
+- https://static.tildacdn.com/tild6166-3461-4535-a361-623163666461/5199486618719872430.jpg -> export/assets/static.tildacdn.com/b79d90a5570f-5199486618719872430.jpg
+- https://static.tildacdn.com/tild3664-3862-4738-b035-353834393732/pr53_gbd1KE.jpg -> export/assets/static.tildacdn.com/20f667428104-pr53_gbd1KE.jpg
+- https://static.tildacdn.com/tild6330-3139-4135-b666-663839643761/RDmhP75qV8I.jpg -> export/assets/static.tildacdn.com/e0acd1c973d7-RDmhP75qV8I.jpg
+- https://static.tildacdn.com/tild3762-6131-4935-b664-613166366639/5244891191907053688.jpg -> export/assets/static.tildacdn.com/9cbba236d691-5244891191907053688.jpg
+- https://static.tildacdn.com/tild6361-6639-4461-b264-643465396630/6X3A8248.JPG -> export/assets/static.tildacdn.com/4472db7d4df1-6X3A8248.JPG
+- https://static.tildacdn.com/tild6633-6163-4436-b130-373062623239/6X3A8165.JPG -> export/assets/static.tildacdn.com/ecfbac3c8381-6X3A8165.JPG
+- https://static.tildacdn.com/img/tildacopy.png -> export/assets/static.tildacdn.com/8a6cf562980a-tildacopy.png
+
+## Videos
+
+- rutube: https://ladyzenko.ru/bd10c60c7f585673b41fb243e3667a27
+- rutube: https://ladyzenko.ru/fb7e278db186e31fcbe173d94ee7eb40
+- rutube: https://ladyzenko.ru/cf237fedbe88fe4c1bccccca15e7edac
+- rutube: https://ladyzenko.ru/8e3de8533841eb9655c6429c7cd18db7
+- rutube: https://ladyzenko.ru/ba88bd5df9da1f777bcd1e61713857a8
+- rutube: https://ladyzenko.ru/6ec50d3fe1a7cf62f7f4dd1ab6c11519
+- rutube: https://ladyzenko.ru/48a43e82553cfdb51c8539769a75d180
+- rutube: https://ladyzenko.ru/c919c011a0af18e8547f5883e5835188
+- rutube: https://ladyzenko.ru/54a0b4fb5a91ea37923d25e547877777
+- rutube: https://ladyzenko.ru/99f770a29ca8120b58279ac671fbe270
+- rutube: https://ladyzenko.ru/24779e7e5041d5f9ab5007ef00a50a59
+- rutube: https://ladyzenko.ru/f25cebefc0dac7fc6f63086811bbcf2d
+- rutube: https://ladyzenko.ru/04d342c38e4a82e656152710bad3f5c6
+- rutube: https://ladyzenko.ru/a7ebefc4d21ffb9b838c3e7784cdb3a8
+- rutube: https://ladyzenko.ru/ebc7f2568cd67f0d9ec0f9adb652e416
+- rutube: https://ladyzenko.ru/577270102778b55b773c74c209470950
+- rutube: https://ladyzenko.ru/9a15980575534d4ad9a383eea17fb7a2
+- rutube: https://ladyzenko.ru/1a72dc6bd0a0294758c2ae88dc3a69fd
+- rutube: https://ladyzenko.ru/c1194ca85e180d66d8d01f65001c8509
+- rutube: https://ladyzenko.ru/8db9432bc96e41d0edb1eb2e8f91dfb5
+- rutube: https://ladyzenko.ru/1ec8de94834dcf0b7dbe5c9287dcabcb
+- vkvideo: https://vkvideo.ru/video-77886543_456239064
+- vkvideo: https://vkvideo.ru/video-77886543_456239065
+- rutube: https://ladyzenko.ru/c9d6ea9b044539b875131b7f39debe1b
+
+## Contacts
+
+- https://api.whatsapp.com/send/?phone=79177542323&text=Здравствуйте, хочу приобрести лекции школы отцов&type=phone_number&app_absent=0
+- https://api.whatsapp.com/send/?phone=79177542323&text=Здравствуйте, хочу записаться к вам на консультацию&type=phone_number&app_absent=0
+- https://api.whatsapp.com/send/?phone=79177542323&text=Здравствуйте, хотелось бы задать Вам вопрос&type=phone_number&app_absent=0
+- https://api.whatsapp.com/send/?phone=79177542323&text=Здравствуйте, хочу приобрести Вашу лекцию...&type=phone_number&app_absent=0
+- https://api.whatsapp.com/send/?phone=79177542323&text=Здравствуйте, хочу послушать Вашу лекцию&type=phone_number&app_absent=0
+- tel:+79177542323
+- mailto:ladyzenko@mail.ru
+- https://wa.me/79177542323
+- https://t.me/psy_ladyzenko
