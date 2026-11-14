@@ -10,6 +10,13 @@
     } catch (_) {}
     return open.apply(this, args);
   };
+  // Tilda attaches click handlers that can cancel submission before the submit event.
+  document.addEventListener('click', function (e) {
+    var button = e.target.closest && e.target.closest('form[data-local-form] button[type=submit]');
+    if (!button) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    if (!button.disabled) button.form.requestSubmit(button);
+  }, true);
   document.addEventListener('submit', async function (e) {
     var form = e.target;
     if (!form.matches('form[data-local-form]')) return;
