@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getLecturePages } from "@/lib/content";
+import { lectureProducts, formatPrice } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Лекции | Людмила Ладыженко",
@@ -22,6 +23,15 @@ export default function LecturesPage() {
         </p>
       </section>
 
+      <div className="content-list">
+        {lectureProducts.map(product => <article className="content-card" key={product.id}>
+          <p className="content-type">Запись · доступ на 30 дней</p>
+          <h2><Link href={`/recordings/${product.id}`}>{product.title}</Link></h2>
+          <p>{product.description.slice(0,220)}</p><p>{formatPrice(product.amount)}</p>
+          <Link href={`/checkout/${product.id}`}>Условия приобретения</Link>
+        </article>)}
+      </div>
+      <h2>Другие лекции и тематические материалы</h2>
       <div className="content-list">
         {lectures.map((lecture) => (
           <article className="content-card" key={lecture.slug}>

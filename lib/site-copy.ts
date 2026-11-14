@@ -2,7 +2,7 @@ export const siteMeta = {
   title: "Людмила Ладыженко",
   description:
     "Психолог Людмила Ладыженко: частная практика, лекции, статьи, школа отцов, консультации онлайн и очно.",
-  url: "https://ladyzenko.ru",
+  url: "https://new.ladyzenko.ru",
 };
 
 export const serviceGroups = [

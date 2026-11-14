@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { randomBytes } from 'node:crypto';
 import nodemailer from 'nodemailer';
-import { checkout, config, db, order, settle, authorized, capability, webhook, publicOrder, available, work } from '../lib/commerce.ts';
+import { checkout, config, db, order, settle, authorized, capability, webhook, publicOrder, available, ready, work } from '../lib/commerce.ts';
 import { products } from '../lib/products.ts';
 const dir = fs.mkdtempSync(path.join(os.tmpdir(),'lady-commerce-test-'));
 process.env.COMMERCE_STATE = dir;
@@ -29,6 +29,11 @@ test('disabled configuration and missing consent never create orders',async()=>{
   save({enabled:false});await assert.rejects(checkout(data(),'client'),/готовится/);save();
   await assert.rejects(checkout({...data(),accepted:false},'client'),/Подтвердите/);
   await assert.rejects(checkout({...data(),scheduled:false},'client'),/Подтвердите/);
+});
+test('live payments require approved documents and fiscalization; sandbox is explicitly separate',()=>{
+  save({legalApproved:false,fiscalizationConfirmed:false});assert.equal(ready(),true);
+  save({mode:'live',legalApproved:false,fiscalizationConfirmed:false});assert.equal(ready(),false);
+  save({mode:'live',legalApproved:true,fiscalizationConfirmed:false});assert.equal(ready(),false);save();
 });
 test('server fixes price, saves immutable request, rejects replay without ownership',async()=>{
   const d=data();const row=await checkout({...d,amount:1},'price');assert.equal(row.amount,200000);
