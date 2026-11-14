@@ -21,7 +21,7 @@ os.umask(0o027)
 manifest = json.loads(pathlib.Path(sys.argv[1]).read_text())
 destination = pathlib.Path(sys.argv[2])
 destination.mkdir(parents=True, exist_ok=True, mode=0o750)
-nginx_user = re.search(r'^\s*user\s+(\w+)', pathlib.Path('/etc/nginx/nginx.conf').read_text(), re.M).group(1)
+nginx_user = re.search(r'^\s*user\s+([A-Za-z0-9_-]+)', pathlib.Path('/etc/nginx/nginx.conf').read_text(), re.M).group(1)
 nginx_gid = pwd.getpwnam(nginx_user).pw_gid
 
 
@@ -38,6 +38,11 @@ def import_one(item):
     output = destination / (ident + '.mp4')
     result_file = destination / (ident + '.verified.json')
     try:
+        if result_file.exists() and output.exists():
+            previous = json.loads(result_file.read_text())
+            if previous.get('bytes') == output.stat().st_size:
+                print(json.dumps(previous), flush=True)
+                return True
         if shutil.disk_usage(destination).free < 3 * 1024**3:
             raise RuntimeError('Insufficient free space')
         with yt_dlp.YoutubeDL({
@@ -49,7 +54,26 @@ def import_one(item):
             'postprocessor_args': {'ffmpeg': ['-movflags', '+faststart']},
             'fixup': 'force',
         }) as downloader:
-            downloader.download([item['url']])
+            if '--direct' in sys.argv[3:]:
+                info = downloader.extract_info(item['url'], download=False)
+                playlist = destination / (ident + '.source.m3u8')
+                playlist.write_text('#EXTM3U\n#EXT-X-STREAM-INF:BANDWIDTH=1550000\n' + info['url'] + '\n')
+                playlist.chmod(0o600)
+                incoming = destination / (ident + '.incoming.mp4')
+                try:
+                    transfer = subprocess.run(['ffmpeg', '-v', 'error', '-xerror', '-nostdin', '-y',
+                                    '-protocol_whitelist', 'file,http,https,tcp,tls,crypto',
+                                    '-i', str(playlist), '-map', '0:v:0', '-map', '0:a:0',
+                                    '-c', 'copy', '-bsf:a', 'aac_adtstoasc',
+                                    '-movflags', '+faststart', str(incoming)],
+                                   capture_output=True, check=True, timeout=7200)
+                    if transfer.stderr.strip():
+                        raise RuntimeError('Stream transfer reported errors')
+                    incoming.replace(output)
+                finally:
+                    playlist.unlink(missing_ok=True)
+            else:
+                downloader.download([item['url']])
         probe = subprocess.run(['ffprobe', '-v', 'error', '-show_entries',
                                 'format=duration:stream=codec_type,width,height',
                                 '-of', 'json', str(output)],
@@ -74,6 +98,6 @@ def import_one(item):
     return result['status'] == 'verified'
 
 
-with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
     succeeded = list(pool.map(import_one, manifest))
 sys.exit(0 if all(succeeded) else 1)

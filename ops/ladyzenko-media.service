@@ -1,0 +1,20 @@
+[Unit]
+Description=Protected parallel video delivery for new.ladyzenko.ru
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+LoadCredential=source:/var/lib/new-ladyzenko-commerce/media-source.json
+ExecStart=/usr/bin/python3 /opt/new-ladyzenko-media-relay/media-relay.py
+Restart=on-failure
+RestartSec=3
+UMask=0077
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target

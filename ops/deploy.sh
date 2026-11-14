@@ -39,12 +39,16 @@ cd "$release"
 npm ci --no-audit --no-fund > "$backup/install.log" 2>&1
 node --import tsx --test tests/*.test.ts > "$backup/tests.log" 2>&1
 npm run build > "$backup/build.log" 2>&1
-install -d -m 710 -g www-data /var/lib/new-ladyzenko-commerce
-install -d -m 750 -g www-data /var/lib/new-ladyzenko-commerce/media
+install -d -m 710 /var/lib/new-ladyzenko-commerce
+install -d -m 750 /var/lib/new-ladyzenko-commerce/media
 python3 - <<'PY'
-import json, os
+import json, os, pwd, re
 from pathlib import Path
 state=Path('/var/lib/new-ladyzenko-commerce')
+nginx_user=re.search(r'^\s*user\s+([A-Za-z0-9_-]+)',Path('/etc/nginx/nginx.conf').read_text(),re.M).group(1)
+nginx_gid=pwd.getpwnam(nginx_user).pw_gid
+os.chown(state,0,nginx_gid)
+os.chown(state/'media',0,nginx_gid)
 config=state/'config.json'
 if not config.exists():
     c=json.loads(Path('ops/config.example.json').read_text())

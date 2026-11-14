@@ -15,7 +15,8 @@ import subprocess
 import sys
 
 role = sys.argv[1]
-secret = json.load(sys.stdin)['secret']
+settings = json.load(sys.stdin)
+secret = settings['secret']
 if role not in ('source', 'consumer') or not re.fullmatch(r'[a-f0-9]{64}', secret):
     raise ValueError('Invalid role or secret')
 stamp = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
@@ -38,7 +39,7 @@ if role == 'source':
     anchor = '    location = /catalog.json {'
     media = pathlib.Path('/var/lib/new-ladyzenko-recordings')
     media.mkdir(exist_ok=True, mode=0o750)
-    nginx_user = re.search(r'^\s*user\s+(\w+)', pathlib.Path('/etc/nginx/nginx.conf').read_text(), re.M).group(1)
+    nginx_user = re.search(r'^\s*user\s+([A-Za-z0-9_-]+)', pathlib.Path('/etc/nginx/nginx.conf').read_text(), re.M).group(1)
     os.chown(media, 0, pwd.getpwnam(nginx_user).pw_gid)
     media.chmod(0o750)
 else:
@@ -65,6 +66,12 @@ else:
     }
 '''
     anchor = '    location ^~ /commerce-private/ {'
+    if settings.get('relayPort') is not None:
+        port = settings['relayPort']
+        if type(port) is not int or not 1024 <= port <= 65535:
+            raise ValueError('Invalid loopback relay port')
+        body = body.replace('https://video.ladyzenko.ru/commerce-source/',
+                            f'http://127.0.0.1:{port}/commerce-source/')
 shutil.copy2(nginx, backup / 'nginx.conf')
 had_private = private.exists()
 if had_private:
