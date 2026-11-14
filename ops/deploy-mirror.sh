@@ -37,6 +37,7 @@ rollback(){
 trap rollback ERR
 mkdir "$release"
 tar -xzf "$archive" -C "$release"
+if [[ -n "${3:-}" ]]; then tar -xzf "$3" -C "$release"; fi
 cmp "$release/package-lock.json" "$previous/package-lock.json"
 # Immutable dependencies are identical; share their files without another npm install.
 cp -al "$previous/node_modules" "$release/node_modules"
