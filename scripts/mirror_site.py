@@ -151,7 +151,10 @@ def main():
         for node in s.select('[data-videolazy-type],iframe[src],video[src],video source[src]'):
             REPORT['externalMedia'].append({'page':url,'type':node.get('data-videolazy-type') or node.name,'source':node.get('data-videolazy-id') or node.get('src','')})
         for img in s.select('img[data-original][src]'):
-            if '/-/empty/' in img['src']: img['src']=img['data-original']
+            if '/-/empty/' in img['src']:
+                img['src']=img['data-original']
+                img['loading']='lazy'
+                img['decoding']='async'
         for a in s.select('a[href="#order"]'):
             product=a.find_parent(attrs={'data-product-lid':True})
             a['href']='/checkout/lecture-'+product['data-product-lid'] if product else '/lectures'
