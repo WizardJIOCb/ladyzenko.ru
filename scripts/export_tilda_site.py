@@ -172,7 +172,11 @@ def extract_page(url: str, html: str) -> PageRecord:
     for tag in body.select("script, style, noscript"):
         tag.decompose()
 
-    paragraphs = dedupe(text_content(p) for p in body.select("p, li") if text_content(p))
+    # Most Tilda copy lives in divs, including Zero Block tn_text fields.
+    candidates = body.select('p, li, [field="text"], [field^="tn_text_"], .t-text, .t-descr, .t-slds__title, .t-slds__descr')
+    candidate_ids = {id(node) for node in candidates}
+    paragraphs = dedupe(text_content(node) for node in candidates
+        if not any(id(parent) in candidate_ids for parent in node.parents) and text_content(node))
     headings = [
         {"level": tag.name, "text": text_content(tag)}
         for tag in body.select("h1, h2, h3, h4, h5, h6")
@@ -207,7 +211,7 @@ def extract_page(url: str, html: str) -> PageRecord:
     contacts = dedupe(
         link
         for link in links
-        if link.startswith("mailto:") or link.startswith("tel:") or "wa.me" in link or "whatsapp" in link or "t.me/" in link
+        if link.startswith("mailto:") or link.startswith("tel:") or "wa.me" in link or "whatsapp" in link or "t.me/" in link or "max.ru/" in link
     )
 
     return PageRecord(

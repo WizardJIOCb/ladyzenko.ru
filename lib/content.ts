@@ -284,6 +284,10 @@ function normalizeContact(contact: string): { label: string; href: string } | nu
     return { label: "Telegram", href: contact };
   }
 
+  if (contact.includes("max.ru/")) {
+    return { label: "MAX", href: contact };
+  }
+
   if (contact.includes("vk.com")) {
     return { label: "ВКонтакте", href: contact };
   }
@@ -294,7 +298,7 @@ function normalizeContact(contact: string): { label: string; href: string } | nu
 export function getHomeData(): HomeData {
   const indexPage = getPageBySlug("index");
   const aboutPage = getPageBySlug("obo_mne");
-  const aboutBlocks = extractFieldTexts("obo_mne");
+  const aboutBlocks = extractFieldTexts("obo_mne").filter((block) => block.length > 50);
   const rawContacts = indexPage?.contacts || [];
 
   const about = aboutBlocks[0]

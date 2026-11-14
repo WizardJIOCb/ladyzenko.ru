@@ -73,7 +73,7 @@ export default function HomePage() {
   const diplomaPage = getPageBySlug("diplom");
   const videoPage = getPageBySlug("video");
   const lecturePages = lectureProducts;
-  const featuredLecturePages = getLecturePages().slice(0, 2);
+  const featuredLecturePages = getLecturePages().filter((page) => ["lekciya_1", "lekciya_2"].includes(page.slug));
   const articlePages = getArticlePages().slice(0, 12);
   const newsImages = (photoPage?.images.length ? photoPage.images : ["/stuff/black-2.jpg"]).slice(0, 12);
   const diplomaImages = (diplomaPage?.images.length ? diplomaPage.images : ["/stuff/block-1.jpg"]).slice(0, 10);
@@ -90,6 +90,8 @@ export default function HomePage() {
     { label: "Написать в ВК", href: "https://vk.com/app5898182_-77886543#s=2454637", kind: "gray" },
     { label: "Группа в ВК", href: "https://vk.com/mamotime", kind: "gray" },
   ];
+  const maxContact = home.contacts.find((contact) => contact.label === "MAX");
+  if (maxContact) footerContacts.push({ label: "MAX", href: maxContact.href, kind: "blue" });
 
   return (
     <div className="clone-home">
