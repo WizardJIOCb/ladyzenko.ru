@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { serviceGroups } from "@/lib/site-copy";
+import { consultations, formatPrice } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Услуги | Людмила Ладыженко",
@@ -18,6 +19,13 @@ export default function ServicesPage() {
           Здесь собраны основные форматы, с которыми можно начать работу: консультации,
           семейные темы, лекции, школа отцов и диагностические направления.
         </p>
+      </section>
+
+      <section className="card-grid compact" aria-label="Оплата консультаций">
+        {consultations.map(product => <article className="feature-card" key={product.id}>
+          <h2>{product.title}</h2><p>{product.description}</p><p>{product.duration}</p>
+          <p>{formatPrice(product.amount)}</p><Link className="commerce-button" href={`/checkout/${product.id}`}>Оплатить после согласования</Link>
+        </article>)}
       </section>
 
       <section className="card-grid compact">

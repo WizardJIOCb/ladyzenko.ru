@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 import { getLegacyRedirects } from "./lib/content";
+import path from "node:path";
 
 const nextConfig: NextConfig = {
+  turbopack: { root: path.resolve(process.cwd()) },
   images: {
     remotePatterns: [
       {

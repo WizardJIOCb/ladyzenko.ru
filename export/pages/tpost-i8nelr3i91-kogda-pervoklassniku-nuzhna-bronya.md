@@ -1,0 +1,21 @@
+# Защищайте ребенка-он сам ещё не умеет это делать
+
+- URL: https://ladyzenko.ru/tpost/i8nelr3i91-kogda-pervoklassniku-nuzhna-bronya
+- Slug: tpost-i8nelr3i91-kogda-pervoklassniku-nuzhna-bronya
+- Canonical: https://ladyzenko.ru/tpost/i8nelr3i91-kogda-pervoklassniku-nuzhna-bronya
+- Description: Не затихайте, мчитесь к учителю и беседуйте, заинтересованно-прицельно, волнительно ищите общие решения
+- OG image: https://static.tildacdn.com/tild3361-6561-4036-a139-386231336539/I-13188____.jpg
+
+## H1
+
+- Когда первокласснику нужна броня
+
+## Headings
+
+- H1: Когда первокласснику нужна броня
+
+## Images
+
+- https://static.tildacdn.com/tild3361-6561-4036-a139-386231336539/I-13188____.jpg -> export/assets/static.tildacdn.com/a797d3a3c1bf-I-13188____.jpg
+- https://static.tildacdn.com/tild6462-3930-4462-b833-633239333465/__2026-10-03_190717.png -> export/assets/static.tildacdn.com/b0d8691fc4bf-__2026-10-03_190717.png
+- https://static.tildacdn.com/img/tildacopy.png -> export/assets/static.tildacdn.com/8a6cf562980a-tildacopy.png

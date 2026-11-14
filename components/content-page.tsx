@@ -7,12 +7,6 @@ export function ContentPage({ page }: { page: SitePage }) {
       <p className="kicker">{page.kindLabel}</p>
       <h1>{page.title}</h1>
 
-      <div className="content-meta">
-        <span>Slug: {page.slug}</span>
-        {page.canonical ? <span>Canonical: {page.canonical}</span> : null}
-        {page.sourceUrl ? <span>Источник: {page.sourceUrl}</span> : null}
-      </div>
-
       <div className="copy">
         {page.paragraphs.slice(0, 40).map((paragraph, index) => (
           <p key={`${page.slug}-${index}`}>{paragraph}</p>

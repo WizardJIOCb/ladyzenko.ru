@@ -1,0 +1,20 @@
+{
+  "origin": "https://new.ladyzenko.ru",
+  "enabled": false,
+  "mode": "test",
+  "shopId": "",
+  "shopKey": "",
+  "seller": "",
+  "inn": "",
+  "contactEmail": "",
+  "legalApproved": false,
+  "fiscalizationConfirmed": false,
+  "lectureFiles": {},
+  "smtp": {
+    "host": "mail.ladyzenko.ru",
+    "port": 465,
+    "user": "video@ladyzenko.ru",
+    "password": "",
+    "from": "video@ladyzenko.ru"
+  }
+}

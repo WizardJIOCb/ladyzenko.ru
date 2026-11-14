@@ -1,0 +1,14 @@
+[Unit]
+Description=Ladyzenko payment reconciliation and email outbox
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/var/www/new.ladyzenko.ru-current
+Environment=COMMERCE_STATE=/var/lib/new-ladyzenko-commerce
+ExecStart=/usr/bin/node --import tsx scripts/commerce-worker.ts
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/new-ladyzenko-commerce

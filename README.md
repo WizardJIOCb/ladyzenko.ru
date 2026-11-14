@@ -1,5 +1,7 @@
 # ladyzenko.ru migration workspace
 
+Оплата на новой версии: [эксплуатация и запуск](docs/NEW-SITE-COMMERCE.md). Для владельца исходного сайта: [инструкция подключения Tilda](docs/TILDA-YOOKASSA.md).
+
 Проект состоит из двух частей:
 
 1. Экспорт текущего сайта с Tilda

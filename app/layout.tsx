@@ -46,7 +46,8 @@ export default function RootLayout({
               </div>
             </div>
           </header>
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
+          <footer className="commerce-footer"><Link href="/payment-info">Продавец и оплата</Link><Link href="/offer">Условия покупки</Link><Link href="/privacy">Обработка данных</Link></footer>
         </div>
       </body>
     </html>

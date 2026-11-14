@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { RestartableGif } from "@/components/restartable-gif";
 import { getArticlePages, getHomeData, getLecturePages, getPageBySlug } from "@/lib/content";
+import { consultations, lectureProducts, formatPrice } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Людмила Ладыженко | Психолог",
@@ -40,8 +41,6 @@ const services = [
   },
 ];
 
-const lecturePrices = ["1100 р.", "1000 р.", "1000 р.", "1100 р.", "500 р.", "500 р.", "500 р.", "500 р."];
-const lectureOldPrice = "3000 р.";
 
 const mediaCards = [
   {
@@ -73,7 +72,7 @@ export default function HomePage() {
   const photoPage = getPageBySlug("foto");
   const diplomaPage = getPageBySlug("diplom");
   const videoPage = getPageBySlug("video");
-  const lecturePages = getLecturePages().slice(0, 8);
+  const lecturePages = lectureProducts;
   const featuredLecturePages = getLecturePages().slice(0, 2);
   const articlePages = getArticlePages().slice(0, 12);
   const newsImages = (photoPage?.images.length ? photoPage.images : ["/stuff/black-2.jpg"]).slice(0, 12);
@@ -225,7 +224,7 @@ export default function HomePage() {
       <section className="clone-section clone-section--narrow" id="services">
         <h2 className="clone-title">Услуги</h2>
         <div className="services-list">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <article className="service-row" key={service.title}>
               <h3>{service.title}</h3>
               <ul>
@@ -234,6 +233,8 @@ export default function HomePage() {
                 ))}
               </ul>
               <p className="service-row__duration">{service.duration}</p>
+              <p className="commerce-price">{formatPrice(consultations[index].amount)}</p>
+              <Link className="commerce-button" href={`/checkout/${consultations[index].id}`}>Оплатить после согласования</Link>
             </article>
           ))}
         </div>
@@ -273,22 +274,20 @@ export default function HomePage() {
         <div className="clone-heading clone-heading--catalog">
           <h2 className="clone-title">Лекции в записях</h2>
           <p>
-            По вопросам приобретения лекций пишите в{" "}
-            <a href={toWhatsappLink("Здравствуйте, хочу приобрести Вашу лекцию...")}>WhatsApp</a>
+            Доступ к записи после покупки — 30 дней. Онлайн продажа готовится к запуску.
           </p>
         </div>
         <div className="lecture-grid">
           {lecturePages.map((lecture, index) => (
-            <article className="lecture-card" key={lecture.slug}>
+            <article className="lecture-card" key={lecture.id}>
               <div className="lecture-card__image">
-                <img src={lecture.images[0] || newsImages[index] || "/stuff/block-3.jpg"} alt={lecture.title} />
+                <img src={lecture.image || newsImages[index] || "/stuff/block-3.jpg"} alt={lecture.title} />
                 <span className={`lecture-card__badge ${index < 3 ? "is-sale" : "is-new"}`}>{index < 3 ? "SALE" : "NEW"}</span>
               </div>
               <h3>{lecture.title}</h3>
-              <Link href={lecture.path}>Читать описание...</Link>
+              <Link href={`/recordings/${lecture.id}`}>Читать описание...</Link>
               <p className="lecture-card__price">
-                <span>{lecturePrices[index] || "500 р."}</span>
-                <s>{lectureOldPrice}</s>
+                <span>{formatPrice(lecture.amount)}</span>
               </p>
             </article>
           ))}

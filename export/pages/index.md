@@ -80,10 +80,6 @@
 Виртуальные плакаты. Интересная практика по изучению себя.
 Снятие обязательств. Психологическая формула, помогающая избавиться от навязанных обществом ролей (например, «всегда быть слабой» или «быть удобной») и позволить себе наслаждаться процессом жизни.
 И обязательно даю конкретные советы родителям по воспитанию телесности и здорового отношения к любви у детей и подростков.
-Агрессия Зачем и как быть в состоянии охотника в напряженном разговоре? Читать далее...
-Планы нашей жизни Наши циклы позволяют сохранять силы и положительную динамику движения жизни. Читать далее...
-Двое или пара? Как понять, что у нас общее поле жизни, а не только пространство квартиры? Читать далее...
-Имя, как лучшая песня для человека. Даю психологические и символические ориентиры. Читать далее...
 Светлая (в плюс) - злость помогает нам занимать "своё место под солнцем". Не просить, а добиваться. Не клянчить милости, а претендовать на внимание.
 Минусовой полюс агрессии - это неконтролируемые взрывы и выплески. Словесная агрессия - хамство, грубость, ехидство. Телесная агрессия - драки, рукоприкладство, крушение всех и вся. Идеологическая агрессия - разрушение ценностей в другом человеке через "промывание мозгов" и тотальный контроль.
 В честь кого было дано имя и кто конкретно принял окончательное решение?
@@ -220,10 +216,6 @@ Please enter letter, number or punctuation symbols.
 - https://static.tildacdn.com/tild3564-3964-4561-b531-333531326633/3fc15c7c4912cecf0d67.jpg -> export/assets/static.tildacdn.com/7d0faf4165ed-3fc15c7c4912cecf0d67.jpg
 - https://static.tildacdn.com/tild3230-3062-4262-a236-636531373466/19fbe3c2776a173d9758.jpg -> export/assets/static.tildacdn.com/88cb13e7b683-19fbe3c2776a173d9758.jpg
 - https://static.tildacdn.com/tild3335-6530-4661-a531-323434323365/95abb41348144fc9e67e.jpg -> export/assets/static.tildacdn.com/c0bf3c472a8a-95abb41348144fc9e67e.jpg
-- https://static.tildacdn.com/tild6166-3461-4535-a361-623163666461/5199486618719872430.jpg -> export/assets/static.tildacdn.com/b79d90a5570f-5199486618719872430.jpg
-- https://static.tildacdn.com/tild3664-3862-4738-b035-353834393732/pr53_gbd1KE.jpg -> export/assets/static.tildacdn.com/20f667428104-pr53_gbd1KE.jpg
-- https://static.tildacdn.com/tild6330-3139-4135-b666-663839643761/RDmhP75qV8I.jpg -> export/assets/static.tildacdn.com/e0acd1c973d7-RDmhP75qV8I.jpg
-- https://static.tildacdn.com/tild3762-6131-4935-b664-613166366639/5244891191907053688.jpg -> export/assets/static.tildacdn.com/9cbba236d691-5244891191907053688.jpg
 - https://static.tildacdn.com/tild6361-6639-4461-b264-643465396630/6X3A8248.JPG -> export/assets/static.tildacdn.com/4472db7d4df1-6X3A8248.JPG
 - https://static.tildacdn.com/tild6633-6163-4436-b130-373062623239/6X3A8165.JPG -> export/assets/static.tildacdn.com/ecfbac3c8381-6X3A8165.JPG
 - https://static.tildacdn.com/img/tildacopy.png -> export/assets/static.tildacdn.com/8a6cf562980a-tildacopy.png
@@ -257,7 +249,6 @@ Please enter letter, number or punctuation symbols.
 
 ## Contacts
 
-- https://api.whatsapp.com/send/?phone=79177542323&text=Здравствуйте, хочу приобрести лекции школы отцов&type=phone_number&app_absent=0
 - https://api.whatsapp.com/send/?phone=79177542323&text=Здравствуйте, хочу записаться к вам на консультацию&type=phone_number&app_absent=0
 - https://api.whatsapp.com/send/?phone=79177542323&text=Здравствуйте, хотелось бы задать Вам вопрос&type=phone_number&app_absent=0
 - https://api.whatsapp.com/send/?phone=79177542323&text=Здравствуйте, хочу приобрести Вашу лекцию...&type=phone_number&app_absent=0
