@@ -34,6 +34,7 @@ rollback() {
 }
 trap rollback ERR
 tar -xzf "$archive" -C "$release"
+if [[ -n "${3:-}" ]]; then tar -xzf "$3" -C "$release"; fi
 cd "$release"
 npm ci --no-audit --no-fund > "$backup/install.log" 2>&1
 node --import tsx --test tests/commerce.test.ts > "$backup/tests.log" 2>&1
