@@ -1,7 +1,7 @@
 'use client';
 import { useCallback, useEffect, useState } from 'react';
 import { formatPrice } from '@/lib/products';
-type View = {title:string; kind:string; amount:number; status:string; test:boolean; confirmation:string|null; expires:number|null; canWatch:boolean; mailSent:boolean};
+type View = {product:string; title:string; kind:string; amount:number; status:string; test:boolean; confirmation:string|null; expires:number|null; canWatch:boolean; mailSent:boolean};
 export function OrderView({id}:{id:string}) {
   const [view,setView] = useState<View>(); const [error,setError] = useState(''); const [busy,setBusy] = useState(false);
   const refresh = useCallback(async (provider = false) => {
@@ -15,6 +15,9 @@ export function OrderView({id}:{id:string}) {
       }
       const response = await fetch('/api/commerce/orders/' + id + (provider ? '/refresh' : ''), provider ? {method:'POST',headers:{'Content-Type':'application/json'},body:'{}'} : {cache:'no-store'});
       const data = await response.json(); if (!response.ok) throw new Error(data.error); setView(data);
+      if (['succeeded','canceled','refunded'].includes(data.status) && sessionStorage.getItem('purchase:' + data.product) === id) {
+        sessionStorage.removeItem('purchase:' + data.product);
+      }
     } catch (cause) { setError(cause instanceof Error ? cause.message : 'Не удалось проверить заказ.'); }
     finally { setBusy(false); }
   },[id]);
