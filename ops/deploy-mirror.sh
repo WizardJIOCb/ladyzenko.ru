@@ -58,7 +58,8 @@ for attempt in $(seq 1 30); do
   if curl -fsS http://127.0.0.1:3007/api/site/page?slug=index > /dev/null; then break; fi
   sleep 1
 done
-curl -fsS http://127.0.0.1:3007/ | grep -q 'mirror-runtime.js'
+curl -fsS http://127.0.0.1:3007/ -o "$backup/home.html"
+grep -q 'mirror-runtime.js' "$backup/home.html"
 curl -fsS http://127.0.0.1:3007/payment-info > /dev/null
 curl -fsS http://127.0.0.1:3007/admin > /dev/null
 printf 'RELEASE=%s\nBACKUP=%s\n' "$release" "$backup"
