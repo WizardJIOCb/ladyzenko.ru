@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { authorized, capability, checkout, CommerceError, config, mediaFile, order, publicOrder, reconcile, webhook } from '@/lib/commerce';
+import { authorized, capability, checkout, CommerceError, config, mediaDelivery, order, publicOrder, reconcile, webhook } from '@/lib/commerce';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -51,9 +51,9 @@ async function handle(req: NextRequest, ctx: { params: Promise<{parts: string[]}
       const row = order(id); if (!row) throw new CommerceError(404, 'Заказ не найден.');
       if (parts[2] === 'refresh' && req.method === 'POST') { await reconcile(id); return NextResponse.json(publicOrder(order(id)!), {headers}); }
       if (parts[2] === 'media' && req.method === 'GET') {
-        const view = publicOrder(row); const file = mediaFile(row.product);
-        if (!view.canWatch || !file) throw new CommerceError(403, 'Доступ к записи не оплачен или истёк.');
-        return new NextResponse(null, { headers: { ...headers, 'Content-Type': 'video/mp4', 'X-Accel-Redirect': '/commerce-private/' + file } });
+        const view = publicOrder(row); const delivery = mediaDelivery(row.product);
+        if (!view.canWatch || !delivery) throw new CommerceError(403, 'Доступ к записи не оплачен или истёк.');
+        return new NextResponse(null, { headers: { ...headers, 'Content-Type': 'video/mp4', 'X-Accel-Redirect': delivery } });
       }
       if (parts.length === 2 && req.method === 'GET') return NextResponse.json(publicOrder(row), {headers});
     }

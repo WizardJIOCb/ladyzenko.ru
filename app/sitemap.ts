@@ -6,6 +6,7 @@ import {
   getLecturePages,
 } from "@/lib/content";
 import { siteMeta } from "@/lib/site-copy";
+import { lectureProducts } from "@/lib/products";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
@@ -28,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   return [
+    ...lectureProducts.map(product => ({ url: `${siteMeta.url}/recordings/${product.id}`, changeFrequency: 'monthly' as const, priority: 0.7 })),
     ...staticPages.map((page) => ({
       url: `${siteMeta.url}${page}`,
       changeFrequency: "weekly" as const,

@@ -19,6 +19,7 @@
   "fiscalizationConfirmed": false,
   "fiscalizationMethod": "provider",
   "lectureFiles": {},
+  "lectureRemoteFiles": {},
   "smtp": {
     "host": "mail.ladyzenko.ru",
     "port": 465,

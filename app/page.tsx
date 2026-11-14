@@ -217,9 +217,9 @@ export default function HomePage() {
           ))}
         </div>
         <div className="clone-cta-wrap">
-          <a className="clone-cta clone-cta--green" href={toWhatsappLink("Здравствуйте, хочу приобрести лекции школы отцов.")} target="_blank" rel="noreferrer">
-            Как приобрести лекции школы отцов?
-          </a>
+          <Link className="clone-cta clone-cta--green" href="/school-of-fathers#recordings">
+            Выбрать запись лекции
+          </Link>
         </div>
       </section>
 
@@ -276,7 +276,7 @@ export default function HomePage() {
         <div className="clone-heading clone-heading--catalog">
           <h2 className="clone-title">Лекции в записях</h2>
           <p>
-            Доступ к записи после покупки — 30 дней. Онлайн продажа готовится к запуску.
+            Доступ к записи после покупки — 30 дней. Выберите лекцию, чтобы посмотреть описание и условия оплаты.
           </p>
         </div>
         <div className="lecture-grid">

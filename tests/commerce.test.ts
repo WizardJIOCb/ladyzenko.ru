@@ -5,8 +5,10 @@ import os from 'node:os';
 import path from 'node:path';
 import { randomBytes } from 'node:crypto';
 import nodemailer from 'nodemailer';
-import { checkout, config, db, order, settle, authorized, capability, webhook, publicOrder, available, ready, work } from '../lib/commerce.ts';
+import { checkout, config, db, order, settle, authorized, capability, webhook, publicOrder, available, mediaDelivery, ready, work } from '../lib/commerce.ts';
 import { products } from '../lib/products.ts';
+import { NextRequest } from 'next/server';
+import { GET } from '../app/api/commerce/[...parts]/route.ts';
 const dir = fs.mkdtempSync(path.join(os.tmpdir(),'lady-commerce-test-'));
 process.env.COMMERCE_STATE = dir;
 const base = { origin:'http://localhost:3007', enabled:true, mode:'test',shopId:'123456',shopKey:'test_fake', seller:'Test Seller', inn:'123456789012', contactEmail:'seller@example.test', legalApproved:true, fiscalizationConfirmed:true,lectureFiles:{},smtp:{host:'localhost',port:465,user:'fake',password:'fake',from:'service@example.test'}, sellerStatus:'selfemployed', postalAddress:'Test business postal address', sellerBasis:'Test agreement with the author', sellerBasisConfirmed:true };
@@ -83,4 +85,32 @@ test('live consultation queues confirmation, worker sends once and persists succ
   save({mode:'live',fiscalizationMethod:'npd_manual'});const row=await checkout(data(),'live');assert.equal('receipt' in JSON.parse(row.request),false);const obj={...providerObjects.get(row.provider_id!),status:'succeeded',paid:true};settle(row.id,obj);settle(row.id,obj);
   let sent=0;nodemailer.createTransport=(()=>({sendMail:async(message:any)=>{assert.match(message.text,/личная страница/);assert.match(message.text,/Мой налог/);sent++;return{};}})) as any;
   await work();await work();assert.equal(sent,1);assert.equal(publicOrder(order(row.id)!).mailSent,true);save();
+});
+
+test('remote recordings require a safe configured filename and paid ownership; expiry and refund close HTTP access', async()=>{
+  const p=products.find(p=>p.id==='school-lecture-02')!;
+  const mapping={[p.id]:'school-lecture-02.mp4'};
+  save({mode:'live',lectureRemoteFiles:mapping});assert.equal(available(p),true);
+  assert.equal(mediaDelivery(p.id),'/commerce-remote/school-lecture-02.mp4');
+  for(const name of ['../secret.mp4','https://other.test/a.mp4','a.mp4?key=x','a/b.mp4','a.mp4\r\nX-Header: x']) {
+    save({mode:'live',lectureRemoteFiles:{[p.id]:name}});assert.equal(available(p),false);
+  }
+  save({mode:'live',lectureRemoteFiles:mapping});
+  const row=await checkout({...data(),product:p.id},'remote');
+  const ctx={params:Promise.resolve({parts:['orders',row.id,'media']})};
+  const request=(owned=true)=>new NextRequest(base.origin+'/api/commerce/orders/'+row.id+'/media',
+    {headers:owned?{cookie:'order_'+row.id+'='+capability(row.id)}:{}});
+  assert.equal((await GET(request(false),ctx)).status,403);
+  assert.equal((await GET(request(),ctx)).status,403);
+  const obj={...providerObjects.get(row.provider_id!),status:'succeeded',paid:true};settle(row.id,obj);
+  assert.equal(row.amount,100000);
+  const response=await GET(request(),ctx);assert.equal(response.status,200);
+  assert.equal(response.headers.get('x-accel-redirect'),'/commerce-remote/school-lecture-02.mp4');
+  assert.match(response.headers.get('cache-control')!,/no-store/);
+  db().prepare('UPDATE orders SET expires=? WHERE id=?').run(Math.floor(Date.now()/1000)-1,row.id);
+  assert.equal((await GET(request(),ctx)).status,403);
+  db().prepare("UPDATE orders SET expires=?,status='refunded' WHERE id=?").run(Math.floor(Date.now()/1000)+86400,row.id);
+  assert.equal((await GET(request(),ctx)).status,403);
+  db().prepare("UPDATE orders SET status='succeeded',mode='test' WHERE id=?").run(row.id);
+  assert.equal((await GET(request(),ctx)).status,403);save();
 });

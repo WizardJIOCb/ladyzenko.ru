@@ -6,6 +6,7 @@ export default async function Recording({params}:{params:Promise<{id:string}>}) 
   return <article className="commerce-page"><Link href="/#lectures">← Все записи</Link><h1>{p.title}</h1>
     {p.image ? <img src={p.image} alt={p.title} width="480" /> : null}
     {p.description.split('\n').map((text,i)=><p key={i}>{text}</p>)}
-    <p className="commerce-price">{formatPrice(p.amount)}</p><p>Доступ к записи: 30 дней с момента оплаты.</p>
+    {p.duration ? <p>Продолжительность: {p.duration}.</p> : null}
+    <p className="commerce-price">{formatPrice(p.amount)}</p><p>Доступ к записи: 30 дней с момента оплаты. После подтверждения оплаты запись откроется на личной странице заказа; ссылка придёт на указанную почту.</p>
     <Link className="commerce-button" href={'/checkout/'+id}>Условия приобретения</Link></article>;
 }

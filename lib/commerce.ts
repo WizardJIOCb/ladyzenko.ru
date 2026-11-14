@@ -13,7 +13,8 @@ export type Config = {
   sellerBasis?: string; sellerBasisConfirmed?: boolean; productionShopId?: string; adminNotes?: string;
   fiscalizationMethod?: 'npd_manual' | 'provider';
   fiscalizationConfirmed: boolean; receipt?: { vat_code: number; tax_system_code?: number };
-  lectureFiles: Record<string, string>; smtp?: { host: string; port: number; user: string; password: string; from: string };
+  lectureFiles: Record<string, string>; lectureRemoteFiles?: Record<string, string>;
+  smtp?: { host: string; port: number; user: string; password: string; from: string };
 };
 export class CommerceError extends Error { constructor(public status: number, message: string) { super(message); } }
 function fail(status: number, text: string): never { throw new CommerceError(status, text); }
@@ -73,8 +74,15 @@ export function mediaFile(productId: string, c = config()) {
   if (!fs.realpathSync(file).startsWith(fs.realpathSync(base) + path.sep)) return null;
   return name;
 }
+export function mediaDelivery(productId: string, c = config()) {
+  const local = mediaFile(productId, c);
+  if (local) return '/commerce-private/' + local;
+  const remote = c.lectureRemoteFiles?.[productId];
+  // Only verified imports are added by the operator. Hosts and URLs cannot come from config or buyers.
+  return remote && /^[a-zA-Z0-9_-]+\.mp4$/.test(remote) ? '/commerce-remote/' + remote : null;
+}
 export function available(product: Product, c = config()) {
-  return ready(c) && (product.kind === 'consultation' || Boolean(mediaFile(product.id, c)));
+  return ready(c) && (product.kind === 'consultation' || Boolean(mediaDelivery(product.id, c)));
 }
 export type Order = { id: string; product: string; email: string; amount: number; mode: string; created: number;
   status: string; provider_id: string | null; confirmation: string | null; request: string;
@@ -160,7 +168,7 @@ export function publicOrder(row: Order) {
   const active = row.mode === 'live' && row.status === 'succeeded' && (!row.expires || row.expires > Date.now() / 1000);
   return { id: row.id, product: product.id, title: product.title, kind: product.kind, amount: row.amount, status: row.status,
     test: row.mode === 'test', confirmation: row.status === 'pending' ? row.confirmation : null,
-    expires: row.expires, canWatch: active && product.kind === 'lecture' && Boolean(mediaFile(product.id)),
+    expires: row.expires, canWatch: active && product.kind === 'lecture' && Boolean(mediaDelivery(product.id)),
     mailSent: Boolean((db().prepare('SELECT sent FROM outbox WHERE order_id=?').get(row.id) as {sent: number} | undefined)?.sent) };
 }
 export async function webhook(data: Record<string, any>) {

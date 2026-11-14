@@ -1,4 +1,5 @@
 import lectures from './lecture-products.json' with { type: 'json' };
+import schoolLectures from './school-products.json' with { type: 'json' };
 
 export type Product = { id: string; kind: string; title: string; amount: number;
   description: string; image?: string; accessDays?: number; duration?: string };
@@ -10,6 +11,7 @@ export const consultations: Product[] = [
   { id: 'testing', kind: 'consultation', title: 'Тестирование', amount: 600000,
     duration: '1 час', description: 'Диагностическое тестирование. Конкретную методику, дату и формат необходимо согласовать до оплаты.' },
 ];
-export const lectureProducts: Product[] = lectures;
+export const schoolProducts: Product[] = schoolLectures;
+export const lectureProducts: Product[] = [...lectures, ...schoolProducts];
 export const products: Product[] = [...consultations, ...lectureProducts];
 export const formatPrice = (amount: number) => new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }).format(amount / 100);
