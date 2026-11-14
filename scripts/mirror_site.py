@@ -139,6 +139,13 @@ def main():
                 if html: pages.append((url,html,status))
                 else: REPORT['pages'].append({'url':url,'status':status})
     manifest = []
+    protected_links={}
+    for file in RAW.glob('lekciya_*.html'):
+        match=re.fullmatch(r'lekciya_(\d+)',file.stem)
+        if not match or not 2<=int(match[1])<=13: continue
+        for a in BeautifulSoup(file.read_text(encoding='utf-8'),'html.parser').select('a[href]'):
+            if 'rutube.ru/' in a['href']:
+                protected_links[a['href']]='/recordings/school-lecture-'+match[1].zfill(2)
     for i,(url,html,status) in enumerate(pages):
         name=slug(url); s=BeautifulSoup(html,'html.parser')
         for node in s.select('[data-videolazy-type],iframe[src],video[src],video source[src]'):
@@ -149,6 +156,8 @@ def main():
             product=a.find_parent(attrs={'data-product-lid':True})
             a['href']='/checkout/lecture-'+product['data-product-lid'] if product else '/lectures'
         for a in s.select('a[href]'):
+            if a['href'] in protected_links:
+                a['href']=protected_links[a['href']]
             u=urlparse(a['href'])
             if u.hostname=='ladyzenko.pro':
                 a['href']=(u.path or '/')+('#'+u.fragment if u.fragment else '')
