@@ -1,0 +1,74 @@
+{
+  "slug": "tpost-3tu94ub2d1-mamatiam",
+  "path": "/tpost/3tu94ub2d1-mamatiam",
+  "title": "Маматйам",
+  "sourceStatus": "fresh",
+  "blocks": [
+    {
+      "id": "t0",
+      "type": "text",
+      "value": "\n                                                    Статьи\n                                            ",
+      "label": "div"
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "value": "2025-01-13 14:57",
+      "label": "span"
+    },
+    {
+      "id": "t2",
+      "type": "text",
+      "value": "Маматйам",
+      "label": "h1"
+    },
+    {
+      "id": "t3",
+      "type": "text",
+      "value": "Книга для родителей. Как ребёнку сформировать устойчивый психологический фундамент радостной жизни. Решение родительских задач от рождения ребёнка до его 14-летия.",
+      "label": "div"
+    },
+    {
+      "id": "t4",
+      "type": "text",
+      "value": "Ссылка на прослушивание: ",
+      "label": "div"
+    },
+    {
+      "id": "t5",
+      "type": "text",
+      "value": "https://disk.yandex.ru/d/A5RIxkW3VAoXCw",
+      "label": "a"
+    },
+    {
+      "id": "t6",
+      "type": "text",
+      "value": "Ладыженко Людмила Ивановна",
+      "label": "span"
+    },
+    {
+      "id": "i7",
+      "type": "image",
+      "value": "/mirror-assets/befd2f7539a359592a042d81.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i8",
+      "type": "image",
+      "value": "/mirror-assets/b7e0851d0572c8ea9280bb1d.jpeg",
+      "label": "Изображение"
+    },
+    {
+      "id": "l9",
+      "type": "link",
+      "value": "",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l10",
+      "type": "link",
+      "value": "https://disk.yandex.ru/d/A5RIxkW3VAoXCw",
+      "label": "https://disk.yandex.ru/d/A5RIxkW3VAoXCw"
+    }
+  ]
+}

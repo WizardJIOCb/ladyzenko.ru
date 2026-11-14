@@ -1,0 +1,110 @@
+{
+  "slug": "tpost-mtorjy2lp1-tkat-kover-zhizni",
+  "path": "/tpost/mtorjy2lp1-tkat-kover-zhizni",
+  "title": "Ткать ковер жизни",
+  "sourceStatus": "fresh",
+  "blocks": [
+    {
+      "id": "t0",
+      "type": "text",
+      "value": "\n                                                    Общее\n                                            ",
+      "label": "div"
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "value": "Ткать ковер жизни",
+      "label": "h1"
+    },
+    {
+      "id": "t2",
+      "type": "text",
+      "value": "2025-11-27 14:26",
+      "label": "span"
+    },
+    {
+      "id": "t3",
+      "type": "text",
+      "value": "Если жизнь наполнена только логикой, схемами и алгоритмами, то она теряет смысл.",
+      "label": "div"
+    },
+    {
+      "id": "t4",
+      "type": "text",
+      "value": "Если мало символов, чувств и парадоксов, то психика не может \"ткать ковер жизни\", связывать в единое целое мир внешний и мир внутренний. Не на что опираться, если не понимаешь метафоры и гармонии.",
+      "label": "div"
+    },
+    {
+      "id": "t5",
+      "type": "text",
+      "value": "Становится понятным зачем нам (особенно подросткам!) концерты, поэзия, книги, картины, музеи, история? Чтобы понимать себя и обладать словами для внутренней (!) речи: быть живым, а не только функционировать на бытийном уровне.",
+      "label": "div"
+    },
+    {
+      "id": "t6",
+      "type": "text",
+      "value": "Made on ",
+      "label": "div"
+    },
+    {
+      "id": "t7",
+      "type": "text",
+      "value": "Tilda",
+      "label": "div"
+    },
+    {
+      "id": "i8",
+      "type": "image",
+      "value": "https://mc.yandex.ru/watch/106094504",
+      "label": "Изображение"
+    },
+    {
+      "id": "i9",
+      "type": "image",
+      "value": "/mirror-assets/6b5c03e673ccde03463fb839.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i10",
+      "type": "image",
+      "value": "/mirror-assets/0173eca022bbb213f1741488.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i11",
+      "type": "image",
+      "value": "/mirror-assets/53fa10263fb8329f2aaeb0e6.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i12",
+      "type": "image",
+      "value": "/mirror-assets/05f4e30bd6938037272cd0a4.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i13",
+      "type": "image",
+      "value": "/mirror-assets/bf1fbd33a586bcbbfa3b3896.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i14",
+      "type": "image",
+      "value": "/mirror-assets/20be86e5396ac57c8d9a9ab2.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "l15",
+      "type": "link",
+      "value": "",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l16",
+      "type": "link",
+      "value": "https://tilda.cc/",
+      "label": "Made on Tilda"
+    }
+  ]
+}

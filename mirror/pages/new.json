@@ -1,0 +1,806 @@
+{
+  "slug": "new",
+  "path": "/new",
+  "title": "Людмила Ладыженко - главная",
+  "sourceStatus": "saved-snapshot: 403 Client Error: Forbidden for url: https://ladyzenko.ru/new",
+  "blocks": [
+    {
+      "id": "t0",
+      "type": "text",
+      "value": "Людмила Ладыженко",
+      "label": "strong"
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "value": "\nК содержанию\n",
+      "label": "a"
+    },
+    {
+      "id": "t2",
+      "type": "text",
+      "value": "\nК содержанию\n",
+      "label": "a"
+    },
+    {
+      "id": "t3",
+      "type": "text",
+      "value": "Обо мне",
+      "label": "a"
+    },
+    {
+      "id": "t4",
+      "type": "text",
+      "value": "Обо мне",
+      "label": "a"
+    },
+    {
+      "id": "t5",
+      "type": "text",
+      "value": "Обо мне",
+      "label": "a"
+    },
+    {
+      "id": "t6",
+      "type": "text",
+      "value": "Обо мне",
+      "label": "a"
+    },
+    {
+      "id": "t7",
+      "type": "text",
+      "value": "Фото-галерея",
+      "label": "div"
+    },
+    {
+      "id": "t8",
+      "type": "text",
+      "value": "Обо мне",
+      "label": "a"
+    },
+    {
+      "id": "t9",
+      "type": "text",
+      "value": "Видео и подкасты",
+      "label": "div"
+    },
+    {
+      "id": "t10",
+      "type": "text",
+      "value": "Обо мне",
+      "label": "a"
+    },
+    {
+      "id": "t11",
+      "type": "text",
+      "value": "Школа Отцов",
+      "label": "div"
+    },
+    {
+      "id": "t12",
+      "type": "text",
+      "value": "Обо мне",
+      "label": "a"
+    },
+    {
+      "id": "t13",
+      "type": "text",
+      "value": "Дипломы и сертификаты",
+      "label": "div"
+    },
+    {
+      "id": "t14",
+      "type": "text",
+      "value": "Обо мне",
+      "label": "a"
+    },
+    {
+      "id": "t15",
+      "type": "text",
+      "value": "Услуги",
+      "label": "div"
+    },
+    {
+      "id": "t16",
+      "type": "text",
+      "value": "Лекции в записи",
+      "label": "div"
+    },
+    {
+      "id": "t17",
+      "type": "text",
+      "value": "Обо мне",
+      "label": "a"
+    },
+    {
+      "id": "t18",
+      "type": "text",
+      "value": "Обо мне",
+      "label": "a"
+    },
+    {
+      "id": "t19",
+      "type": "text",
+      "value": "Контакты",
+      "label": "div"
+    },
+    {
+      "id": "t20",
+      "type": "text",
+      "value": "Аудио-книги",
+      "label": "div"
+    },
+    {
+      "id": "t21",
+      "type": "text",
+      "value": "и метафоры",
+      "label": "div"
+    },
+    {
+      "id": "t22",
+      "type": "text",
+      "value": "Статьи и публикации",
+      "label": "div"
+    },
+    {
+      "id": "t23",
+      "type": "text",
+      "value": "Обо мне",
+      "label": "div"
+    },
+    {
+      "id": "t24",
+      "type": "text",
+      "value": "Практический психолог.",
+      "label": "div"
+    },
+    {
+      "id": "t25",
+      "type": "text",
+      "value": "Стаж консультирования с 1996.",
+      "label": "div"
+    },
+    {
+      "id": "t26",
+      "type": "text",
+      "value": "Автор книг и статей.",
+      "label": "div"
+    },
+    {
+      "id": "t27",
+      "type": "text",
+      "value": "Приглашенный эксперт на радио и телепередачи.",
+      "label": "div"
+    },
+    {
+      "id": "t28",
+      "type": "text",
+      "value": "Людмила Ладыженко",
+      "label": "div"
+    },
+    {
+      "id": "t29",
+      "type": "text",
+      "value": "\nУслуги\n",
+      "label": "div"
+    },
+    {
+      "id": "t30",
+      "type": "text",
+      "value": "Диагностическое интервью",
+      "label": "div"
+    },
+    {
+      "id": "t31",
+      "type": "text",
+      "value": "Прояснение запроса",
+      "label": "li"
+    },
+    {
+      "id": "t32",
+      "type": "text",
+      "value": "Определение эмоциональных ресурсов для решения поставленной задачи",
+      "label": "li"
+    },
+    {
+      "id": "t33",
+      "type": "text",
+      "value": "Поиск вариантов достижения цели",
+      "label": "li"
+    },
+    {
+      "id": "t34",
+      "type": "text",
+      "value": "3000 ",
+      "label": "div"
+    },
+    {
+      "id": "t35",
+      "type": "text",
+      "value": "₽",
+      "label": "strong"
+    },
+    {
+      "id": "t36",
+      "type": "text",
+      "value": "1 час",
+      "label": "div"
+    },
+    {
+      "id": "t37",
+      "type": "text",
+      "value": "Индивидуальная консультация ",
+      "label": "div"
+    },
+    {
+      "id": "t38",
+      "type": "text",
+      "value": "Расширение вариантов выхода из создавшейся ситуации",
+      "label": "li"
+    },
+    {
+      "id": "t39",
+      "type": "text",
+      "value": "Прояснение конструкта личности",
+      "label": "li"
+    },
+    {
+      "id": "t40",
+      "type": "text",
+      "value": "Работа с личной историей как с ресурсной платформой для изменений",
+      "label": "li"
+    },
+    {
+      "id": "t41",
+      "type": "text",
+      "value": "5000 ",
+      "label": "div"
+    },
+    {
+      "id": "t42",
+      "type": "text",
+      "value": "₽",
+      "label": "strong"
+    },
+    {
+      "id": "t43",
+      "type": "text",
+      "value": "50 мин.",
+      "label": "div"
+    },
+    {
+      "id": "t44",
+      "type": "text",
+      "value": "Тестирование (тест Госстандарт России, Санкт-Петербург)",
+      "label": "div"
+    },
+    {
+      "id": "t45",
+      "type": "text",
+      "value": "Гимназия или обычная школа? Готовность к школе. Для детей 6-7 лет Диагностика двенадцати параметров интеллекта и характера, поможет сориентироваться в возможностях ребёнка и смягчить адаптацию к школе",
+      "label": "li"
+    },
+    {
+      "id": "t46",
+      "type": "text",
+      "value": "Диагностика трудностей в обучении с 6-и до 17-и лет. Тест минимальных мозговых дисфункций и рекомендаций по преодолению неуспеваемости",
+      "label": "li"
+    },
+    {
+      "id": "t47",
+      "type": "text",
+      "value": "Тест на выбор профессии и личностных особенностей",
+      "label": "li"
+    },
+    {
+      "id": "t48",
+      "type": "text",
+      "value": "Тест врождённых и приобретённых черт характера, для внутреннего баланса личности",
+      "label": "li"
+    },
+    {
+      "id": "t49",
+      "type": "text",
+      "value": "Тест на уровень агрессии прямой и косвенной",
+      "label": "li"
+    },
+    {
+      "id": "t50",
+      "type": "text",
+      "value": "3000 ",
+      "label": "div"
+    },
+    {
+      "id": "t51",
+      "type": "text",
+      "value": "₽",
+      "label": "strong"
+    },
+    {
+      "id": "t52",
+      "type": "text",
+      "value": "1 час",
+      "label": "div"
+    },
+    {
+      "id": "t53",
+      "type": "text",
+      "value": "Запись на консультацию",
+      "label": "span"
+    },
+    {
+      "id": "t54",
+      "type": "text",
+      "value": "\nПрошедшие лекции (в проф. записи)\n",
+      "label": "div"
+    },
+    {
+      "id": "t55",
+      "type": "text",
+      "value": "\nСтоимость любой лекции - 1000 рублей.\n",
+      "label": "div"
+    },
+    {
+      "id": "t56",
+      "type": "text",
+      "value": "Любовь со стажем и романтика",
+      "label": "a"
+    },
+    {
+      "id": "t57",
+      "type": "text",
+      "value": "\nЗагадки, странности и важные мелочи любви для тех, кто \"не первый год замужем\" или женат. Предлагаю повидаться на тему любви для тех, кто знает в жизни толк. Стаж любви всегда многослоен. И интересен, конечно!\n",
+      "label": "div"
+    },
+    {
+      "id": "t58",
+      "type": "text",
+      "value": "\nКупить лекцию\n",
+      "label": "div"
+    },
+    {
+      "id": "t59",
+      "type": "text",
+      "value": "Юмор, фарс и парадоксы для жизни - кислород и энергия",
+      "label": "strong"
+    },
+    {
+      "id": "t60",
+      "type": "text",
+      "value": "\nКак мы обходимся с нашей игривостью, умением сместить фокус с важного на радостное? Конечно, у каждого — своя история удовольствия погружения в комическое. О Юморе и не только в этой лекции\n",
+      "label": "div"
+    },
+    {
+      "id": "t61",
+      "type": "text",
+      "value": "\nКупить лекцию\n",
+      "label": "div"
+    },
+    {
+      "id": "t62",
+      "type": "text",
+      "value": "\nДетский рай. Где его начало?\n",
+      "label": "div"
+    },
+    {
+      "id": "t63",
+      "type": "text",
+      "value": "\nЛюбовь – как способ выражения своего существования. ",
+      "label": "div"
+    },
+    {
+      "id": "t64",
+      "type": "text",
+      "value": "Любовь выбила из-под человека трон, что он король природы, потому что любовь неруляема, всегда провотиворечива. ",
+      "label": "br"
+    },
+    {
+      "id": "t65",
+      "type": "text",
+      "value": "Нам надо переизобрести любовь, но сначала необходимо взять ее под защиту...\n",
+      "label": "br"
+    },
+    {
+      "id": "t66",
+      "type": "text",
+      "value": "\nКупить лекцию\n",
+      "label": "div"
+    },
+    {
+      "id": "t67",
+      "type": "text",
+      "value": "Если у Вас не получилось оплатить, Вы можете совершить оплату на карту Сбербанка, Тинькофф и Альфа-Банка или на PayPal. Для детальной информации свяжитесь, пожалуйста, с Людмилой Ивановной (WhatsApp.: +79177542323, email: ladyzenko@mail.ru)",
+      "label": "div"
+    },
+    {
+      "id": "t68",
+      "type": "text",
+      "value": "Your Name",
+      "label": "label"
+    },
+    {
+      "id": "t69",
+      "type": "text",
+      "value": "Your Email",
+      "label": "label"
+    },
+    {
+      "id": "t70",
+      "type": "text",
+      "value": "Your Phone",
+      "label": "label"
+    },
+    {
+      "id": "t71",
+      "type": "text",
+      "value": "Payment method",
+      "label": "div"
+    },
+    {
+      "id": "t72",
+      "type": "text",
+      "value": "\nКредитной картой (Visa, Mastercard) через Сбербанк\n",
+      "label": "label"
+    },
+    {
+      "id": "t73",
+      "type": "text",
+      "value": "\nКредитной картой (Visa, Mastercard) через T-Bank\n",
+      "label": "label"
+    },
+    {
+      "id": "t74",
+      "type": "text",
+      "value": "\nКредитной картой (Visa, Mastercard) через Альфа Банк\n",
+      "label": "label"
+    },
+    {
+      "id": "t75",
+      "type": "text",
+      "value": "\nCheckout ",
+      "label": "button"
+    },
+    {
+      "id": "t76",
+      "type": "text",
+      "value": "\nАудио-книга «МамаЖизнь или Мамотайм. Как отдать своему ребёнку всё и сохранить себя?»\n",
+      "label": "div"
+    },
+    {
+      "id": "t77",
+      "type": "text",
+      "value": "\nЭто книга для взрослых, про ваш сценарий жизни и гарантийный талон на счастливую жизнь вашего ребёнка.",
+      "label": "div"
+    },
+    {
+      "id": "t78",
+      "type": "text",
+      "value": "Я делюсь наблюдениями о том, как воспитание влияет на дальнейшую жизнь — на способность справляться с трудностями, находить радость в жизни и строить здоровые отношения с собой и окружающими. Вы получите полезные советы о том, как избежать распространенных ошибок воспитания от беременности до 16 лет.",
+      "label": "br"
+    },
+    {
+      "id": "t79",
+      "type": "text",
+      "value": "Людмила Ладыженко",
+      "label": "strong"
+    },
+    {
+      "id": "t80",
+      "type": "text",
+      "value": "МамаЖизнь или МамоТайм. Как отдать своему ребёнку всё и сохранить себя?",
+      "label": "div"
+    },
+    {
+      "id": "t81",
+      "type": "text",
+      "value": "Новинка (по многочисленным просьбам)",
+      "label": "span"
+    },
+    {
+      "id": "t82",
+      "type": "text",
+      "value": "Метафорические аудио-подкасты",
+      "label": "strong"
+    },
+    {
+      "id": "t83",
+      "type": "text",
+      "value": "Откройте свой разум",
+      "label": "div"
+    },
+    {
+      "id": "t84",
+      "type": "text",
+      "value": "для новых впечатлений",
+      "label": "div"
+    },
+    {
+      "id": "t85",
+      "type": "text",
+      "value": "Я с удовольствием отвечу на ваши вопросы",
+      "label": "div"
+    },
+    {
+      "id": "t86",
+      "type": "text",
+      "value": "и помогу вам глубже понять себя и свою психику.",
+      "label": "div"
+    },
+    {
+      "id": "t87",
+      "type": "text",
+      "value": "Мир становится прекраснее, когда внутри нас царит свет.",
+      "label": "div"
+    },
+    {
+      "id": "t88",
+      "type": "text",
+      "value": "WhatsApp",
+      "label": "a"
+    },
+    {
+      "id": "t89",
+      "type": "text",
+      "value": "Email",
+      "label": "a"
+    },
+    {
+      "id": "t90",
+      "type": "text",
+      "value": "Написать в ВК",
+      "label": "a"
+    },
+    {
+      "id": "t91",
+      "type": "text",
+      "value": "Канал в Телеграм",
+      "label": "a"
+    },
+    {
+      "id": "t92",
+      "type": "text",
+      "value": "Группа в ВК",
+      "label": "a"
+    },
+    {
+      "id": "t93",
+      "type": "text",
+      "value": "Made on ",
+      "label": "div"
+    },
+    {
+      "id": "t94",
+      "type": "text",
+      "value": "Tilda",
+      "label": "div"
+    },
+    {
+      "id": "i95",
+      "type": "image",
+      "value": "/mirror-assets/cfc74371866da2e30ca651cf.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i96",
+      "type": "image",
+      "value": "/mirror-assets/ac7abf3d788c84c2afda2de9.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i97",
+      "type": "image",
+      "value": "/mirror-assets/6b79c1371633535793c6179c.jpeg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i98",
+      "type": "image",
+      "value": "/mirror-assets/6b79c1371633535793c6179c.jpeg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i99",
+      "type": "image",
+      "value": "/mirror-assets/a18368c0f32136f47b42548e.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i100",
+      "type": "image",
+      "value": "/mirror-assets/a18368c0f32136f47b42548e.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i101",
+      "type": "image",
+      "value": "/mirror-assets/29dfb3e67aef604904150399.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i102",
+      "type": "image",
+      "value": "/mirror-assets/29dfb3e67aef604904150399.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i103",
+      "type": "image",
+      "value": "/mirror-assets/3905085d9dbc9e2d253df020.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i104",
+      "type": "image",
+      "value": "/mirror-assets/a72d693a0a67cdbffe8054fb.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i105",
+      "type": "image",
+      "value": "/mirror-assets/de9a19980e9c3ce076f58175.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i106",
+      "type": "image",
+      "value": "/mirror-assets/a150fa84d205dbf6cc745033.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i107",
+      "type": "image",
+      "value": "/mirror-assets/e9444973e6a29b6f8c0edb35.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i108",
+      "type": "image",
+      "value": "/mirror-assets/0028e08b891114c21c072879.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i109",
+      "type": "image",
+      "value": "/mirror-assets/20be86e5396ac57c8d9a9ab2.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "l110",
+      "type": "link",
+      "value": "https://wa.me/79177542323",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l111",
+      "type": "link",
+      "value": "https://t.me/Ladyzenko",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l112",
+      "type": "link",
+      "value": "https://vk.com/app5898182_-77886543#s=2454637",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l113",
+      "type": "link",
+      "value": "https://wa.me/79177542323",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l114",
+      "type": "link",
+      "value": "https://t.me/Ladyzenko",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l115",
+      "type": "link",
+      "value": "https://vk.com/app5898182_-77886543#s=2454637",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l116",
+      "type": "link",
+      "value": "/statii",
+      "label": "Обо мне"
+    },
+    {
+      "id": "l117",
+      "type": "link",
+      "value": "/foto",
+      "label": "Обо мне"
+    },
+    {
+      "id": "l118",
+      "type": "link",
+      "value": "/video",
+      "label": "Обо мне"
+    },
+    {
+      "id": "l119",
+      "type": "link",
+      "value": "/shkolaotcov",
+      "label": "Обо мне"
+    },
+    {
+      "id": "l120",
+      "type": "link",
+      "value": "/diplom",
+      "label": "Обо мне"
+    },
+    {
+      "id": "l121",
+      "type": "link",
+      "value": "/obo_mne",
+      "label": "Обо мне"
+    },
+    {
+      "id": "l122",
+      "type": "link",
+      "value": "http://wa.me/79177542323",
+      "label": "Запись на консультацию"
+    },
+    {
+      "id": "l123",
+      "type": "link",
+      "value": "https://rutube.ru/video/private/943d551a4a51a75bbe8a00851c31ecbf/?p=ekZRQB3EONbY0nm1SuqZvQ",
+      "label": "Любовь со стажем и романтика"
+    },
+    {
+      "id": "l124",
+      "type": "link",
+      "value": "/lectures",
+      "label": "Купить лекцию"
+    },
+    {
+      "id": "l125",
+      "type": "link",
+      "value": "/lectures",
+      "label": "Купить лекцию"
+    },
+    {
+      "id": "l126",
+      "type": "link",
+      "value": "/lectures",
+      "label": "Купить лекцию"
+    },
+    {
+      "id": "l127",
+      "type": "link",
+      "value": "https://wa.me/79177542323",
+      "label": "WhatsApp"
+    },
+    {
+      "id": "l128",
+      "type": "link",
+      "value": "mailto:ladyzenko@mail.ru",
+      "label": "Email"
+    },
+    {
+      "id": "l129",
+      "type": "link",
+      "value": "https://vk.com/app5898182_-77886543#s=2454637",
+      "label": "Написать в ВК"
+    },
+    {
+      "id": "l130",
+      "type": "link",
+      "value": "https://t.me/psy_ladyzenko",
+      "label": "Канал в Телеграм"
+    },
+    {
+      "id": "l131",
+      "type": "link",
+      "value": "https://vk.com/mamotime",
+      "label": "Группа в ВК"
+    },
+    {
+      "id": "l132",
+      "type": "link",
+      "value": "https://tilda.cc/",
+      "label": "Made on Tilda"
+    }
+  ]
+}

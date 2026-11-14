@@ -25,6 +25,10 @@ export function config(): Config {
   const file = path.join(stateDir(), 'config.json');
   return fs.existsSync(file) ? { ...defaults, ...JSON.parse(fs.readFileSync(file, 'utf8')) } : defaults;
 }
+export function trustedOrigin(origin: string | null) {
+  const current=config().origin;
+  return origin===current || (['https://new.ladyzenko.ru','https://ladyzenko.ru','https://www.ladyzenko.ru'].includes(current) && ['https://new.ladyzenko.ru','https://ladyzenko.ru','https://www.ladyzenko.ru'].includes(origin||''));
+}
 let database: DatabaseSync | undefined;
 export function db() {
   if (!database) {

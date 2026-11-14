@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useState, type FormEvent } from 'react';
 import type { adminState } from '@/lib/admin';
+import { ContentAdmin } from './content-admin';
 type State = ReturnType<typeof adminState>;
 type Fields = State['profile'] & { productionShopId: string; adminNotes: string; legalApproved: boolean };
 function fields(s: State): Fields { return { ...s.profile, productionShopId: s.productionShopId, adminNotes: s.adminNotes, legalApproved: false }; }
@@ -35,13 +36,14 @@ export function AdminPanel({ initial }: { initial: State | null }) {
     catch (e) { setError(e instanceof Error ? e.message : 'Не удалось изменить пароль.'); }
     finally { setBusy(false); }
   }
-  if (!state || !form) return <><Link href="/">← На сайт</Link><h1>Управление сайтом</h1><p>Реквизиты продавца, документы и готовность оплаты.</p>
+  if (!state || !form) return <><a href="/">← На сайт</a><h1>Управление сайтом</h1><p>Реквизиты продавца, документы и готовность оплаты.</p>
     <form className="commerce-form admin-login" onSubmit={signIn}><label>Пароль администратора<input name="password" type="password" autoComplete="current-password" required maxLength={256} disabled={busy} /></label>
       {error && <p className="commerce-error" role="alert">{error}</p>}<button className="commerce-button" disabled={busy}>{busy ? 'Входим…' : 'Войти'}</button></form></>;
   const change = (key: keyof Fields, value: string | boolean) => { setForm({ ...form, [key]: value, ...(key !== 'legalApproved' ? { legalApproved: false } : {}) }); setMessage(''); };
   const input = (key: keyof Fields, title: string, hint?: string, maxLength = 254) => <label>{title}<input value={String(form[key])} onChange={e => change(key, e.target.value)} maxLength={maxLength} disabled={busy} />{hint && <span className="admin-hint">{hint}</span>}</label>;
-  return <><div className="admin-heading"><Link href="/">← На сайт</Link><button type="button" className="admin-link-button" disabled={busy} onClick={async () => { setBusy(true); setError(''); try { await request('logout', {}); window.location.reload(); } catch (e) { setError(e instanceof Error ? e.message : 'Не удалось выйти.'); setBusy(false); } }}>Выйти</button></div>
-    <h1>Оплата и документы</h1><p>Заполните реквизиты, проверьте документы и завершите пункты подготовки.</p>
+  return <><div className="admin-heading"><a href="/">← На сайт</a><button type="button" className="admin-link-button" disabled={busy} onClick={async () => { setBusy(true); setError(''); try { await request('logout', {}); window.location.reload(); } catch (e) { setError(e instanceof Error ? e.message : 'Не удалось выйти.'); setBusy(false); } }}>Выйти</button></div>
+    <h1>Управление сайтом</h1><p><a href="#content">Страницы и контент</a> · <a href="#readiness">Оплата и документы</a></p>
+    <ContentAdmin />
     <section className="admin-section" aria-labelledby="readiness"><h2 id="readiness">Что осталось до запуска</h2>
       <p className="commerce-notice">{state.payment.enabled ? (state.payment.mode === 'test' ? 'Включён тестовый режим.' : state.payment.ready ? 'Рабочая оплата включена.' : 'Оплата заблокирована проверкой готовности.') : 'Приём платежей выключен.'} Сохранение этой формы не включает оплату.</p>
       {state.gaps.length ? <><p>Недостающие сведения продавца:</p><ul>{state.gaps.map(gap => <li key={gap}><a href="#seller-fields">{gap}</a></li>)}</ul></> : <p>Реквизиты заполнены. Их достоверность проверяет владелец.</p>}

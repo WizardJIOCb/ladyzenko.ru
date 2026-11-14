@@ -1,0 +1,308 @@
+{
+  "slug": "odegda",
+  "path": "/odegda",
+  "title": "Про Нуриева",
+  "sourceStatus": "saved-snapshot: 403 Client Error: Forbidden for url: https://ladyzenko.ru/odegda",
+  "blocks": [
+    {
+      "id": "t0",
+      "type": "text",
+      "value": "Подробности",
+      "label": "div"
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "value": "ТОТЕМ",
+      "label": "div"
+    },
+    {
+      "id": "t2",
+      "type": "text",
+      "value": "Видео",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t3",
+      "type": "text",
+      "value": "Галерея",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t4",
+      "type": "text",
+      "value": "Школа",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t5",
+      "type": "text",
+      "value": "Контакты",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t6",
+      "type": "text",
+      "value": "Факты",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t7",
+      "type": "text",
+      "value": "Биография",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t8",
+      "type": "text",
+      "value": "Рудольф Нуриев",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t9",
+      "type": "text",
+      "value": "Главная",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t10",
+      "type": "text",
+      "value": "/",
+      "label": "div"
+    },
+    {
+      "id": "t11",
+      "type": "text",
+      "value": "Галерея",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t12",
+      "type": "text",
+      "value": "8.3",
+      "label": "div"
+    },
+    {
+      "id": "t13",
+      "type": "text",
+      "value": "Тело — ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t14",
+      "type": "text",
+      "value": "дом души...",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t15",
+      "type": "text",
+      "value": "Танцевал (каждый день), ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t16",
+      "type": "text",
+      "value": "дирижировал и режиссировал (брал на себя ответственность), ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t17",
+      "type": "text",
+      "value": "коллекционировал (сохранял искусство в артефактах). ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t18",
+      "type": "text",
+      "value": "Всё это вызывает уважение.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t19",
+      "type": "text",
+      "value": "Для нового покупателя скидка 35%",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t20",
+      "type": "text",
+      "value": "+7(917)4444444",
+      "label": "div"
+    },
+    {
+      "id": "t21",
+      "type": "text",
+      "value": "Контакты",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t22",
+      "type": "text",
+      "value": "Акции",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t23",
+      "type": "text",
+      "value": "О магазине",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t24",
+      "type": "text",
+      "value": "Каталог",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t25",
+      "type": "text",
+      "value": "Ниже",
+      "label": "div"
+    },
+    {
+      "id": "t26",
+      "type": "text",
+      "value": "Made on ",
+      "label": "div"
+    },
+    {
+      "id": "t27",
+      "type": "text",
+      "value": "Tilda",
+      "label": "div"
+    },
+    {
+      "id": "i28",
+      "type": "image",
+      "value": "/mirror-assets/f3e38fc21ccbce788b408dc7.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i29",
+      "type": "image",
+      "value": "/mirror-assets/f3e38fc21ccbce788b408dc7.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i30",
+      "type": "image",
+      "value": "/mirror-assets/f3e38fc21ccbce788b408dc7.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i31",
+      "type": "image",
+      "value": "/mirror-assets/63e888b992178a21852526ef.svg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i32",
+      "type": "image",
+      "value": "/mirror-assets/0b1abb63f8e124513fe5be82.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i33",
+      "type": "image",
+      "value": "/mirror-assets/0ce6307ab2dc85defbf18680.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i34",
+      "type": "image",
+      "value": "/mirror-assets/ae41c2374d8c7e4602344370.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i35",
+      "type": "image",
+      "value": "/mirror-assets/d1ecd6f9331af590eb3e4899.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i36",
+      "type": "image",
+      "value": "/mirror-assets/e6c5d5c9f033a71a99058a97.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i37",
+      "type": "image",
+      "value": "/mirror-assets/67120de802b7942aa1222319.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i38",
+      "type": "image",
+      "value": "/mirror-assets/fb459ac4e782ab8ff0ab81a4.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i39",
+      "type": "image",
+      "value": "/mirror-assets/1ad2aefb2ded45e4bcc4c08f.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i40",
+      "type": "image",
+      "value": "/mirror-assets/fa8c556c4e14de437486f0a2.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i41",
+      "type": "image",
+      "value": "/mirror-assets/3f68f2b687e948ea37aea64e.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i42",
+      "type": "image",
+      "value": "/mirror-assets/cbbf223c3cfbe01126156768.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i43",
+      "type": "image",
+      "value": "/mirror-assets/111e686b14332619be51dee8.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i44",
+      "type": "image",
+      "value": "/mirror-assets/0432f994f79ddb78e879f899.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i45",
+      "type": "image",
+      "value": "/mirror-assets/0e7aefb58b08f3795c1f4570.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i46",
+      "type": "image",
+      "value": "/mirror-assets/2ea469b9e678f0197757b964.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i47",
+      "type": "image",
+      "value": "/mirror-assets/fae198d15b71fe815a9f5fd7.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i48",
+      "type": "image",
+      "value": "/mirror-assets/20be86e5396ac57c8d9a9ab2.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "l49",
+      "type": "link",
+      "value": "https://tilda.cc/",
+      "label": "Made on Tilda"
+    }
+  ]
+}

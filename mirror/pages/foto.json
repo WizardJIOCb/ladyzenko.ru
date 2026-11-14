@@ -1,0 +1,182 @@
+{
+  "slug": "foto",
+  "path": "/foto",
+  "title": "Фото-галерея",
+  "sourceStatus": "saved-snapshot: 403 Client Error: Forbidden for url: https://ladyzenko.ru/foto",
+  "blocks": [
+    {
+      "id": "t0",
+      "type": "text",
+      "value": "Людмила Ладыженко",
+      "label": "strong"
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "value": "\nК содержанию\n",
+      "label": "a"
+    },
+    {
+      "id": "t2",
+      "type": "text",
+      "value": "Фото-галерея",
+      "label": "div"
+    },
+    {
+      "id": "t3",
+      "type": "text",
+      "value": "На фото не только я, но и то, что меня вдохновляет, окрыляет и наполняет ресурсом",
+      "label": "span"
+    },
+    {
+      "id": "t4",
+      "type": "text",
+      "value": "На главную",
+      "label": "span"
+    },
+    {
+      "id": "t5",
+      "type": "text",
+      "value": "Made on ",
+      "label": "div"
+    },
+    {
+      "id": "t6",
+      "type": "text",
+      "value": "Tilda",
+      "label": "div"
+    },
+    {
+      "id": "i7",
+      "type": "image",
+      "value": "/mirror-assets/d6fbe2a18d5f86d07bf0d315.jpeg",
+      "label": "Photo by Jacob"
+    },
+    {
+      "id": "i8",
+      "type": "image",
+      "value": "/mirror-assets/65e654331471be76e9b87600.jpg",
+      "label": "Photo by Leio"
+    },
+    {
+      "id": "i9",
+      "type": "image",
+      "value": "/mirror-assets/af0e92e0e3e08e38d8cfb054.jpg",
+      "label": "Photo by Jacob"
+    },
+    {
+      "id": "i10",
+      "type": "image",
+      "value": "/mirror-assets/912191eb68b3a58b89729272.jpg",
+      "label": "Photo by Marion"
+    },
+    {
+      "id": "i11",
+      "type": "image",
+      "value": "/mirror-assets/8d3dbc38f5de67759436ccb5.jpg",
+      "label": "Photo by Jacob"
+    },
+    {
+      "id": "i12",
+      "type": "image",
+      "value": "/mirror-assets/3099368e2c3466dd907d1fa1.jpg",
+      "label": "Photo by Shifaaz"
+    },
+    {
+      "id": "i13",
+      "type": "image",
+      "value": "/mirror-assets/738f88c42553f4fd1847a998.jpg",
+      "label": "Photo by Mike"
+    },
+    {
+      "id": "i14",
+      "type": "image",
+      "value": "/mirror-assets/270758c6c113c037aac5ef97.jpg",
+      "label": "Photo by Jason"
+    },
+    {
+      "id": "i15",
+      "type": "image",
+      "value": "/mirror-assets/f92dbcff1f0267945cc24226.jpg",
+      "label": "Photo by Sven"
+    },
+    {
+      "id": "i16",
+      "type": "image",
+      "value": "/mirror-assets/89f181d650c49e96cb44f071.jpeg",
+      "label": "Photo by Ed"
+    },
+    {
+      "id": "i17",
+      "type": "image",
+      "value": "/mirror-assets/f425cc9d405bd90a9b4d6c43.jpg",
+      "label": "Photo by David"
+    },
+    {
+      "id": "i18",
+      "type": "image",
+      "value": "/mirror-assets/92ce6d3cfca2baf72c34c298.jpeg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i19",
+      "type": "image",
+      "value": "/mirror-assets/54fb46f2aec717fde5e9d219.jpg",
+      "label": "Photo by Hal"
+    },
+    {
+      "id": "i20",
+      "type": "image",
+      "value": "/mirror-assets/47a6455194970b660c7218c4.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i21",
+      "type": "image",
+      "value": "/mirror-assets/fe758ab24a95478e3e7bfdc6.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i22",
+      "type": "image",
+      "value": "/mirror-assets/20be86e5396ac57c8d9a9ab2.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "l23",
+      "type": "link",
+      "value": "/new#vverh",
+      "label": "К содержанию"
+    },
+    {
+      "id": "l24",
+      "type": "link",
+      "value": "https://wa.me/79177542323",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l25",
+      "type": "link",
+      "value": "https://t.me/Ladyzenko",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l26",
+      "type": "link",
+      "value": "https://vk.com/app5898182_-77886543#s=2454637",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l27",
+      "type": "link",
+      "value": "/new",
+      "label": "На главную"
+    },
+    {
+      "id": "l28",
+      "type": "link",
+      "value": "https://tilda.cc/",
+      "label": "Made on Tilda"
+    }
+  ]
+}

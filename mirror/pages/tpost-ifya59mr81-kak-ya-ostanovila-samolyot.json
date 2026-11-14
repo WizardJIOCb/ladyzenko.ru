@@ -1,0 +1,134 @@
+{
+  "slug": "tpost-ifya59mr81-kak-ya-ostanovila-samolyot",
+  "path": "/tpost/ifya59mr81-kak-ya-ostanovila-samolyot",
+  "title": "ВНУТРЕННЯЯ точка опоры",
+  "sourceStatus": "fresh",
+  "blocks": [
+    {
+      "id": "t0",
+      "type": "text",
+      "value": "\n                                                    Общее\n                                            ",
+      "label": "div"
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "value": "Как я остановила самолёт",
+      "label": "h1"
+    },
+    {
+      "id": "t2",
+      "type": "text",
+      "value": "2026-10-03 20:56",
+      "label": "span"
+    },
+    {
+      "id": "t3",
+      "type": "text",
+      "value": "Самоисследование",
+      "label": "span"
+    },
+    {
+      "id": "t4",
+      "type": "text",
+      "value": "Утро доброе всем :)",
+      "label": "div"
+    },
+    {
+      "id": "t5",
+      "type": "text",
+      "value": "Истории моей жизни.",
+      "label": "div"
+    },
+    {
+      "id": "t6",
+      "type": "text",
+      "value": "Есть в моей биографии даже факт остановки самолёта с уже запущенными двигателями! ",
+      "label": "div"
+    },
+    {
+      "id": "t7",
+      "type": "text",
+      "value": "Ну, это тоже о том, что люди в аэропорту среагировали на мою ВНУТРЕННЮЮ точку опоры! ",
+      "label": "div"
+    },
+    {
+      "id": "t8",
+      "type": "text",
+      "value": "Правда, и аэропорт маленький и самолёт АН-24, и все же, все же... Просто я провожала на самолёт доктора из клиники Л.Рошаля и мы, зарегистрировав билет, заговорились в машине. Встрепенулись только, когда услышали шум запущенных двигателей!... ",
+      "label": "div"
+    },
+    {
+      "id": "t9",
+      "type": "text",
+      "value": "И, конечно, по инструкции НИКОГДА нельзя останавливать такой самолёт на взлетной полосе! ",
+      "label": "div"
+    },
+    {
+      "id": "t10",
+      "type": "text",
+      "value": "Но, видимо я так убедительно- устойчиво просила, что случилось невозможное.",
+      "label": "div"
+    },
+    {
+      "id": "t11",
+      "type": "text",
+      "value": "Теперь я уверена на 200%, что такую устойчивость и живость одновременно нам даёт воспитание и родители.",
+      "label": "div"
+    },
+    {
+      "id": "t12",
+      "type": "text",
+      "value": "Made on ",
+      "label": "div"
+    },
+    {
+      "id": "t13",
+      "type": "text",
+      "value": "Tilda",
+      "label": "div"
+    },
+    {
+      "id": "i14",
+      "type": "image",
+      "value": "https://mc.yandex.ru/watch/106094504",
+      "label": "Изображение"
+    },
+    {
+      "id": "i15",
+      "type": "image",
+      "value": "/mirror-assets/b0b0a5191dc9cab7136a366d.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i16",
+      "type": "image",
+      "value": "/mirror-assets/1a78ca72909f08345ddf777d.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i17",
+      "type": "image",
+      "value": "/mirror-assets/20be86e5396ac57c8d9a9ab2.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "l18",
+      "type": "link",
+      "value": "",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l19",
+      "type": "link",
+      "value": "#!/tfeeds/389330281011/c/Самоисследование",
+      "label": "Самоисследование"
+    },
+    {
+      "id": "l20",
+      "type": "link",
+      "value": "https://tilda.cc/",
+      "label": "Made on Tilda"
+    }
+  ]
+}

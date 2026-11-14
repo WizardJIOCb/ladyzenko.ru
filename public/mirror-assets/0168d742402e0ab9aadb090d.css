@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'TildaSans';
+  font-style: normal;
+  font-weight: 250 1000;
+  src: url("/mirror-assets/ab6ccb2aa690009448410c47.woff2") format('woff2-variations'),
+       url("/mirror-assets/dbc3f6884e4442fe69d3e7c8.woff") format('woff-variations');     
+}
+@font-face {
+  font-family: 'TildaSans';
+  font-style: normal;
+  font-weight: 300;
+  src: url("/mirror-assets/06d2f1a86a461a935530087d.eot");
+  src: url("/mirror-assets/1bd21f92388f257706b26002.eot") format('embedded-opentype'),
+       url("/mirror-assets/ab6ccb2aa690009448410c47.woff2") format('woff2-variations'),
+       url("/mirror-assets/dbc3f6884e4442fe69d3e7c8.woff") format('woff-variations'),
+       url("/mirror-assets/664ce4f2e1b270ff7f2256ca.woff2") format('woff2'),
+       url("/mirror-assets/584093df11caabbd5519dcd2.woff") format('woff');
+}
+@font-face {
+  font-family: 'TildaSans';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/mirror-assets/d60787e6064de994b79a2f35.eot");
+  src: url("/mirror-assets/c723d34eb2bbca3c98f0afca.eot") format('embedded-opentype'),
+       url("/mirror-assets/ab6ccb2aa690009448410c47.woff2") format('woff2-variations'),
+       url("/mirror-assets/dbc3f6884e4442fe69d3e7c8.woff") format('woff-variations'),  
+       url("/mirror-assets/424266a1d308fedcbd5cd5d7.woff2") format('woff2'),
+       url("/mirror-assets/c34831ee9adba501a4dc28f5.woff") format('woff');
+}
+@font-face {
+  font-family: 'TildaSans';
+  font-style: normal;
+  font-weight: 500;
+  src: url("/mirror-assets/2332b57bbe942caa31192c0f.eot");
+  src: url("/mirror-assets/71d6516ae196d2d6b6c7ea32.eot") format('embedded-opentype'),
+       url("/mirror-assets/ab6ccb2aa690009448410c47.woff2") format('woff2-variations'),
+       url("/mirror-assets/dbc3f6884e4442fe69d3e7c8.woff") format('woff-variations'),  
+       url("/mirror-assets/eb9708cf29392fe27c5dd261.woff2") format('woff2'),
+       url("/mirror-assets/1c7d7dcc2a5eed96e46854a6.woff") format('woff');
+}
+@font-face {
+  font-family: 'TildaSans';
+  font-style: normal;
+  font-weight: 600;
+  src: url("/mirror-assets/42074abd5f48fd730ec3f4cd.eot");
+  src: url("/mirror-assets/9bd69af8db381ca5e256b02a.eot") format('embedded-opentype'),
+       url("/mirror-assets/ab6ccb2aa690009448410c47.woff2") format('woff2-variations'),
+       url("/mirror-assets/dbc3f6884e4442fe69d3e7c8.woff") format('woff-variations'),  
+       url("/mirror-assets/d7fce76ceb1226ee83b37243.woff2") format('woff2'),
+       url("/mirror-assets/d1c0d52b781cd3f737a8e31b.woff") format('woff');
+}
+@font-face {
+  font-family: 'TildaSans';
+  font-style: normal;
+  font-weight: 700;
+  src: url("/mirror-assets/c697dd716256c4af4a34c2e4.eot");
+  src: url("/mirror-assets/489477af008a1bddf6ed44a9.eot") format('embedded-opentype'),
+       url("/mirror-assets/ab6ccb2aa690009448410c47.woff2") format('woff2-variations'),
+       url("/mirror-assets/dbc3f6884e4442fe69d3e7c8.woff") format('woff-variations'),  
+       url("/mirror-assets/08d3e49e08491408a9bdfda9.woff2") format('woff2'),
+       url("/mirror-assets/16d2905aad4737631fb26be7.woff") format('woff');
+}
+@font-face {
+  font-family: 'TildaSans';
+  font-style: normal;
+  font-weight: 800;
+  src: url("/mirror-assets/1b0fa7f168e7652671119c95.eot");
+  src: url("/mirror-assets/3a02321179d16909a8b2426b.eot") format('embedded-opentype'),
+       url("/mirror-assets/ab6ccb2aa690009448410c47.woff2") format('woff2-variations'),
+       url("/mirror-assets/dbc3f6884e4442fe69d3e7c8.woff") format('woff-variations'),  
+       url("/mirror-assets/3fa3b5c60b1b7898eda63e6e.woff2") format('woff2'),
+       url("/mirror-assets/040275300ec86f924690a286.woff") format('woff');
+}
+@font-face {
+  font-family: 'TildaSans';
+  font-style: normal;
+  font-weight: 900;
+  src: url("/mirror-assets/25b40743cc37f0985626978a.eot");
+  src: url("/mirror-assets/8df3a2d8deeacf3bfd929b16.eot") format('embedded-opentype'),
+       url("/mirror-assets/ab6ccb2aa690009448410c47.woff2") format('woff2-variations'),
+       url("/mirror-assets/dbc3f6884e4442fe69d3e7c8.woff") format('woff-variations'),  
+       url("/mirror-assets/22e9c5fad30abb369ffc9721.woff2") format('woff2'),
+       url("/mirror-assets/8acdcf1c124c0a8faaac8412.woff") format('woff');
+}

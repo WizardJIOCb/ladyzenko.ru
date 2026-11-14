@@ -1,0 +1,110 @@
+{
+  "slug": "para1html",
+  "path": "/para1html",
+  "title": "КУПИТЬ лекцию - Пара -зачем?",
+  "sourceStatus": "saved-snapshot: 403 Client Error: Forbidden for url: https://ladyzenko.ru/para1html",
+  "blocks": [
+    {
+      "id": "t0",
+      "type": "text",
+      "value": "Людмила Ладыженко",
+      "label": "strong"
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "value": "\nК содержанию\n",
+      "label": "a"
+    },
+    {
+      "id": "t2",
+      "type": "text",
+      "value": "О",
+      "label": "a"
+    },
+    {
+      "id": "t3",
+      "type": "text",
+      "value": "трезки из полной лекции ",
+      "label": "span"
+    },
+    {
+      "id": "t4",
+      "type": "text",
+      "value": "\"Пара - зачем?\"",
+      "label": "span"
+    },
+    {
+      "id": "t5",
+      "type": "text",
+      "value": "\nСонастроенность в паре: видеть не только внешнее и результаты трудов. Отражать друг друга в плюс и вслух, любоваться. Видеть друг друга в объëме: заботу, игривость, реалистичность.\n",
+      "label": "div"
+    },
+    {
+      "id": "t6",
+      "type": "text",
+      "value": "Купить лекцию про пару",
+      "label": "span"
+    },
+    {
+      "id": "t7",
+      "type": "text",
+      "value": "Made on ",
+      "label": "div"
+    },
+    {
+      "id": "t8",
+      "type": "text",
+      "value": "Tilda",
+      "label": "div"
+    },
+    {
+      "id": "i9",
+      "type": "image",
+      "value": "/mirror-assets/20be86e5396ac57c8d9a9ab2.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "l10",
+      "type": "link",
+      "value": "/new#vverh",
+      "label": "К содержанию"
+    },
+    {
+      "id": "l11",
+      "type": "link",
+      "value": "https://wa.me/79177542323",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l12",
+      "type": "link",
+      "value": "https://t.me/Ladyzenko",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l13",
+      "type": "link",
+      "value": "https://vk.com/app5898182_-77886543#s=2454637",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l14",
+      "type": "link",
+      "value": "https://rutube.ru/video/private/943d551a4a51a75bbe8a00851c31ecbf/?p=ekZRQB3EONbY0nm1SuqZvQ",
+      "label": "О"
+    },
+    {
+      "id": "l15",
+      "type": "link",
+      "value": "https://api.whatsapp.com/send/?phone=79177542323&text=Здравствуйте, хочу приобрести \"Пара - зачем?\"&type=phone_number&app_absent=0",
+      "label": "Купить лекцию про пару"
+    },
+    {
+      "id": "l16",
+      "type": "link",
+      "value": "https://tilda.cc/",
+      "label": "Made on Tilda"
+    }
+  ]
+}

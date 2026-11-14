@@ -1,0 +1,34 @@
+'use client';
+import { useEffect,useState } from 'react';
+import type { contentPage,MirrorPage } from '@/lib/mirror';
+type Page=ReturnType<typeof contentPage>;
+export function ContentAdmin(){
+  const [pages,setPages]=useState<Omit<MirrorPage,'blocks'>[]>([]);
+  const [inbox,setInbox]=useState<{id:string;email:string;page:string;created:string}[]>([]);
+  const [page,setPage]=useState<Page|null>(null);
+  const [filter,setFilter]=useState('');const [search,setSearch]=useState('');
+  const [kind,setKind]=useState('text');const [busy,setBusy]=useState(false);const [dirty,setDirty]=useState(false);
+  const [message,setMessage]=useState('');const [error,setError]=useState('');
+  async function read(slug=''){
+    const r=await fetch('/api/admin/content'+(slug?'?slug='+encodeURIComponent(slug):''),{cache:'no-store'});const d=await r.json();
+    if(!r.ok)throw new Error(d.error||'Не удалось открыть контент.');return d;
+  }
+  useEffect(()=>{read().then(d=>{setPages(d.pages);setInbox(d.submissions);}).catch(e=>setError(e.message));},[]);
+  useEffect(()=>{const handler=(e:BeforeUnloadEvent)=>{if(dirty){e.preventDefault();}};window.addEventListener('beforeunload',handler);return()=>window.removeEventListener('beforeunload',handler);},[dirty]);
+  async function open(slug:string){if(dirty && !window.confirm('Есть несохранённые изменения. Перейти на другую страницу?'))return;setBusy(true);setError('');setMessage('');try{setPage(await read(slug));setSearch('');setDirty(false);}catch(e){setError((e as Error).message);}finally{setBusy(false);}}
+  async function save(operation:string){if(!page)return;setBusy(true);setError('');setMessage('');try{
+    const r=await fetch('/api/admin/content',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...page,operation})});const d=await r.json();if(!r.ok)throw new Error(d.error||'Не удалось сохранить.');setPage(d);setDirty(false);setMessage(operation==='publish'?'Опубликовано. Сайт обновлён.':operation==='restore'?'Предыдущая версия восстановлена.':operation==='discard'?'Черновик удалён.':'Черновик сохранён. Публичная версия не изменилась.');
+  }catch(e){setError((e as Error).message);}finally{setBusy(false);}}
+  const change=(id:string,value:string)=>{if(page){setPage({...page,values:{...page.values,[id]:value}});setDirty(true);setMessage('');}};
+  async function upload(id:string,file:File|undefined){if(!file)return;setBusy(true);setError('');try{if(file.size>8*1024*1024)throw new Error('Изображение больше 8 МБ.');const r=await fetch('/api/admin/content-image',{method:'POST',headers:{'Content-Type':file.type||'application/octet-stream'},body:file});const d=await r.json();if(!r.ok)throw new Error(d.error||'Не удалось загрузить изображение.');change(id,d.url);}catch(e){setError((e as Error).message);}finally{setBusy(false);}}
+  return <section className="admin-section content-admin" id="content"><h2>Страницы и контент</h2><p>Оригинальная вёрстка сайта сохранена. Здесь можно менять тексты, изображения, ссылки и заголовки. Сначала сохраните черновик и проверьте его, затем опубликуйте. Данные сохраняются отдельно от релизов сайта.</p>
+    <div className="content-admin-layout"><aside><label>Найти страницу<input value={filter} onChange={e=>setFilter(e.target.value)} placeholder="Название или адрес"/></label><p>{pages.length} страниц</p><div className="content-page-list">{pages.filter(p=>(p.title+' '+p.path).toLowerCase().includes(filter.toLowerCase())).map(p=><button type="button" key={p.slug} className={page?.slug===p.slug?'is-current':''} disabled={busy} onClick={()=>open(p.slug)}><strong>{p.title}</strong><small>{p.path}</small></button>)}</div></aside>
+    <div>{page?<><h3>{page.path}</h3><p><a href={page.path} target="_blank" rel="noreferrer">Открыть сайт ↗</a> · <a href={page.path+'?preview=1'} target="_blank" rel="noreferrer">Просмотреть сохранённый черновик ↗</a></p><p className="admin-hint">{page.published?'Опубликовано: '+new Date(page.published).toLocaleString('ru-RU'):'Исходная версия сайта'}{page.draft?' · Есть сохранённый черновик':''}</p>
+      <label>Заголовок страницы<input maxLength={500} value={page.title} disabled={busy} onChange={e=>{setPage({...page,title:e.target.value});setDirty(true);}}/></label><label>Описание для поиска<textarea maxLength={2000} rows={2} value={page.description} disabled={busy} onChange={e=>{setPage({...page,description:e.target.value});setDirty(true);}}/></label>
+      <div className="content-toolbar"><label>Показать<select value={kind} onChange={e=>setKind(e.target.value)}><option value="text">Тексты</option><option value="image">Изображения</option><option value="link">Ссылки</option></select></label><label>Поиск по блокам<input value={search} onChange={e=>setSearch(e.target.value)}/></label></div>
+      <div className="content-block-list">{page.blocks.filter(b=>b.type===kind && ((page.values[b.id]??b.value)+' '+b.label).toLowerCase().includes(search.toLowerCase())).map(b=><label key={b.id}><span className="admin-hint">{b.label} · {b.id}</span>{b.type==='text'?<textarea value={page.values[b.id]??b.value} rows={Math.min(12,Math.max(2,Math.ceil((page.values[b.id]??b.value).length/70)))} disabled={busy} onChange={e=>change(b.id,e.target.value)}/>:<><input value={page.values[b.id]??b.value} disabled={busy} onChange={e=>change(b.id,e.target.value)}/>{b.type==='image'&&<input type="file" accept="image/png,image/jpeg,image/gif,image/webp" disabled={busy} aria-label="Загрузить изображение" onChange={e=>upload(b.id,e.target.files?.[0])}/>} {b.type==='image'&&<img src={page.values[b.id]??b.value} alt={b.label} loading="lazy" style={{maxWidth:200,maxHeight:140,objectFit:'contain'}}/>}</>}</label>)}</div>
+      <div className="content-actions"><button type="button" className="commerce-button" disabled={busy} onClick={()=>save('draft')}>Сохранить черновик</button><button type="button" className="commerce-button" disabled={busy} onClick={()=>save('publish')}>Опубликовать</button><button type="button" disabled={busy||!page.draft} onClick={()=>save('discard')}>Отменить черновик</button><button type="button" disabled={busy} onClick={()=>save('restore')}>Вернуть предыдущую версию</button></div>{dirty&&<p>Есть несохранённые изменения.</p>}
+    </>:<p>Выберите страницу слева.</p>}{error&&<p role="alert" className="commerce-error">{error}</p>}{message&&<p role="status">{message}</p>}</div></div>
+    <h3>Заявки с сайта</h3><p>Форма подписки сохраняет адреса здесь. Автоматическая рассылка не подключена.</p>{inbox.length?<ul>{inbox.map(x=><li key={x.id}>{new Date(x.created).toLocaleString('ru-RU')} · {x.email} · {x.page}</li>)}</ul>:<p>Заявок пока нет.</p>}
+  </section>;
+}

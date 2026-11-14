@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { authorized, capability, checkout, CommerceError, config, mediaDelivery, order, publicOrder, reconcile, webhook } from '@/lib/commerce';
+import { authorized, capability, checkout, CommerceError, config, mediaDelivery, order, publicOrder, reconcile, webhook, trustedOrigin } from '@/lib/commerce';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -13,7 +13,7 @@ async function handle(req: NextRequest, ctx: { params: Promise<{parts: string[]}
     const { parts } = await ctx.params;
     const c = config();
     const isWebhook = parts.join('/') === 'webhook';
-    if (req.method === 'POST' && !isWebhook && req.headers.get('origin') !== c.origin) throw new CommerceError(403, 'Обновите страницу сайта.');
+    if (req.method === 'POST' && !isWebhook && !trustedOrigin(req.headers.get('origin'))) throw new CommerceError(403, 'Обновите страницу сайта.');
     let data: Record<string, any> = {};
     if (req.method === 'POST') {
       if (Number(req.headers.get('content-length')) > 16384) throw new CommerceError(413, 'Слишком большой запрос.');

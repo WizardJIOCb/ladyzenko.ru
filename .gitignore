@@ -8,3 +8,4 @@ tsconfig.tsbuildinfo
 .commerce/
 *.sqlite*
 __pycache__/
+.migration-qa/

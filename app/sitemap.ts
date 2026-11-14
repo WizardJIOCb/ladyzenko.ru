@@ -1,44 +1,12 @@
-import type { MetadataRoute } from "next";
-import {
-  getArticlePages,
-  getGalleryPages,
-  getGenericPages,
-  getLecturePages,
-} from "@/lib/content";
-import { siteMeta } from "@/lib/site-copy";
-import { lectureProducts } from "@/lib/products";
-
+import type { MetadataRoute } from 'next';
+import { lectureProducts } from '@/lib/products';
+import { config } from '@/lib/commerce';
+import { mirrorPages } from '@/lib/mirror';
+export const dynamic = 'force-dynamic';
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = [
-    "",
-    "/about",
-    "/services",
-    "/articles",
-    "/lectures",
-    "/school-of-fathers",
-    "/gallery",
-    "/certificates",
-    "/media",
-  ];
-
-  const dynamicPages = [
-    ...getArticlePages(),
-    ...getLecturePages().filter((page) => page.path !== "/school-of-fathers"),
-    ...getGenericPages(),
-    ...getGalleryPages().filter((page) => !["/gallery", "/certificates", "/media"].includes(page.path)),
-  ];
-
+  const origin = config().origin;
   return [
-    ...lectureProducts.map(product => ({ url: `${siteMeta.url}/recordings/${product.id}`, changeFrequency: 'monthly' as const, priority: 0.7 })),
-    ...staticPages.map((page) => ({
-      url: `${siteMeta.url}${page}`,
-      changeFrequency: "weekly" as const,
-      priority: page === "" ? 1 : 0.7,
-    })),
-    ...dynamicPages.map((page) => ({
-      url: `${siteMeta.url}${page.path}`,
-      changeFrequency: "monthly" as const,
-      priority: page.kind === "article" ? 0.8 : 0.7,
-    })),
+    ...mirrorPages().map(p => ({ url: origin + p.path, changeFrequency: 'weekly' as const, priority: p.path === '/' ? 1 : 0.7 })),
+    ...lectureProducts.map(p => ({ url: origin + '/recordings/' + p.id, changeFrequency: 'monthly' as const, priority: 0.7 })),
   ];
 }

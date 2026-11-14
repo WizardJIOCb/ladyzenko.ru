@@ -1,0 +1,980 @@
+{
+  "slug": "diplom",
+  "path": "/diplom",
+  "title": "Дипломы и сертификаты",
+  "sourceStatus": "saved-snapshot: 403 Client Error: Forbidden for url: https://ladyzenko.ru/diplom",
+  "blocks": [
+    {
+      "id": "t0",
+      "type": "text",
+      "value": "Людмила Ладыженко",
+      "label": "strong"
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "value": "\nК содержанию\n",
+      "label": "a"
+    },
+    {
+      "id": "t2",
+      "type": "text",
+      "value": "Дипломы и сертификаты ",
+      "label": "div"
+    },
+    {
+      "id": "t3",
+      "type": "text",
+      "value": "(более 70 документов)",
+      "label": "div"
+    },
+    {
+      "id": "t4",
+      "type": "text",
+      "value": "На главную",
+      "label": "span"
+    },
+    {
+      "id": "t5",
+      "type": "text",
+      "value": "Made on ",
+      "label": "div"
+    },
+    {
+      "id": "t6",
+      "type": "text",
+      "value": "Tilda",
+      "label": "div"
+    },
+    {
+      "id": "i7",
+      "type": "image",
+      "value": "/mirror-assets/b05b3f4f54c6a75a2686ff31.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i8",
+      "type": "image",
+      "value": "/mirror-assets/8615e57c816f2ad89694297d.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i9",
+      "type": "image",
+      "value": "/mirror-assets/4571123832610dd46519b24d.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i10",
+      "type": "image",
+      "value": "/mirror-assets/e5b3ef59f66ecc7c33f5a1e1.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i11",
+      "type": "image",
+      "value": "/mirror-assets/27574b9a32e90f8db2671673.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i12",
+      "type": "image",
+      "value": "/mirror-assets/76d89f65a3a5f027d7193c35.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i13",
+      "type": "image",
+      "value": "/mirror-assets/ac6755e9bc7bb597f82e863f.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i14",
+      "type": "image",
+      "value": "/mirror-assets/9d58cb658e79e68766a2b91f.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i15",
+      "type": "image",
+      "value": "/mirror-assets/45a5dab4ef2474630a3ffa39.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i16",
+      "type": "image",
+      "value": "/mirror-assets/a541ab9b2cbe60b2742ee416.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i17",
+      "type": "image",
+      "value": "/mirror-assets/8fec47630fe0246647d6b270.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i18",
+      "type": "image",
+      "value": "/mirror-assets/1900929fae85795a48120bee.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i19",
+      "type": "image",
+      "value": "/mirror-assets/a544476f4e63ba33ba9eb6d3.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i20",
+      "type": "image",
+      "value": "/mirror-assets/cd72aa3e83502262da0f6da3.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i21",
+      "type": "image",
+      "value": "/mirror-assets/979cf8a764f46789b6321a7f.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i22",
+      "type": "image",
+      "value": "/mirror-assets/a7e07b3b14d4b292797221d7.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i23",
+      "type": "image",
+      "value": "/mirror-assets/5058f85022156aa6f1bde546.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i24",
+      "type": "image",
+      "value": "/mirror-assets/263d5829de014fa221184537.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i25",
+      "type": "image",
+      "value": "/mirror-assets/5ad9f0b6e951ccfb2c117d45.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i26",
+      "type": "image",
+      "value": "/mirror-assets/5336c97b47ef60b982af83cb.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i27",
+      "type": "image",
+      "value": "/mirror-assets/409f24995177dff5b2e29d6c.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i28",
+      "type": "image",
+      "value": "/mirror-assets/1d1ce385f075b7f5aec9c9de.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i29",
+      "type": "image",
+      "value": "/mirror-assets/81215308602a519283e51efb.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i30",
+      "type": "image",
+      "value": "/mirror-assets/e5dd3bf7611856f3ebad18a3.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i31",
+      "type": "image",
+      "value": "/mirror-assets/7e21ff1eeae0e927b2fd8131.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i32",
+      "type": "image",
+      "value": "/mirror-assets/4087c1dd4a758d155f0ade10.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i33",
+      "type": "image",
+      "value": "/mirror-assets/27e01c90756223b67df9e506.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i34",
+      "type": "image",
+      "value": "/mirror-assets/14d65f094bfe09175133b11c.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i35",
+      "type": "image",
+      "value": "/mirror-assets/63c70e2b8c8334ec7d38d724.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i36",
+      "type": "image",
+      "value": "/mirror-assets/2f3b5709b3260ed0d2f56709.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i37",
+      "type": "image",
+      "value": "/mirror-assets/2d4328e72d5781653428bcc1.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i38",
+      "type": "image",
+      "value": "/mirror-assets/f12d6c0dea52ede642caeb9a.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i39",
+      "type": "image",
+      "value": "/mirror-assets/ca6c6e67ca1563daaf7f3845.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i40",
+      "type": "image",
+      "value": "/mirror-assets/5e132817f8a03844e15a9c88.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i41",
+      "type": "image",
+      "value": "/mirror-assets/f9513854a45145901ab94043.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i42",
+      "type": "image",
+      "value": "/mirror-assets/169e131a8bf89c9aec2a97af.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i43",
+      "type": "image",
+      "value": "/mirror-assets/5269e1c987e98e0783c9b647.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i44",
+      "type": "image",
+      "value": "/mirror-assets/81c9afe9355dd554713f906c.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i45",
+      "type": "image",
+      "value": "/mirror-assets/a3ea7448f5b7845e3d94209b.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i46",
+      "type": "image",
+      "value": "/mirror-assets/8a5134a0b0af2ec8badb7fc1.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i47",
+      "type": "image",
+      "value": "/mirror-assets/f8f61d8f0b4ab5ebea9935af.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i48",
+      "type": "image",
+      "value": "/mirror-assets/9e86911764e17ab6205f4d3e.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i49",
+      "type": "image",
+      "value": "/mirror-assets/516e6d2ecd551c24a169eae3.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i50",
+      "type": "image",
+      "value": "/mirror-assets/d2dc2afd13dc293b93cb3b7e.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i51",
+      "type": "image",
+      "value": "/mirror-assets/a7278d1ddfd377966d7e5ac4.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i52",
+      "type": "image",
+      "value": "/mirror-assets/8cc663a3624842342a64978a.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i53",
+      "type": "image",
+      "value": "/mirror-assets/67313b77598b8ad00a631062.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i54",
+      "type": "image",
+      "value": "/mirror-assets/0e26d71ab8dff3f50792a415.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i55",
+      "type": "image",
+      "value": "/mirror-assets/9f9a63d86b64024463f39fff.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i56",
+      "type": "image",
+      "value": "/mirror-assets/32664a04a01dee7d19c181a2.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i57",
+      "type": "image",
+      "value": "/mirror-assets/41415c55cb2984489069dd5b.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i58",
+      "type": "image",
+      "value": "/mirror-assets/7ef467c95144061efa0607d4.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i59",
+      "type": "image",
+      "value": "/mirror-assets/a16809a6203ecf703f3eef42.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i60",
+      "type": "image",
+      "value": "/mirror-assets/e307ddbf492840f93b5a2f7b.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i61",
+      "type": "image",
+      "value": "/mirror-assets/ec06e6934a4cff8d6dd1c6b3.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i62",
+      "type": "image",
+      "value": "/mirror-assets/8f4de648b8f27a2a4da26764.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i63",
+      "type": "image",
+      "value": "/mirror-assets/68c1f252709af38d709680ed.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i64",
+      "type": "image",
+      "value": "/mirror-assets/a5a93870ff0a867cd63e1736.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i65",
+      "type": "image",
+      "value": "/mirror-assets/9e80e96e48856585d077c817.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i66",
+      "type": "image",
+      "value": "/mirror-assets/371fa8e9cc7afe355f67fdf0.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i67",
+      "type": "image",
+      "value": "/mirror-assets/c33362473cbddfc1da03adc3.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i68",
+      "type": "image",
+      "value": "/mirror-assets/808b965bdd9cf5b4f3697023.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i69",
+      "type": "image",
+      "value": "/mirror-assets/eebd2151af43cb655e4e4543.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i70",
+      "type": "image",
+      "value": "/mirror-assets/f2e802e7638c7574d29a1f06.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i71",
+      "type": "image",
+      "value": "/mirror-assets/56224dd25592791173f53f2b.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i72",
+      "type": "image",
+      "value": "/mirror-assets/7a9918af596c8bab8dc23c75.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i73",
+      "type": "image",
+      "value": "/mirror-assets/a46a63d9f08cae542ba58ed4.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i74",
+      "type": "image",
+      "value": "/mirror-assets/74e7ecf81ff4691a05c09aff.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i75",
+      "type": "image",
+      "value": "/mirror-assets/af32d4916216034a0c3c037e.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i76",
+      "type": "image",
+      "value": "/mirror-assets/da1acc9c6f354d950897dda9.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i77",
+      "type": "image",
+      "value": "/mirror-assets/4edca1b629b839781eeb1b33.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i78",
+      "type": "image",
+      "value": "/mirror-assets/997d0732d75b0fa9adef3d92.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i79",
+      "type": "image",
+      "value": "/mirror-assets/4128573e1769aefe82bf3a82.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i80",
+      "type": "image",
+      "value": "/mirror-assets/e23102129fd48292f9c44f10.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i81",
+      "type": "image",
+      "value": "/mirror-assets/b05b3f4f54c6a75a2686ff31.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i82",
+      "type": "image",
+      "value": "/mirror-assets/8615e57c816f2ad89694297d.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i83",
+      "type": "image",
+      "value": "/mirror-assets/4571123832610dd46519b24d.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i84",
+      "type": "image",
+      "value": "/mirror-assets/e5b3ef59f66ecc7c33f5a1e1.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i85",
+      "type": "image",
+      "value": "/mirror-assets/27574b9a32e90f8db2671673.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i86",
+      "type": "image",
+      "value": "/mirror-assets/76d89f65a3a5f027d7193c35.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i87",
+      "type": "image",
+      "value": "/mirror-assets/ac6755e9bc7bb597f82e863f.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i88",
+      "type": "image",
+      "value": "/mirror-assets/9d58cb658e79e68766a2b91f.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i89",
+      "type": "image",
+      "value": "/mirror-assets/45a5dab4ef2474630a3ffa39.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i90",
+      "type": "image",
+      "value": "/mirror-assets/a541ab9b2cbe60b2742ee416.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i91",
+      "type": "image",
+      "value": "/mirror-assets/8fec47630fe0246647d6b270.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i92",
+      "type": "image",
+      "value": "/mirror-assets/1900929fae85795a48120bee.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i93",
+      "type": "image",
+      "value": "/mirror-assets/a544476f4e63ba33ba9eb6d3.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i94",
+      "type": "image",
+      "value": "/mirror-assets/cd72aa3e83502262da0f6da3.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i95",
+      "type": "image",
+      "value": "/mirror-assets/979cf8a764f46789b6321a7f.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i96",
+      "type": "image",
+      "value": "/mirror-assets/a7e07b3b14d4b292797221d7.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i97",
+      "type": "image",
+      "value": "/mirror-assets/5058f85022156aa6f1bde546.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i98",
+      "type": "image",
+      "value": "/mirror-assets/263d5829de014fa221184537.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i99",
+      "type": "image",
+      "value": "/mirror-assets/5ad9f0b6e951ccfb2c117d45.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i100",
+      "type": "image",
+      "value": "/mirror-assets/5336c97b47ef60b982af83cb.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i101",
+      "type": "image",
+      "value": "/mirror-assets/409f24995177dff5b2e29d6c.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i102",
+      "type": "image",
+      "value": "/mirror-assets/1d1ce385f075b7f5aec9c9de.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i103",
+      "type": "image",
+      "value": "/mirror-assets/81215308602a519283e51efb.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i104",
+      "type": "image",
+      "value": "/mirror-assets/e5dd3bf7611856f3ebad18a3.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i105",
+      "type": "image",
+      "value": "/mirror-assets/7e21ff1eeae0e927b2fd8131.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i106",
+      "type": "image",
+      "value": "/mirror-assets/4087c1dd4a758d155f0ade10.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i107",
+      "type": "image",
+      "value": "/mirror-assets/27e01c90756223b67df9e506.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i108",
+      "type": "image",
+      "value": "/mirror-assets/14d65f094bfe09175133b11c.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i109",
+      "type": "image",
+      "value": "/mirror-assets/63c70e2b8c8334ec7d38d724.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i110",
+      "type": "image",
+      "value": "/mirror-assets/2f3b5709b3260ed0d2f56709.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i111",
+      "type": "image",
+      "value": "/mirror-assets/2d4328e72d5781653428bcc1.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i112",
+      "type": "image",
+      "value": "/mirror-assets/f12d6c0dea52ede642caeb9a.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i113",
+      "type": "image",
+      "value": "/mirror-assets/ca6c6e67ca1563daaf7f3845.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i114",
+      "type": "image",
+      "value": "/mirror-assets/5e132817f8a03844e15a9c88.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i115",
+      "type": "image",
+      "value": "/mirror-assets/f9513854a45145901ab94043.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i116",
+      "type": "image",
+      "value": "/mirror-assets/169e131a8bf89c9aec2a97af.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i117",
+      "type": "image",
+      "value": "/mirror-assets/5269e1c987e98e0783c9b647.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i118",
+      "type": "image",
+      "value": "/mirror-assets/81c9afe9355dd554713f906c.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i119",
+      "type": "image",
+      "value": "/mirror-assets/a3ea7448f5b7845e3d94209b.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i120",
+      "type": "image",
+      "value": "/mirror-assets/8a5134a0b0af2ec8badb7fc1.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i121",
+      "type": "image",
+      "value": "/mirror-assets/f8f61d8f0b4ab5ebea9935af.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i122",
+      "type": "image",
+      "value": "/mirror-assets/9e86911764e17ab6205f4d3e.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i123",
+      "type": "image",
+      "value": "/mirror-assets/516e6d2ecd551c24a169eae3.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i124",
+      "type": "image",
+      "value": "/mirror-assets/d2dc2afd13dc293b93cb3b7e.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i125",
+      "type": "image",
+      "value": "/mirror-assets/a7278d1ddfd377966d7e5ac4.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i126",
+      "type": "image",
+      "value": "/mirror-assets/8cc663a3624842342a64978a.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i127",
+      "type": "image",
+      "value": "/mirror-assets/67313b77598b8ad00a631062.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i128",
+      "type": "image",
+      "value": "/mirror-assets/0e26d71ab8dff3f50792a415.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i129",
+      "type": "image",
+      "value": "/mirror-assets/9f9a63d86b64024463f39fff.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i130",
+      "type": "image",
+      "value": "/mirror-assets/32664a04a01dee7d19c181a2.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i131",
+      "type": "image",
+      "value": "/mirror-assets/41415c55cb2984489069dd5b.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i132",
+      "type": "image",
+      "value": "/mirror-assets/7ef467c95144061efa0607d4.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i133",
+      "type": "image",
+      "value": "/mirror-assets/a16809a6203ecf703f3eef42.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i134",
+      "type": "image",
+      "value": "/mirror-assets/e307ddbf492840f93b5a2f7b.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i135",
+      "type": "image",
+      "value": "/mirror-assets/ec06e6934a4cff8d6dd1c6b3.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i136",
+      "type": "image",
+      "value": "/mirror-assets/8f4de648b8f27a2a4da26764.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i137",
+      "type": "image",
+      "value": "/mirror-assets/68c1f252709af38d709680ed.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i138",
+      "type": "image",
+      "value": "/mirror-assets/a5a93870ff0a867cd63e1736.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i139",
+      "type": "image",
+      "value": "/mirror-assets/9e80e96e48856585d077c817.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i140",
+      "type": "image",
+      "value": "/mirror-assets/371fa8e9cc7afe355f67fdf0.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i141",
+      "type": "image",
+      "value": "/mirror-assets/c33362473cbddfc1da03adc3.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i142",
+      "type": "image",
+      "value": "/mirror-assets/808b965bdd9cf5b4f3697023.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i143",
+      "type": "image",
+      "value": "/mirror-assets/eebd2151af43cb655e4e4543.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i144",
+      "type": "image",
+      "value": "/mirror-assets/f2e802e7638c7574d29a1f06.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i145",
+      "type": "image",
+      "value": "/mirror-assets/56224dd25592791173f53f2b.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i146",
+      "type": "image",
+      "value": "/mirror-assets/7a9918af596c8bab8dc23c75.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i147",
+      "type": "image",
+      "value": "/mirror-assets/a46a63d9f08cae542ba58ed4.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i148",
+      "type": "image",
+      "value": "/mirror-assets/74e7ecf81ff4691a05c09aff.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i149",
+      "type": "image",
+      "value": "/mirror-assets/af32d4916216034a0c3c037e.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i150",
+      "type": "image",
+      "value": "/mirror-assets/da1acc9c6f354d950897dda9.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i151",
+      "type": "image",
+      "value": "/mirror-assets/4edca1b629b839781eeb1b33.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i152",
+      "type": "image",
+      "value": "/mirror-assets/997d0732d75b0fa9adef3d92.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i153",
+      "type": "image",
+      "value": "/mirror-assets/4128573e1769aefe82bf3a82.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i154",
+      "type": "image",
+      "value": "/mirror-assets/e23102129fd48292f9c44f10.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i155",
+      "type": "image",
+      "value": "/mirror-assets/20be86e5396ac57c8d9a9ab2.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "l156",
+      "type": "link",
+      "value": "/new#vverh",
+      "label": "К содержанию"
+    },
+    {
+      "id": "l157",
+      "type": "link",
+      "value": "https://wa.me/79177542323",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l158",
+      "type": "link",
+      "value": "https://t.me/Ladyzenko",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l159",
+      "type": "link",
+      "value": "https://vk.com/app5898182_-77886543#s=2454637",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l160",
+      "type": "link",
+      "value": "/new",
+      "label": "На главную"
+    },
+    {
+      "id": "l161",
+      "type": "link",
+      "value": "https://tilda.cc/",
+      "label": "Made on Tilda"
+    }
+  ]
+}

@@ -8,17 +8,17 @@ export const metadata: Metadata = {
 };
 
 const navItems = [
-  { href: "/#about", label: "ОБО МНЕ" },
-  { href: "/#news", label: "НОВОСТИ" },
-  { href: "/#school", label: "ШКОЛА ОТЦОВ" },
-  { href: "/#news", label: "ФОТО" },
-  { href: "/#certificates", label: "ДИПЛОМЫ И СЕРТИФИКАТЫ" },
-  { href: "/#media", label: "ВИДЕО И ПОДКАСТЫ" },
-  { href: "/#services", label: "УСЛУГИ" },
-  { href: "/#ask", label: "ЗАДАТЬ ВОПРОС" },
-  { href: "/#lectures", label: "ЛЕКЦИИ В ЗАПИСИ" },
-  { href: "/#articles", label: "СТАТЬИ И ПУБЛИКАЦИИ" },
-  { href: "/#contacts", label: "КОНТАКТЫ" },
+  { href: "/#rec967078776", label: "ОБО МНЕ" },
+  { href: "/#rec1161379451", label: "НОВОСТИ" },
+  { href: "/#rec1150244521", label: "ШКОЛА ОТЦОВ" },
+  { href: "/#rec967078786", label: "ФОТО" },
+  { href: "/#rec967078801", label: "ДИПЛОМЫ И СЕРТИФИКАТЫ" },
+  { href: "/#rec967078816", label: "ВИДЕО И ПОДКАСТЫ" },
+  { href: "/#konsultacii", label: "УСЛУГИ" },
+  { href: "/#rec1003224706", label: "ЗАДАТЬ ВОПРОС" },
+  { href: "/#rec1043768191", label: "ЛЕКЦИИ В ЗАПИСИ" },
+  { href: "/#rec4078656801", label: "СТАТЬИ И ПУБЛИКАЦИИ" },
+  { href: "/#rec967078901", label: "КОНТАКТЫ" },
 ];
 
 export default function RootLayout({
@@ -36,9 +36,9 @@ export default function RootLayout({
                 <nav className="site-nav t229__list" aria-label="Основная навигация">
                   {navItems.map((item) => (
                     <div className="t229__list_item" key={item.href + item.label}>
-                      <Link className="t-menu__link-item" href={item.href}>
+                      <a className="t-menu__link-item" href={item.href}>
                         {item.label}
-                      </Link>
+                      </a>
                     </div>
                   ))}
                 </nav>

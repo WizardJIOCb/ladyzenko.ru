@@ -1,0 +1,110 @@
+{
+  "slug": "tpost-o6rzhtphx1-pervie-polgoda-zhizni-malisha",
+  "path": "/tpost/o6rzhtphx1-pervie-polgoda-zhizni-malisha",
+  "title": "Младенец",
+  "sourceStatus": "fresh",
+  "blocks": [
+    {
+      "id": "t0",
+      "type": "text",
+      "value": "\n                                                    Общее\n                                            ",
+      "label": "div"
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "value": "Первые полгода жизни малыша",
+      "label": "h1"
+    },
+    {
+      "id": "t2",
+      "type": "text",
+      "value": "2026-10-01 11:13",
+      "label": "span"
+    },
+    {
+      "id": "t3",
+      "type": "text",
+      "value": "Дети, воспитание, развитие",
+      "label": "span"
+    },
+    {
+      "id": "t4",
+      "type": "text",
+      "value": "Когда малыш только появляется на свет, он воспринимает маму как часть самого себя.",
+      "label": "div"
+    },
+    {
+      "id": "t5",
+      "type": "text",
+      "value": "Именно поэтому, в первые пол года, мама всегда должна быть рядом. ",
+      "label": "div"
+    },
+    {
+      "id": "t6",
+      "type": "text",
+      "value": "Задача папы в такой период - обеспечить маме скоростной режим реагирования на ребенка. ",
+      "label": "div"
+    },
+    {
+      "id": "t7",
+      "type": "text",
+      "value": "Это значит: предоставлять маме все условия для её комфортного существования с малышом, давать ей возможность больше отдыхать и максимально заботиться о её спокойствии.",
+      "label": "div"
+    },
+    {
+      "id": "t8",
+      "type": "text",
+      "value": "Made on ",
+      "label": "div"
+    },
+    {
+      "id": "t9",
+      "type": "text",
+      "value": "Tilda",
+      "label": "div"
+    },
+    {
+      "id": "i10",
+      "type": "image",
+      "value": "https://mc.yandex.ru/watch/106094504",
+      "label": "Изображение"
+    },
+    {
+      "id": "i11",
+      "type": "image",
+      "value": "/mirror-assets/8a9c29f3fbfbcdfb94d3cf1c.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i12",
+      "type": "image",
+      "value": "/mirror-assets/e26f5683ef3dc30838c2d906.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i13",
+      "type": "image",
+      "value": "/mirror-assets/20be86e5396ac57c8d9a9ab2.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "l14",
+      "type": "link",
+      "value": "",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l15",
+      "type": "link",
+      "value": "#!/tfeeds/389330281011/c/Дети, воспитание, развитие",
+      "label": "Дети, воспитание, развитие"
+    },
+    {
+      "id": "l16",
+      "type": "link",
+      "value": "https://tilda.cc/",
+      "label": "Made on Tilda"
+    }
+  ]
+}

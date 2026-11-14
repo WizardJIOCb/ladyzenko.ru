@@ -1,0 +1,164 @@
+{
+  "slug": "lekciya_6",
+  "path": "/lekciya_6",
+  "title": "6 лекция курса Школы Отцов",
+  "sourceStatus": "saved-snapshot: 403 Client Error: Forbidden for url: https://ladyzenko.ru/lekciya_6",
+  "blocks": [
+    {
+      "id": "t0",
+      "type": "text",
+      "value": "Людмила Ладыженко",
+      "label": "strong"
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "value": "\nНа главный сайт\n",
+      "label": "a"
+    },
+    {
+      "id": "t2",
+      "type": "text",
+      "value": "Какой сексуальный мандат дали вам родители? ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t3",
+      "type": "text",
+      "value": "Шанс изменить его есть всегда.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t4",
+      "type": "text",
+      "value": " Пол и гендер в нашей личной истории. ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t5",
+      "type": "text",
+      "value": "Мерцающий дисплей пола опасен.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t6",
+      "type": "text",
+      "value": "Подробности: в видео и в комментариях под ним.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t7",
+      "type": "text",
+      "value": "ЛЕКЦИЯ 6",
+      "label": "a"
+    },
+    {
+      "id": "t8",
+      "type": "text",
+      "value": "От всего сердца благодарю Вас за интерес и доверие к нашему онлайн-курсу",
+      "label": "div"
+    },
+    {
+      "id": "t9",
+      "type": "text",
+      "value": " \"Школа Отцов и заинтересованных родителей\"",
+      "label": "strong"
+    },
+    {
+      "id": "t10",
+      "type": "text",
+      "value": ".",
+      "label": "div"
+    },
+    {
+      "id": "t11",
+      "type": "text",
+      "value": "Очень радостно видеть, что всё больше людей стремятся к осознанному родительству, к понимаю глубинных процессов в семье и в своей душе, а также в душе ребенка.",
+      "label": "div"
+    },
+    {
+      "id": "t12",
+      "type": "text",
+      "value": "Пусть шестая лекция \"Формула любви. Детство и взрослость\" станет для Вас не просто информацией, а поддержкой, опорой и вдохновением на важном пути.",
+      "label": "div"
+    },
+    {
+      "id": "t13",
+      "type": "text",
+      "value": "С теплом и благодарность, ",
+      "label": "div"
+    },
+    {
+      "id": "t14",
+      "type": "text",
+      "value": "Людмила Ладыженко",
+      "label": "strong"
+    },
+    {
+      "id": "t15",
+      "type": "text",
+      "value": "Made on ",
+      "label": "div"
+    },
+    {
+      "id": "t16",
+      "type": "text",
+      "value": "Tilda",
+      "label": "div"
+    },
+    {
+      "id": "i17",
+      "type": "image",
+      "value": "/mirror-assets/ade8e0bcb61fd413650cd2ad.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i18",
+      "type": "image",
+      "value": "/mirror-assets/ee6c0e842d0e31d5879c976d.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i19",
+      "type": "image",
+      "value": "/mirror-assets/20be86e5396ac57c8d9a9ab2.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "l20",
+      "type": "link",
+      "value": "/",
+      "label": "На главный сайт"
+    },
+    {
+      "id": "l21",
+      "type": "link",
+      "value": "https://wa.me/79177542323",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l22",
+      "type": "link",
+      "value": "https://t.me/Ladyzenko",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l23",
+      "type": "link",
+      "value": "https://vk.com/app5898182_-77886543#s=2454637",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l24",
+      "type": "link",
+      "value": "https://rutube.ru/video/private/ed312f8008824c735d2897b9ba41f41a/?p=FM7QUr8rNVQDLfloQszyWA",
+      "label": "ЛЕКЦИЯ 6"
+    },
+    {
+      "id": "l25",
+      "type": "link",
+      "value": "https://tilda.cc/",
+      "label": "Made on Tilda"
+    }
+  ]
+}

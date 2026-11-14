@@ -1,0 +1,116 @@
+{
+  "slug": "tpost-pi9147d481-naiti-svoih",
+  "path": "/tpost/pi9147d481-naiti-svoih",
+  "title": "Найти Своих",
+  "sourceStatus": "fresh",
+  "blocks": [
+    {
+      "id": "t0",
+      "type": "text",
+      "value": "\n                                                    Общее\n                                            ",
+      "label": "div"
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "value": "Найти Своих",
+      "label": "h1"
+    },
+    {
+      "id": "t2",
+      "type": "text",
+      "value": "2025-11-27 14:33",
+      "label": "span"
+    },
+    {
+      "id": "t3",
+      "type": "text",
+      "value": "Музейная экспедиция: найти Своих на картинах. С кем бы хотелось дружить, говорить?",
+      "label": "div"
+    },
+    {
+      "id": "t4",
+      "type": "text",
+      "value": "Резонанс, нелогичное, но совпадение — это очень по-человечески тепло и интересно.",
+      "label": "div"
+    },
+    {
+      "id": "t5",
+      "type": "text",
+      "value": "Я сегодня — родня вот этой барышне в синем.",
+      "label": "div"
+    },
+    {
+      "id": "t6",
+      "type": "text",
+      "value": "Спасибо, Третьяковка! До встреч.",
+      "label": "div"
+    },
+    {
+      "id": "t7",
+      "type": "text",
+      "value": "Made on ",
+      "label": "div"
+    },
+    {
+      "id": "t8",
+      "type": "text",
+      "value": "Tilda",
+      "label": "div"
+    },
+    {
+      "id": "i9",
+      "type": "image",
+      "value": "https://mc.yandex.ru/watch/106094504",
+      "label": "Изображение"
+    },
+    {
+      "id": "i10",
+      "type": "image",
+      "value": "/mirror-assets/2d2d019fa06ac10c6958f720.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i11",
+      "type": "image",
+      "value": "/mirror-assets/5299474476dc5bb3eed9da90.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i12",
+      "type": "image",
+      "value": "/mirror-assets/e0a080fd45f8fe08b2cc1cc0.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i13",
+      "type": "image",
+      "value": "/mirror-assets/d4d174874d8cec48051a3dc0.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i14",
+      "type": "image",
+      "value": "/mirror-assets/ef924ee2e0adf562e01e2d33.jpg",
+      "label": "Изображение"
+    },
+    {
+      "id": "i15",
+      "type": "image",
+      "value": "/mirror-assets/20be86e5396ac57c8d9a9ab2.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "l16",
+      "type": "link",
+      "value": "",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l17",
+      "type": "link",
+      "value": "https://tilda.cc/",
+      "label": "Made on Tilda"
+    }
+  ]
+}

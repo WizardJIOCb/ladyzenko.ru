@@ -1,0 +1,740 @@
+{
+  "slug": "sckolaotzov",
+  "path": "/sckolaotzov",
+  "title": "Лекции курса Школы Отцов - все 13 лекций",
+  "sourceStatus": "saved-snapshot: 403 Client Error: Forbidden for url: https://ladyzenko.ru/sckolaotzov",
+  "blocks": [
+    {
+      "id": "t0",
+      "type": "text",
+      "value": "Людмила Ладыженко",
+      "label": "strong"
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "value": "\nНа главный сайт\n",
+      "label": "a"
+    },
+    {
+      "id": "t2",
+      "type": "text",
+      "value": "ЛЕКЦИЯ 1",
+      "label": "a"
+    },
+    {
+      "id": "t3",
+      "type": "text",
+      "value": "От всего сердца благодарю Вас за интерес и доверие к нашему онлайн-курсу",
+      "label": "div"
+    },
+    {
+      "id": "t4",
+      "type": "text",
+      "value": " \"Школа Отцов и заинтересованных родителей\"",
+      "label": "strong"
+    },
+    {
+      "id": "t5",
+      "type": "text",
+      "value": ".",
+      "label": "div"
+    },
+    {
+      "id": "t6",
+      "type": "text",
+      "value": "Очень радостно видеть, что всё больше людей стремятся к осознанному родительству, к понимаю глубинных процессов в семье и в своей душе, а также в душе ребенка.",
+      "label": "div"
+    },
+    {
+      "id": "t7",
+      "type": "text",
+      "value": "Пусть эти лекции станут для Вас не просто информацией, а поддержкой, опорой и вдохновением на важном пути.",
+      "label": "div"
+    },
+    {
+      "id": "t8",
+      "type": "text",
+      "value": "С теплом и благодарность, ",
+      "label": "div"
+    },
+    {
+      "id": "t9",
+      "type": "text",
+      "value": "Людмила Ладыженко",
+      "label": "strong"
+    },
+    {
+      "id": "t10",
+      "type": "text",
+      "value": "Как первые три года жизни ребёнка влияют на дружбу, любовь и доверие во взрослом возрасте? ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t11",
+      "type": "text",
+      "value": "Закладка гендерной идентичности в возрасте от трёх до пяти лет.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t12",
+      "type": "text",
+      "value": " Сивка-Бурка Вещая Каурка — особая роль мамы в первые полгода жизни ребёнка.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t13",
+      "type": "text",
+      "value": "Подробности: в видео и в комментариях под ним.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t14",
+      "type": "text",
+      "value": "ЛЕКЦИЯ 2",
+      "label": "a"
+    },
+    {
+      "id": "t15",
+      "type": "text",
+      "value": "Лекция помогает увидеть неявное, но ключевое — ребёнка-невидимку, переходящего во взрослую размытость личности, желаний, опоры. ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t16",
+      "type": "text",
+      "value": "Если вы когда-нибудь задавались вопросом о своей проявленности и значимости в жизни, эта лекция — для вас.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t17",
+      "type": "text",
+      "value": "Подробности: в видео и в комментариях под ним.",
+      "label": "strong"
+    },
+    {
+      "id": "t18",
+      "type": "text",
+      "value": "ЛЕКЦИЯ 3",
+      "label": "a"
+    },
+    {
+      "id": "t19",
+      "type": "text",
+      "value": "Базовые потребности гарантируют становление подростка как личности.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t20",
+      "type": "text",
+      "value": "Подробности: в видео и в комментариях под ним.",
+      "label": "strong"
+    },
+    {
+      "id": "t21",
+      "type": "text",
+      "value": "ЛЕКЦИЯ 4",
+      "label": "a"
+    },
+    {
+      "id": "t22",
+      "type": "text",
+      "value": "Как настроить камертон личной и сексуальной жизни человека на жизнь без искажений?",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t23",
+      "type": "text",
+      "value": "Подробности: в видео и в комментариях под ним.",
+      "label": "strong"
+    },
+    {
+      "id": "t24",
+      "type": "text",
+      "value": "ЛЕКЦИЯ 5",
+      "label": "a"
+    },
+    {
+      "id": "t25",
+      "type": "text",
+      "value": "Этапы формирования сексуальности с трёх до восемнадцати лет. ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t26",
+      "type": "text",
+      "value": "Каковы особенности каждого периода в отношениях между родителем и ребёнком? ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t27",
+      "type": "text",
+      "value": "Как не упустить естественные процессы взросления?",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t28",
+      "type": "text",
+      "value": "Подробности: в видео и в комментариях под ним.",
+      "label": "strong"
+    },
+    {
+      "id": "t29",
+      "type": "text",
+      "value": "ЛЕКЦИЯ 6",
+      "label": "a"
+    },
+    {
+      "id": "t30",
+      "type": "text",
+      "value": "ЛЕКЦИЯ 12",
+      "label": "a"
+    },
+    {
+      "id": "t31",
+      "type": "text",
+      "value": "ЛЕКЦИЯ 13",
+      "label": "a"
+    },
+    {
+      "id": "t32",
+      "type": "text",
+      "value": "Это заключительная лекция нашей школы Отцов — важная точка на пути глубокого личностного роста. ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t33",
+      "type": "text",
+      "value": "Уверена, многое из этого вы уже начали применять в жизни. ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t34",
+      "type": "text",
+      "value": "Сейчас особенно ценно переслушать ранние лекции: с новым опытом вы увидите в них больше смысла.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t35",
+      "type": "text",
+      "value": "Подробности: в видео и в комментариях под ним.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t36",
+      "type": "text",
+      "value": "ЛЕКЦИЯ 11",
+      "label": "a"
+    },
+    {
+      "id": "t37",
+      "type": "text",
+      "value": "ЛЕКЦИЯ 10",
+      "label": "a"
+    },
+    {
+      "id": "t38",
+      "type": "text",
+      "value": "ЛЕКЦИЯ 9",
+      "label": "a"
+    },
+    {
+      "id": "t39",
+      "type": "text",
+      "value": "ЛЕКЦИЯ 8",
+      "label": "a"
+    },
+    {
+      "id": "t40",
+      "type": "text",
+      "value": "ЛЕКЦИЯ 7",
+      "label": "a"
+    },
+    {
+      "id": "t41",
+      "type": "text",
+      "value": "Отношения между людьми подобны танцу: важен шаг, ритм, взгляд. ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t42",
+      "type": "text",
+      "value": "В этой лекции мы погрузимся в глубины человеческих связей и попытаемся разгадать их работающие закономерности.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t43",
+      "type": "text",
+      "value": "Подробности: в видео и в комментариях под ним.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t44",
+      "type": "text",
+      "value": "Зачем на самом деле мы объединяемся в пару? ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t45",
+      "type": "text",
+      "value": "Жить или функционировать?",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t46",
+      "type": "text",
+      "value": "Женщина слабая или в ожидании?",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t47",
+      "type": "text",
+      "value": "Отношения, как огонь разного толка и интенсивности.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t48",
+      "type": "text",
+      "value": "Хаос и космос в отношениях: что важнее сохранить?",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t49",
+      "type": "text",
+      "value": "Подробности: в видео и в комментариях под ним.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t50",
+      "type": "text",
+      "value": "Экспресс-методы, как зарядить себя энергией? ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t51",
+      "type": "text",
+      "value": "Антистарение, антиокукливание. ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t52",
+      "type": "text",
+      "value": "Пишем новые сценарии жизни с 35 до 42 лет.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t53",
+      "type": "text",
+      "value": "Эта лекция, одна из самых практических и насыщенных, была проведена после тяжёлых событий в «Крокус Сити Холле».",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t54",
+      "type": "text",
+      "value": "Подробности: в видео и в комментариях под ним.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t55",
+      "type": "text",
+      "value": "Пушкин — пример смельчака и первого фрилансера в России.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t56",
+      "type": "text",
+      "value": "Почему так сложно демонстрировать свою ценность миру? ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t57",
+      "type": "text",
+      "value": "Стыд как заморозка жизни.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t58",
+      "type": "text",
+      "value": "«Сияющее отсутствие» как показатель ценности отношений.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t59",
+      "type": "text",
+      "value": "Подробности: в видео и в комментариях под ним.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t60",
+      "type": "text",
+      "value": "Куда уходит флирт? ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t61",
+      "type": "text",
+      "value": "Стресс-интерес-скука. ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t62",
+      "type": "text",
+      "value": "Параметры сексуального партнёра в узком и широком смыслах.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t63",
+      "type": "text",
+      "value": "Зачем давать своему партнёру «индейское» имя? ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t64",
+      "type": "text",
+      "value": "Насколько в вашей паре жива игра (геймификация)?",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t65",
+      "type": "text",
+      "value": "Подробности: в видео и в комментариях под ним.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t66",
+      "type": "text",
+      "value": "Привязанность и зависимость — в чём же разница? ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t67",
+      "type": "text",
+      "value": "Основа человеческих отношений — привязанность.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t68",
+      "type": "text",
+      "value": "Подробности: в видео и в комментариях под ним.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t69",
+      "type": "text",
+      "value": "Какой сексуальный мандат дали вам родители? ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t70",
+      "type": "text",
+      "value": "Шанс изменить его есть всегда.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t71",
+      "type": "text",
+      "value": " Пол и гендер в нашей личной истории. ",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t72",
+      "type": "text",
+      "value": "Мерцающий дисплей пола опасен.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t73",
+      "type": "text",
+      "value": "Подробности: в видео и в комментариях под ним.",
+      "label": "ya-tr-span"
+    },
+    {
+      "id": "t74",
+      "type": "text",
+      "value": "Made on ",
+      "label": "div"
+    },
+    {
+      "id": "t75",
+      "type": "text",
+      "value": "Tilda",
+      "label": "div"
+    },
+    {
+      "id": "i76",
+      "type": "image",
+      "value": "/mirror-assets/ade8e0bcb61fd413650cd2ad.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i77",
+      "type": "image",
+      "value": "/mirror-assets/f8aebc953512b37823021df5.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i78",
+      "type": "image",
+      "value": "/mirror-assets/02d25eac650fc794ac43252b.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i79",
+      "type": "image",
+      "value": "/mirror-assets/9bcac0791938103110c330ba.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i80",
+      "type": "image",
+      "value": "/mirror-assets/f033d7fd950474a44189dce4.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i81",
+      "type": "image",
+      "value": "/mirror-assets/3df5d7919d5f6ae83603b430.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i82",
+      "type": "image",
+      "value": "/mirror-assets/ee6c0e842d0e31d5879c976d.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i83",
+      "type": "image",
+      "value": "/mirror-assets/cdcb3fae2802df3ec18d5007.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i84",
+      "type": "image",
+      "value": "/mirror-assets/432d503108f4ff6cabd30d51.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i85",
+      "type": "image",
+      "value": "/mirror-assets/f95ecb060732e35a992b9ac5.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i86",
+      "type": "image",
+      "value": "/mirror-assets/d7d7905252790dfb2cedb9cf.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i87",
+      "type": "image",
+      "value": "/mirror-assets/26d7c02b2245c25dea16a0b7.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i88",
+      "type": "image",
+      "value": "/mirror-assets/6bd3b79a5619ca96dcbc1dcf.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i89",
+      "type": "image",
+      "value": "/mirror-assets/957309dc9ef1bf338c3b560d.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i90",
+      "type": "image",
+      "value": "/mirror-assets/32d2124ec9a5c181d03e0946.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i91",
+      "type": "image",
+      "value": "/mirror-assets/f95ecb060732e35a992b9ac5.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i92",
+      "type": "image",
+      "value": "/mirror-assets/f95ecb060732e35a992b9ac5.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i93",
+      "type": "image",
+      "value": "/mirror-assets/f95ecb060732e35a992b9ac5.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i94",
+      "type": "image",
+      "value": "/mirror-assets/f95ecb060732e35a992b9ac5.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i95",
+      "type": "image",
+      "value": "/mirror-assets/f95ecb060732e35a992b9ac5.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i96",
+      "type": "image",
+      "value": "/mirror-assets/f95ecb060732e35a992b9ac5.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i97",
+      "type": "image",
+      "value": "/mirror-assets/f95ecb060732e35a992b9ac5.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i98",
+      "type": "image",
+      "value": "/mirror-assets/f95ecb060732e35a992b9ac5.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i99",
+      "type": "image",
+      "value": "/mirror-assets/f95ecb060732e35a992b9ac5.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i100",
+      "type": "image",
+      "value": "/mirror-assets/f95ecb060732e35a992b9ac5.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i101",
+      "type": "image",
+      "value": "/mirror-assets/f95ecb060732e35a992b9ac5.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i102",
+      "type": "image",
+      "value": "/mirror-assets/f95ecb060732e35a992b9ac5.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "i103",
+      "type": "image",
+      "value": "/mirror-assets/20be86e5396ac57c8d9a9ab2.png",
+      "label": "Изображение"
+    },
+    {
+      "id": "l104",
+      "type": "link",
+      "value": "/",
+      "label": "На главный сайт"
+    },
+    {
+      "id": "l105",
+      "type": "link",
+      "value": "https://wa.me/79177542323",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l106",
+      "type": "link",
+      "value": "https://t.me/Ladyzenko",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l107",
+      "type": "link",
+      "value": "https://vk.com/app5898182_-77886543#s=2454637",
+      "label": "Ссылка"
+    },
+    {
+      "id": "l108",
+      "type": "link",
+      "value": "9d93ac71a8db93cce7cf0944c0269515?p=xKmvHvHJOynBP--aLjXTpw",
+      "label": "ЛЕКЦИЯ 1"
+    },
+    {
+      "id": "l109",
+      "type": "link",
+      "value": "https://rutube.ru/video/private/1cf7b4471b3662309dbed0ab38f525e2/?p=sRra5iN4SiYlgZR2whlVqg",
+      "label": "ЛЕКЦИЯ 2"
+    },
+    {
+      "id": "l110",
+      "type": "link",
+      "value": "https://rutube.ru/video/private/1cac949452348f883ab976b675aa4713/?p=dOJGIBhWRSj9nKWtJWLg5g",
+      "label": "ЛЕКЦИЯ 3"
+    },
+    {
+      "id": "l111",
+      "type": "link",
+      "value": "https://rutube.ru/video/private/0262e44989be75ed5189389ccf7f2e96/?p=wltHAfjPJQRfcsZ9W-pcQA",
+      "label": "ЛЕКЦИЯ 4"
+    },
+    {
+      "id": "l112",
+      "type": "link",
+      "value": "https://rutube.ru/video/private/2fee1efeff21a6ce7472779aecc10cb4/?p=faWsyBwJaqh04B-Up7n66Q",
+      "label": "ЛЕКЦИЯ 5"
+    },
+    {
+      "id": "l113",
+      "type": "link",
+      "value": "https://rutube.ru/video/private/ed312f8008824c735d2897b9ba41f41a/?p=FM7QUr8rNVQDLfloQszyWA",
+      "label": "ЛЕКЦИЯ 6"
+    },
+    {
+      "id": "l114",
+      "type": "link",
+      "value": "https://rutube.ru/video/private/3fdf81cb0def38bac124e031a82ae449/?p=tV8cXWaEQMwPKdWZ8LIjeQ",
+      "label": "ЛЕКЦИЯ 12"
+    },
+    {
+      "id": "l115",
+      "type": "link",
+      "value": "https://rutube.ru/video/private/bec850116f059fbfd5660187a31dea86/?p=zEAJ3aR5vHzE4UKb5m6IAQ",
+      "label": "ЛЕКЦИЯ 13"
+    },
+    {
+      "id": "l116",
+      "type": "link",
+      "value": "https://rutube.ru/video/private/1a89149b93b37f67412e76cbf8ed66cb/?p=xYm2g6BovZKoq09JjJA4NQ",
+      "label": "ЛЕКЦИЯ 11"
+    },
+    {
+      "id": "l117",
+      "type": "link",
+      "value": "https://rutube.ru/video/private/caf64db975985e2de509f006af6d6b09/?p=upivIHiEQvQ8l-SM1Vi_2w",
+      "label": "ЛЕКЦИЯ 10"
+    },
+    {
+      "id": "l118",
+      "type": "link",
+      "value": "https://rutube.ru/video/private/427abcc397e185eb7e2eb5b961fbd0aa/?p=spjo3iti8CIRF-DzZ14XfA",
+      "label": "ЛЕКЦИЯ 9"
+    },
+    {
+      "id": "l119",
+      "type": "link",
+      "value": "https://rutube.ru/video/private/a2995880f2369d5bf3cb5d78c0ed86ca/?p=t2j-aUcGGuBwk89jOf9uIQ",
+      "label": "ЛЕКЦИЯ 8"
+    },
+    {
+      "id": "l120",
+      "type": "link",
+      "value": "https://rutube.ru/video/private/55a43d90ecf15de788425858105353d6/?p=VYRDTCWf3jherqD2-DlUHg?p=xKmvHvHJOynBP--aLjXTpw",
+      "label": "ЛЕКЦИЯ 7"
+    },
+    {
+      "id": "l121",
+      "type": "link",
+      "value": "https://tilda.cc/",
+      "label": "Made on Tilda"
+    }
+  ]
+}
