@@ -17,6 +17,7 @@
   "adminNotes": "",
   "legalApproved": false,
   "fiscalizationConfirmed": false,
+  "fiscalizationMethod": "provider",
   "lectureFiles": {},
   "smtp": {
     "host": "mail.ladyzenko.ru",

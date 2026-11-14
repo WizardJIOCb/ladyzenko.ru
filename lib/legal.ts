@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import type { Config } from './commerce.ts';
 
-export const legalVersion = '2026-11-14.2';
+export const legalVersion = '2026-11-14.3';
 export const sellerStatuses = { selfemployed: 'Самозанятый, плательщик НПД', ip: 'Индивидуальный предприниматель', company: 'Юридическое лицо' };
 export const profileKeys = ['seller', 'inn', 'sellerStatus', 'registrationNumber', 'postalAddress', 'contactEmail', 'contactPhone', 'sellerBasis', 'sellerBasisConfirmed'] as const;
 export function profile(c: Config) {
@@ -25,5 +25,5 @@ export function profileGaps(c: Config) {
   return missing;
 }
 export function legalFingerprint(c: Config) {
-  return createHash('sha256').update(JSON.stringify({ version: legalVersion, ...profile(c) })).digest('hex');
+  return createHash('sha256').update(JSON.stringify({ version: legalVersion, ...profile(c), fiscalizationMethod: c.fiscalizationMethod || '' })).digest('hex');
 }

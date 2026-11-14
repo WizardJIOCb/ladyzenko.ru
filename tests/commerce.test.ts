@@ -80,7 +80,7 @@ test('lecture needs private file, has 30 days, full refund closes access once',a
   save();
 });
 test('live consultation queues confirmation, worker sends once and persists success',async()=>{
-  save({mode:'live'});const row=await checkout(data(),'live');const obj={...providerObjects.get(row.provider_id!),status:'succeeded',paid:true};settle(row.id,obj);settle(row.id,obj);
-  let sent=0;nodemailer.createTransport=(()=>({sendMail:async(message:any)=>{assert.match(message.text,/личная страница/);sent++;return{};}})) as any;
+  save({mode:'live',fiscalizationMethod:'npd_manual'});const row=await checkout(data(),'live');assert.equal('receipt' in JSON.parse(row.request),false);const obj={...providerObjects.get(row.provider_id!),status:'succeeded',paid:true};settle(row.id,obj);settle(row.id,obj);
+  let sent=0;nodemailer.createTransport=(()=>({sendMail:async(message:any)=>{assert.match(message.text,/личная страница/);assert.match(message.text,/Мой налог/);sent++;return{};}})) as any;
   await work();await work();assert.equal(sent,1);assert.equal(publicOrder(order(row.id)!).mailSent,true);save();
 });

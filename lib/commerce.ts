@@ -11,6 +11,7 @@ export type Config = {
   seller: string; inn: string; contactEmail: string; legalApproved: boolean;
   sellerStatus?: '' | 'selfemployed' | 'ip' | 'company'; registrationNumber?: string; postalAddress?: string; contactPhone?: string;
   sellerBasis?: string; sellerBasisConfirmed?: boolean; productionShopId?: string; adminNotes?: string;
+  fiscalizationMethod?: 'npd_manual' | 'provider';
   fiscalizationConfirmed: boolean; receipt?: { vat_code: number; tax_system_code?: number };
   lectureFiles: Record<string, string>; smtp?: { host: string; port: number; user: string; password: string; from: string };
 };
@@ -204,7 +205,9 @@ export async function work() {
       await transport.sendMail({ from: c.smtp.from, to: row.email, subject: 'Оплата подтверждена: ' + p.title,
         text: `Оплата ${p.title} подтверждена.\nНомер заказа: ${row.id}\n` +
           (p.kind === 'lecture' ? 'Доступ к записи: 30 дней с момента оплаты.\n' : 'Встреча пройдёт в согласованное с Людмилой время.\n') +
-          `Ваша личная страница заказа: ${url}\nНе передавайте ссылку другим людям.\nПоддержка: ${c.contactEmail}` });
+          `Ваша личная страница заказа: ${url}\nНе передавайте ссылку другим людям.\n` +
+          (c.fiscalizationMethod === 'npd_manual' ? 'Чек продавец сформирует вручную в сервисе «Мой налог» и направит на почту покупки отдельно от этого подтверждения.\n' : '') +
+          `Поддержка: ${c.contactEmail}` });
       db().prepare('UPDATE outbox SET sent=? WHERE order_id=?').run(Math.floor(Date.now()/1000), row.id);
     } catch { /* persistent outbox retries on the next worker invocation */ }
   }

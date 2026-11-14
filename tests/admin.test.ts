@@ -45,6 +45,9 @@ test('IP requires OGRNIP, NPD does not; complete profile can be approved without
 });
 test('HTTP admin boundary requires a session and same origin; cookie is private and responses never expose secrets', async () => {
   save();
+  const insert=db().prepare('INSERT INTO orders(id,product,email,amount,mode,created,status,request,consent,paid_at) VALUES(?,?,?,?,?,?,?,?,?,?)');
+  insert.run('a'.repeat(32),'diagnostic','real-buyer@example.test',200000,'live',1,'succeeded','{}','{}',2);
+  insert.run('b'.repeat(32),'diagnostic','sandbox-buyer@example.test',200000,'test',1,'succeeded','{}','{}',2);
   const ctx = (action:string) => ({ params:Promise.resolve({action}) });
   assert.equal((await GET(new NextRequest('http://localhost:3007/api/admin/settings'),ctx('settings'))).status,401);
   const request = (action:string, body:unknown, origin='http://localhost:3007', cookie='') => new NextRequest('http://localhost:3007/api/admin/'+action, {method:'POST',headers:{origin,cookie,'content-type':'application/json'},body:JSON.stringify(body)});
@@ -55,6 +58,7 @@ test('HTTP admin boundary requires a session and same origin; cookie is private 
   const read = await GET(new NextRequest('http://localhost:3007/api/admin/settings',{headers:{cookie:session}}),ctx('settings'));
   assert.equal(read.status,200); assert.match(read.headers.get('cache-control')!,/no-store/);
   const text = await read.text(); assert.equal(text.includes(privateConfig.shopKey),false); assert.equal(text.includes('private_smtp'),false);
+  assert.equal(text.includes('real-buyer@example.test'),true);assert.equal(text.includes('sandbox-buyer@example.test'),false);
   assert.equal((await POST(request('settings',draft(),'https://attacker.test',session),ctx('settings'))).status,403);
   assert.equal((await POST(request('settings',{...draft(),shopKey:'overwrite'},'http://localhost:3007',session),ctx('settings'))).status,400);
   assert.equal(config().shopKey,privateConfig.shopKey);
