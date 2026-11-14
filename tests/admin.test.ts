@@ -9,13 +9,17 @@ import { profileGaps } from '../lib/legal.ts';
 import { NextRequest } from 'next/server';
 import { GET, POST } from '../app/api/admin/[action]/route.ts';
 import { db } from '../lib/commerce.ts';
+import { spawnSync } from 'node:child_process';
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lady-admin-test-')); process.env.COMMERCE_STATE = dir;
 const privateConfig = { origin:'http://localhost:3007', enabled:false, mode:'test', shopId:'123456', shopKey:'test_secret_must_stay_private', seller:'Known Seller', inn:'123456789012', contactEmail:'seller@example.test', legalApproved:true, fiscalizationConfirmed:false, lectureFiles:{}, smtp:{host:'local',user:'user',password:'private_smtp',from:'mail@example.test'} };
 function save() { fs.writeFileSync(path.join(dir, 'config.json'), JSON.stringify(privateConfig)); }
 function draft() { const s = adminState(); return { ...s.profile, revision:s.revision, legalApproved:false, productionShopId:'1529009', adminNotes:'Missing address and status' }; }
 after(() => { db().close(); fs.rmSync(dir, {recursive:true, force:true}); });
 test('admin authentication rejects guessed, modified, expired and rotated sessions', () => {
-  save(); setupAdmin('first-long-test-password'); const token = login('first-long-test-password', 1800000000);
+  save();
+  const setup = spawnSync(process.execPath, ['--import','tsx','scripts/setup-admin.ts'], {input:JSON.stringify({password:'first-long-test-password'}),encoding:'utf8',env:{...process.env,COMMERCE_STATE:dir}});
+  assert.equal(setup.status,0,setup.stderr); assert.equal(setup.stdout.includes('first-long-test-password'),false);
+  const token = login('first-long-test-password', 1800000000);
   assert.equal(adminAuthorized(token, 1800000001), true); assert.throws(() => login('incorrect'), /Неверный/);
   assert.equal(adminAuthorized(token.slice(0,-1) + (token.endsWith('a') ? 'b' : 'a'), 1800000001), false);
   assert.equal(adminAuthorized(token, 1800000000 + 8 * 3600), false);
