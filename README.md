@@ -50,6 +50,9 @@ python scripts/export_tilda_site.py
 
 ## Основные маршруты нового сайта
 
+- `/admin` — защищённое управление реквизитами и подготовкой оплаты, [инструкция](docs/ADMIN.md)
+- `/payment-info`, `/offer`, `/privacy`, `/consent` — документы для покупателей
+
 - `/` — главная
 - `/about` — обо мне
 - `/articles` — статьи

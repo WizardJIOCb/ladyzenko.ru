@@ -9,7 +9,7 @@ import { checkout, config, db, order, settle, authorized, capability, webhook, p
 import { products } from '../lib/products.ts';
 const dir = fs.mkdtempSync(path.join(os.tmpdir(),'lady-commerce-test-'));
 process.env.COMMERCE_STATE = dir;
-const base = { origin:'http://localhost:3007', enabled:true, mode:'test',shopId:'123456',shopKey:'test_fake', seller:'Test Seller', inn:'123456789012', contactEmail:'seller@example.test', legalApproved:true, fiscalizationConfirmed:true,lectureFiles:{},smtp:{host:'localhost',port:465,user:'fake',password:'fake',from:'service@example.test'} };
+const base = { origin:'http://localhost:3007', enabled:true, mode:'test',shopId:'123456',shopKey:'test_fake', seller:'Test Seller', inn:'123456789012', contactEmail:'seller@example.test', legalApproved:true, fiscalizationConfirmed:true,lectureFiles:{},smtp:{host:'localhost',port:465,user:'fake',password:'fake',from:'service@example.test'}, sellerStatus:'selfemployed', postalAddress:'Test business postal address', sellerBasis:'Test agreement with the author', sellerBasisConfirmed:true };
 function save(extra:Record<string,unknown>={}) {fs.writeFileSync(path.join(dir,'config.json'),JSON.stringify({...base,...extra}));}
 const id = ()=>randomBytes(16).toString('hex');
 const data = (requestId=id())=>({ requestId, product:'diagnostic',email:'buyer@example.test',accepted:true,privacyAccepted:true,scheduled:true });

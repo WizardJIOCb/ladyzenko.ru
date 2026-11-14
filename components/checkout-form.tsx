@@ -29,7 +29,7 @@ export function CheckoutForm({ product, enabled, test }: {product: Product; enab
     <p>На этот адрес придёт подтверждение и личная ссылка на заказ. Не указывайте в форме сведения о здоровье или содержание вашего запроса.</p>
     {product.kind === 'consultation' ? <label className="commerce-check"><input type="checkbox" name="scheduled" required disabled={!enabled || busy} />Я согласовал(а) с Людмилой дату, время и формат встречи.</label> : null}
     <label className="commerce-check"><input type="checkbox" name="accepted" required disabled={!enabled || busy} /><span>Принимаю <Link href="/offer" target="_blank">условия покупки</Link>.</span></label>
-    <label className="commerce-check"><input type="checkbox" name="privacyAccepted" required disabled={!enabled || busy} /><span>Даю <Link href="/privacy" target="_blank">согласие на обработку данных для оформления заказа</Link>.</span></label>
+    <label className="commerce-check"><input type="checkbox" name="privacyAccepted" required disabled={!enabled || busy} /><span>Даю <Link href="/consent" target="_blank">согласие на обработку данных для оформления заказа</Link>. <Link href="/privacy" target="_blank">Политика обработки данных</Link>.</span></label>
     {error ? <p className="commerce-error" role="alert">{error}</p> : null}
     <button className="commerce-button" type="submit" disabled={!enabled || busy}>{busy ? 'Открываем ЮKassa…' : 'Перейти к оплате'}</button>
     {orderId && error ? <Link href={'/orders/' + orderId}>Проверить созданный заказ</Link> : null}
