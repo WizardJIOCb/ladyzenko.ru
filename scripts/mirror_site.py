@@ -191,6 +191,8 @@ def main():
         # Remove the vendor badge after assigning CMS IDs so existing edits keep their targets.
         for badge in s.select('.t-tildalabel'):
             badge.decompose()
+        for marker in s.find_all(string=lambda node: isinstance(node, Comment) and "'t remove this l" in str(node)):
+            marker.extract()
         title=s.title.get_text() if s.title else name
         html=rewrite_assets(str(s))
         html=html.replace('https://ladyzenko.ru', '').replace('http://ladyzenko.ru','').replace('https://www.ladyzenko.ru','')
