@@ -31,6 +31,9 @@
 .commerce-button:focus-visible,.commerce-form input:focus-visible,.commerce-page a:focus-visible { outline: 3px solid #0f5d88; outline-offset: 4px; }
 .commerce-price { font-size: 24px; line-height: 32px; font-weight: 600; }
 .commerce-notice { background: #f3f3f3; border-radius: 8px; padding: 16px; }
+.recording-admin-row { border-top: 1px solid var(--line); padding: 24px 0; }
+.recording-admin-row .commerce-check { display: flex; gap: 12px; align-items: flex-start; }
+.recording-admin-row .commerce-check input { width: 20px; padding: 0; margin-top: 4px; }
 .commerce-error { color: #9e2020; }
 .commerce-page video { display: block; width: 100%; }
 .commerce-footer { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; padding: 32px; font-size: 14px; background: #f3f3f3; }

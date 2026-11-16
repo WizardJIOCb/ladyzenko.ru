@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState, type FormEvent } from 'react';
 import type { adminState } from '@/lib/admin';
 import { ContentAdmin } from './content-admin';
+import { RecordingsAdmin } from './recordings-admin';
 type State = ReturnType<typeof adminState>;
 type Fields = State['profile'] & { productionShopId: string; adminNotes: string; legalApproved: boolean };
 function fields(s: State): Fields { return { ...s.profile, productionShopId: s.productionShopId, adminNotes: s.adminNotes, legalApproved: false }; }
@@ -42,7 +43,8 @@ export function AdminPanel({ initial }: { initial: State | null }) {
   const change = (key: keyof Fields, value: string | boolean) => { setForm({ ...form, [key]: value, ...(key !== 'legalApproved' ? { legalApproved: false } : {}) }); setMessage(''); };
   const input = (key: keyof Fields, title: string, hint?: string, maxLength = 254) => <label>{title}<input value={String(form[key])} onChange={e => change(key, e.target.value)} maxLength={maxLength} disabled={busy} />{hint && <span className="admin-hint">{hint}</span>}</label>;
   return <><div className="admin-heading"><a href="/">← На сайт</a><button type="button" className="admin-link-button" disabled={busy} onClick={async () => { setBusy(true); setError(''); try { await request('logout', {}); window.location.reload(); } catch (e) { setError(e instanceof Error ? e.message : 'Не удалось выйти.'); setBusy(false); } }}>Выйти</button></div>
-    <h1>Управление сайтом</h1><p><a href="#content">Страницы и контент</a> · <a href="#readiness">Оплата и документы</a></p>
+    <h1>Управление сайтом</h1><p><a href="#recordings">Записи и продажи лекций</a> · <a href="#content">Страницы и контент</a> · <a href="#readiness">Оплата и документы</a></p>
+    <RecordingsAdmin />
     <ContentAdmin />
     <section className="admin-section" aria-labelledby="readiness"><h2 id="readiness">Что осталось до запуска</h2>
       <p className="commerce-notice">{state.payment.enabled ? (state.payment.mode === 'test' ? 'Включён тестовый режим.' : state.payment.ready ? 'Рабочая оплата включена.' : 'Оплата заблокирована проверкой готовности.') : 'Приём платежей выключен.'} Сохранение этой формы не включает оплату.</p>

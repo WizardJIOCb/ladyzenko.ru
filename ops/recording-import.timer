@@ -1,0 +1,10 @@
+[Unit]
+Description=Check for Ladyzenko recording import jobs
+
+[Timer]
+OnBootSec=60
+OnUnitInactiveSec=60
+Unit=recording-import.service
+
+[Install]
+WantedBy=timers.target

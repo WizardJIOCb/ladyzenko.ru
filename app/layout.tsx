@@ -8,17 +8,17 @@ export const metadata: Metadata = {
 };
 
 const navItems = [
-  { href: "/#rec967078776", label: "ОБО МНЕ" },
-  { href: "/#rec1161379451", label: "НОВОСТИ" },
-  { href: "/#rec1150244521", label: "ШКОЛА ОТЦОВ" },
-  { href: "/#rec967078786", label: "ФОТО" },
-  { href: "/#rec967078801", label: "ДИПЛОМЫ И СЕРТИФИКАТЫ" },
-  { href: "/#rec967078816", label: "ВИДЕО И ПОДКАСТЫ" },
-  { href: "/#konsultacii", label: "УСЛУГИ" },
-  { href: "/#rec1003224706", label: "ЗАДАТЬ ВОПРОС" },
-  { href: "/#rec1043768191", label: "ЛЕКЦИИ В ЗАПИСИ" },
-  { href: "/#rec4078656801", label: "СТАТЬИ И ПУБЛИКАЦИИ" },
-  { href: "/#rec967078901", label: "КОНТАКТЫ" },
+  { href: "/#about", label: "ОБО МНЕ" },
+  { href: "/#news", label: "НОВОСТИ" },
+  { href: "/#school", label: "ШКОЛА ОТЦОВ" },
+  { href: "/#photos", label: "ФОТО" },
+  { href: "/#certificates", label: "ДИПЛОМЫ И СЕРТИФИКАТЫ" },
+  { href: "/#video", label: "ВИДЕО И ПОДКАСТЫ" },
+  { href: "/#services", label: "УСЛУГИ" },
+  { href: "/#questions", label: "ЗАДАТЬ ВОПРОС" },
+  { href: "/#buy", label: "ЛЕКЦИИ В ЗАПИСИ" },
+  { href: "/#articles", label: "СТАТЬИ И ПУБЛИКАЦИИ" },
+  { href: "/#contacts", label: "КОНТАКТЫ" },
 ];
 
 export default function RootLayout({

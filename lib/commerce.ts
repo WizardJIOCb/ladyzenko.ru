@@ -14,6 +14,7 @@ export type Config = {
   fiscalizationMethod?: 'npd_manual' | 'provider';
   fiscalizationConfirmed: boolean; receipt?: { vat_code: number; tax_system_code?: number };
   lectureFiles: Record<string, string>; lectureRemoteFiles?: Record<string, string>;
+  lectureSalesDisabled?: string[];
   smtp?: { host: string; port: number; user: string; password: string; from: string };
 };
 export class CommerceError extends Error { constructor(public status: number, message: string) { super(message); } }
@@ -86,7 +87,7 @@ export function mediaDelivery(productId: string, c = config()) {
   return remote && /^[a-zA-Z0-9_-]+\.mp4$/.test(remote) ? '/commerce-remote/' + remote : null;
 }
 export function available(product: Product, c = config()) {
-  return ready(c) && (product.kind === 'consultation' || Boolean(mediaDelivery(product.id, c)));
+  return ready(c) && !c.lectureSalesDisabled?.includes(product.id) && (product.kind === 'consultation' || Boolean(mediaDelivery(product.id, c)));
 }
 export type Order = { id: string; product: string; email: string; amount: number; mode: string; created: number;
   status: string; provider_id: string | null; confirmation: string | null; request: string;

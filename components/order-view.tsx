@@ -15,9 +15,9 @@ export function OrderView({id}:{id:string}) {
       }
       const response = await fetch('/api/commerce/orders/' + id + (provider ? '/refresh' : ''), provider ? {method:'POST',headers:{'Content-Type':'application/json'},body:'{}'} : {cache:'no-store'});
       const data = await response.json(); if (!response.ok) throw new Error(data.error); setView(data);
-      if (['succeeded','canceled','refunded'].includes(data.status) && sessionStorage.getItem('purchase:' + data.product) === id) {
+      try { if (['succeeded','canceled','refunded'].includes(data.status) && sessionStorage.getItem('purchase:' + data.product) === id) {
         sessionStorage.removeItem('purchase:' + data.product);
-      }
+      } } catch { /* Viewing a paid order does not require browser storage. */ }
     } catch (cause) { setError(cause instanceof Error ? cause.message : 'Не удалось проверить заказ.'); }
     finally { setBusy(false); }
   },[id]);

@@ -1,0 +1,18 @@
+[Unit]
+Description=Import and verify owner-provided Ladyzenko recordings
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/new-ladyzenko-recording-import/worker.py
+LoadCredential=source:/root/.config/new-ladyzenko-recordings/import-source.json
+UMask=0077
+TimeoutStartSec=6h
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/var/lib/new-ladyzenko-recordings
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+

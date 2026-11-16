@@ -16,7 +16,7 @@ import urllib3
 
 CHUNK = 256 * 1024
 WINDOW = 16
-FILE = re.compile(r'/commerce-source/(school-lecture-(?:0[2-9]|1[0-3])\.mp4)')
+FILE = re.compile(r'/commerce-source/((?:school-lecture-(?:0[2-9]|1[0-3])|(?:lecture-\d{13}|school-lecture-(?:0[2-9]|1[0-3]))-[a-f0-9]{16})\.mp4)')
 
 
 def byte_range(value, size):

@@ -1,0 +1,38 @@
+import { test, after } from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { NextRequest } from 'next/server';
+import { saveRecordingImport, recordingImports, importAction, importAuthorized } from '../lib/recording-imports.ts';
+import { POST as workerPOST } from '../app/api/recording-import/route.ts';
+import { GET as adminGET } from '../app/api/admin/[action]/route.ts';
+import { config, available } from '../lib/commerce.ts';
+import { lectureProducts } from '../lib/products.ts';
+const dir=fs.mkdtempSync(path.join(os.tmpdir(),'lady-import-'));process.env.COMMERCE_STATE=dir;
+fs.writeFileSync(path.join(dir,'config.json'),JSON.stringify({enabled:true,mode:'test',shopId:'123',shopKey:'test',seller:'Test',inn:'123',smtp:{host:'test',user:'test',password:'test',from:'test'}}));
+fs.writeFileSync(path.join(dir,'media-source.json'),JSON.stringify({secret:'a'.repeat(64)}));
+const original=global.fetch;
+after(()=>{global.fetch=original;fs.rmSync(dir,{recursive:true,force:true});});
+test('import endpoints require worker authentication or an admin session; unsafe URLs and unknown products fail',async()=>{
+  assert.equal(importAuthorized('a'.repeat(63)),false);
+  assert.equal(importAuthorized('a'.repeat(64)),true);
+  assert.equal((await workerPOST(new NextRequest('https://example.test/api/recording-import',{method:'POST',body:'{}'}))).status,404);
+  assert.equal((await adminGET(new NextRequest('https://example.test/api/admin/recordings'),{params:Promise.resolve({action:'recordings'})})).status,401);
+  for(const url of ['http://example.com/file.mp4','https://127.0.0.1/file.mp4','https://[::1]/a','https://user:pass@example.com/a','https://example.com:8443/a','https://service.internal/a'])assert.throws(()=>saveRecordingImport({product:lectureProducts[0].id,url,selling:true,version:''}));
+  assert.throws(()=>saveRecordingImport({product:'unknown',url:'https://example.com/a',selling:true,version:''}));
+});
+test('queued imports cannot sell, stale edits fail, claims are exclusive and failed delivery never activates',async()=>{
+  const product=lectureProducts[0];saveRecordingImport({product:product.id,url:'https://example.com/video.mp4?private=source',selling:true,version:''});
+  const row=recordingImports().find(x=>x.id===product.id)!;assert.equal(row.available,false);
+  assert.throws(()=>saveRecordingImport({product:product.id,url:'https://example.com/other.mp4',selling:true,version:''}),/изменилась/);
+  const {job}=await importAction({action:'claim'});assert.ok(job);assert.equal((await importAction({action:'claim'})).job,null);
+  global.fetch=async()=>new Response(new Uint8Array(1024),{status:206,headers:{'Content-Range':'bytes 0-1023/9999'}});
+  await assert.rejects(importAction({action:'complete',product:product.id,version:job.version,bytes:4000,duration:60,decodedSamples:3}),/доставку/);
+  assert.equal(available(product),false);
+  global.fetch=async()=>new Response(new Uint8Array(1024),{status:206,headers:{'Content-Range':'bytes 0-1023/4000'}});
+  await importAction({action:'complete',product:product.id,version:job.version,bytes:4000,duration:60,decodedSamples:3});
+  assert.equal(available(product),true);assert.match(config().lectureRemoteFiles![product.id],new RegExp(job.version));
+  saveRecordingImport({product:product.id,url:job.url,selling:false,version:job.version});assert.equal(available(product),false);
+  assert.ok(config().lectureRemoteFiles![product.id]);
+});
