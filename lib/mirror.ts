@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash, randomBytes } from 'node:crypto';
 import { CommerceError, stateDir } from './commerce.ts';
+import { siteAnchors } from './site-anchors.ts';
 
 export type MirrorBlock = { id: string; type: 'text' | 'image' | 'link'; value: string; label: string };
 export type MirrorPage = { slug: string; path: string; title: string; sourceStatus: string; blocks: MirrorBlock[] };
@@ -85,6 +86,20 @@ export function renderMirror(slug: string, origin: string, preview=false) {
   html=html.replace('</head>','<link rel="canonical" href="'+canonical+'"><meta property="og:url" content="'+canonical+'">'+(new URL(origin).hostname.startsWith('new.')||preview?'<meta name="robots" content="noindex, follow">':'')+'</head>');
   // Replace Tilda cart with the existing secure single-product checkout.
   html=html.replace(/<a\b[^>]*href="#order"[^>]*>[\s\S]*?<\/a>/g,tag=>tag.replace('href="#order"','href="/lectures"'));
+  // Apply after CMS edits so published links use the same readable section URLs.
+  html=html.replace(/href="([^"]*)"/g,(attribute,href:string)=>{
+    try {
+      const url=new URL(href.replace(/&amp;/g,'&'),origin+base.path);
+      if(![new URL(origin).hostname,'ladyzenko.ru','www.ladyzenko.ru','new.ladyzenko.ru'].includes(url.hostname))return attribute;
+      const anchor=siteAnchors[url.pathname.replace(/\/$/,'')||'/']?.find(a=>a.aliases.includes(url.hash.slice(1)));
+      if(!anchor)return attribute;
+      return 'href="'+escapeHtml((href.startsWith('#')?'':url.pathname+url.search)+'#'+anchor.id)+'"';
+    } catch { return attribute; }
+  });
+  for(const anchor of siteAnchors[base.path]||[]) {
+    const target=new RegExp('<div\\b[^>]*\\bid="'+anchor.target+'"[^>]*>');
+    html=html.replace(target,tag=>tag+'<a id="'+anchor.id+'" name="'+anchor.id+'" data-legacy-anchors="'+anchor.aliases.join(' ')+'" aria-hidden="true" style="display:block;height:0"></a>');
+  }
   if(preview) html=html.replace('<body','<body data-content-preview="true"');
   return html;
 }

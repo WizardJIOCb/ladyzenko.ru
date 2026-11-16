@@ -1,6 +1,19 @@
 /* Local adapters for the published Tilda page. No dependency on Tilda feeds/forms. */
 (function () {
   'use strict';
+  function readableHash() {
+    var hash = location.hash.slice(1);
+    if (!hash) return;
+    var anchor = Array.from(document.querySelectorAll('[data-legacy-anchors]')).find(function (node) {
+      return node.getAttribute('data-legacy-anchors').split(' ').indexOf(hash) >= 0;
+    });
+    if (!anchor) return;
+    history.replaceState(history.state, '', location.pathname + location.search + '#' + anchor.id);
+    anchor.scrollIntoView();
+  }
+  document.addEventListener('DOMContentLoaded', readableHash);
+  window.addEventListener('hashchange', readableHash);
+  window.addEventListener('popstate', readableHash);
   var open = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function (method, url) {
     var args = Array.prototype.slice.call(arguments);
