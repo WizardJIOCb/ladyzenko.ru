@@ -7,10 +7,17 @@ import { NextRequest } from 'next/server';
 import { contentPage,saveContent,renderMirror,localFeed,mirrorPages,storeImage,readImage } from '../lib/mirror.ts';
 import { setupAdmin,login } from '../lib/admin.ts';
 import { GET as pageGET } from '../app/api/site/page/route.ts';
+import { GET as pathPageGET } from '../app/api/site/page/[slug]/route.ts';
 import { GET,POST } from '../app/api/admin/[action]/route.ts';
 const dir=fs.mkdtempSync(path.join(os.tmpdir(),'lady-mirror-'));process.env.COMMERCE_STATE=dir;
 fs.writeFileSync(path.join(dir,'config.json'),JSON.stringify({origin:'http://localhost:3015'}));
 after(()=>fs.rmSync(dir,{recursive:true,force:true}));
+
+test('rewritten page identity comes from the path and keeps previews private',async()=>{
+  const response=await pathPageGET(new NextRequest('http://localhost:3015/api/site/page/new?slug=index'),{params:Promise.resolve({slug:'new'})});
+  assert.equal(response.status,200);const html=await response.text();assert.ok(html.includes('<title>Людмила Ладыженко - главная</title>'));
+  assert.equal((await pathPageGET(new NextRequest('http://localhost:3015/api/site/page/new?preview=1'),{params:Promise.resolve({slug:'new'})})).status,401);
+});
 
 test('all source pages and full feed bodies are preserved without asset download errors',()=>{
   const report=JSON.parse(fs.readFileSync('mirror/report.json','utf8'));

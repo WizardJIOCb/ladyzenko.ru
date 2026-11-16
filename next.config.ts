@@ -46,7 +46,7 @@ const nextConfig: NextConfig = {
     ];
   },
   async rewrites() {
-    return {beforeFiles:[...routes].map(([source,slug])=>({source,destination:'/api/site/page?slug='+slug})),afterFiles:[],fallback:[]};
+    return {beforeFiles:[...routes].map(([source,slug])=>({source,destination:'/api/site/page/'+slug})),afterFiles:[],fallback:[]};
   },
 };
 
