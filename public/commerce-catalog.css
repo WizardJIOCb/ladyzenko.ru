@@ -1,4 +1,5 @@
-.live-recordings{max-width:1160px;margin:0 auto;padding:32px 24px;color:#111;font-family:inherit;font-size:16px;line-height:24px}
+[data-legacy-anchors]{position:relative;top:-64px}
+.live-recordings{max-width:1160px;margin:0 auto;padding:32px 24px;color:#111;font-family:'TildaSans',sans-serif;font-size:16px;line-height:24px}
 .live-recordings h2{font-size:30px;line-height:36px;text-wrap:balance;margin:0 0 16px}
 .live-recordings p{margin:16px 0;text-wrap:pretty}
 .live-recordings-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:24px 0}
