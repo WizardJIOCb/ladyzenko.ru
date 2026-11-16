@@ -34,6 +34,8 @@
 .recording-admin-row { border-top: 1px solid var(--line); padding: 24px 0; }
 .recording-admin-row .commerce-check { display: flex; gap: 12px; align-items: flex-start; }
 .recording-admin-row .commerce-check input { width: 20px; padding: 0; margin-top: 4px; }
+.admin-section { scroll-margin-top: 64px; }
+@media(min-width:761px){#site-header .site-nav{width:100%;max-width:100%;overflow-x:auto;justify-content:flex-start}#site-header .t229__padding40px{display:none}}
 .commerce-error { color: #9e2020; }
 .commerce-page video { display: block; width: 100%; }
 .commerce-footer { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; padding: 32px; font-size: 14px; background: #f3f3f3; }

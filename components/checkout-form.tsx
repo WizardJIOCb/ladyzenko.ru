@@ -18,8 +18,7 @@ export function CheckoutForm({ product, enabled, test }: {product: Product; enab
         const existing=await fetch('/api/commerce/orders/'+orderId,{cache:'no-store'});
         if(existing.ok) {
           const previous=await existing.json();
-          if(previous.status==='pending') { window.location.assign('/orders/'+orderId);return; }
-          if(previous.status==='succeeded') { window.location.assign('/orders/'+orderId);return; }
+          if(!['canceled','refunded'].includes(previous.status)) { window.location.assign('/orders/'+orderId);return; }
           setOrderId('');try{sessionStorage.removeItem('purchase:'+product.id);}catch{}
           throw new Error('Предыдущая попытка завершена. Нажмите «Перейти к оплате» ещё раз, чтобы создать новый заказ.');
         }

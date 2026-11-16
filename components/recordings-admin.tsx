@@ -11,7 +11,7 @@ function Row({item,onSaved}:{item:Recording;onSaved:(rows:Recording[])=>void}) {
     try {
       const response=await fetch('/api/admin/recordings',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({product:item.id,url,selling,version:item.job?.version||''})});
       const data=await response.json();if(!response.ok)throw new Error(data.error||'Не удалось сохранить.');
-      onSaved(data);setMessage(url!==item.job?.url?'Ссылка сохранена. Загрузка начнётся в течение минуты.':'Настройки сохранены.');
+      onSaved(data);setMessage(url.trim() && (url.trim()!==item.job?.url || item.job?.status==='error')?'Ссылка сохранена. Загрузка начнётся в течение минуты.':'Настройки сохранены.');
     }catch(e){setMessage(e instanceof Error?e.message:'Не удалось сохранить.');}finally{setBusy(false);}
   }
   return <form className="recording-admin-row" onSubmit={save}>
