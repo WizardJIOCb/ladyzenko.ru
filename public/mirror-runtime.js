@@ -14,6 +14,22 @@
   document.addEventListener('DOMContentLoaded', readableHash);
   window.addEventListener('hashchange', readableHash);
   window.addEventListener('popstate', readableHash);
+  // Legacy Tilda menu scrolling assumes record IDs. Handle readable anchors
+  // before those handlers so a menu click reaches the actual section.
+  document.addEventListener('click', function (event) {
+    if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    var link = event.target.closest && event.target.closest('a[href]');
+    if (!link) return;
+    var url; try { url = new URL(link.href, location.href); } catch (_) { return; }
+    if (url.origin !== location.origin || url.pathname !== location.pathname || url.search !== location.search) return;
+    var anchor = document.getElementById(url.hash.slice(1));
+    if (!anchor || !anchor.hasAttribute('data-legacy-anchors')) return;
+    event.preventDefault(); event.stopImmediatePropagation();
+    if (location.hash !== url.hash) history.pushState(history.state, '', url.hash);
+    var menu = document.querySelector('#rec967078711 button[aria-expanded="true"]');
+    if (menu) menu.click();
+    window.scrollTo(0, Math.max(0, anchor.getBoundingClientRect().top + window.scrollY));
+  }, true);
   var open = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function (method, url) {
     var args = Array.prototype.slice.call(arguments);
