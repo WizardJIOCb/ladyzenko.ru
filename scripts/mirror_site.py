@@ -188,6 +188,9 @@ def main():
             if value.startswith(('javascript:', '#')): continue
             key='l'+str(len(blocks)); node['data-cms-link']=key
             blocks.append({'id':key,'type':'link','value':value,'label':node.get_text(' ',strip=True)[:100] or 'Ссылка'})
+        # Remove the vendor badge after assigning CMS IDs so existing edits keep their targets.
+        for badge in s.select('.t-tildalabel'):
+            badge.decompose()
         title=s.title.get_text() if s.title else name
         html=rewrite_assets(str(s))
         html=html.replace('https://ladyzenko.ru', '').replace('http://ladyzenko.ru','').replace('https://www.ladyzenko.ru','')
