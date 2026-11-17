@@ -2,12 +2,12 @@ import Link from 'next/link';
 import { config } from '@/lib/commerce';
 import { SellerDetails } from '@/components/seller-details';
 import { RefundTerms } from '@/components/refund-terms';
-import { legalVersion } from '@/lib/legal';
+import { legalVersion,legalDomains } from '@/lib/legal';
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Оферта: условия покупки', robots: { index: false, follow: true } };
 export default function Offer() { const c = config(); return <article className="commerce-page"><Link href="/">← На сайт</Link><h1>Оферта: условия покупки</h1>
   {!c.legalApproved && <p className="commerce-notice">Проект условий. Приём рабочих платежей недоступен до заполнения и подтверждения реквизитов продавцом.</p>}
-  <p>Редакция от 17 ноября 2026 года, версия {legalVersion}. Условия применяются к заказам на new.ladyzenko.ru, оформленным после публикации этой редакции.</p>
+  <p>Редакция от 17 ноября 2026 года, версия {legalVersion}. Условия применяются к заказам на {legalDomains(c)}, оформленным после публикации этой редакции.</p>
   <h2>Стороны договора</h2><p>Продавец, заключающий договор с покупателем и принимающий оплату:</p><SellerDetails config={c} />
   <p>Исполнитель консультаций и автор лекций: Людмила Ивановна Ладыженко. По вопросам оплаты, исполнения заказа, качества услуги и возврата покупатель вправе обращаться непосредственно к продавцу.</p>
   {c.sellerBasis && <p>Основание предоставления услуг и записей продавцом: {c.sellerBasis}</p>}
