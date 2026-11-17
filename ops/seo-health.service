@@ -1,0 +1,9 @@
+[Unit]
+Description=Ladyzenko SEO availability and private traffic summary
+After=network-online.target nginx.service
+[Service]
+Type=oneshot
+WorkingDirectory=/var/www/new.ladyzenko.ru-current
+ExecStart=/usr/bin/python3 /var/www/new.ladyzenko.ru-current/ops/seo-health.py
+UMask=0077
+TimeoutStartSec=600

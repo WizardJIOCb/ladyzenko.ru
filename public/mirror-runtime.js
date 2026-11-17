@@ -65,6 +65,7 @@
       var data = await response.json();
       if (!response.ok) throw new Error(data.error || 'Не удалось сохранить заявку.');
       box.textContent = 'Заявка сохранена. Спасибо!'; form.reset();
+      document.dispatchEvent(new Event('site:subscription'));
     } catch (error) { box.textContent = error.message; }
     finally { button.disabled = false; }
   }, true);

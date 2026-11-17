@@ -29,6 +29,7 @@ export function CheckoutForm({ product, enabled, test }: {product: Product; enab
         body: JSON.stringify({ requestId: id, product: product.id, email: form.get('email'), accepted: form.get('accepted') === 'on', privacyAccepted: form.get('privacyAccepted') === 'on', scheduled: form.get('scheduled') === 'on' }) });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error);
+      document.dispatchEvent(new Event('site:checkout'));
       window.location.assign(result.status === 'succeeded' ? '/orders/' + result.id : result.confirmation || '/orders/' + result.id);
     } catch (cause) { setError(cause instanceof Error ? cause.message : 'Не удалось открыть оплату.'); setBusy(false); }
   }

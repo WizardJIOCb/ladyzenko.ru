@@ -1,0 +1,9 @@
+[Unit]
+Description=Submit changed public Ladyzenko URLs after domain cutover
+After=network-online.target
+[Service]
+Type=oneshot
+WorkingDirectory=/var/www/new.ladyzenko.ru-current
+ExecStart=/usr/bin/python3 /var/www/new.ladyzenko.ru-current/ops/seo-health.py --indexnow
+UMask=0077
+TimeoutStartSec=180

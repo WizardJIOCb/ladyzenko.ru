@@ -1,0 +1,7 @@
+[Unit]
+Description=Daily Ladyzenko SEO health and IndexNow delivery
+[Timer]
+OnCalendar=*-*-* 07:10:00 Asia/Yekaterinburg
+Persistent=true
+[Install]
+WantedBy=timers.target

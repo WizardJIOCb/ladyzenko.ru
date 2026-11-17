@@ -219,6 +219,8 @@ def main():
     REPORT.update(generatedAt=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),pageCount=len(manifest),assetCount=len(asset_map))
     write_json(OUT/'report.json',REPORT)
     write_json(OUT/'asset-map.json',asset_map)
+    from prepare_seo import prepare
+    prepare()
     print('COMPLETE',len(manifest),'pages',len(asset_map),'assets','errors',len(REPORT['assetErrors']),flush=True)
     return 0
 

@@ -36,7 +36,7 @@ server {
 '''
 
 def https_config():
-    return MARKER+'''
+    text=MARKER+'''
 server {
     listen 80;
     server_name ladyzenko.ru;
@@ -71,6 +71,11 @@ server {
     }
 }
 '''
+
+    if Path('/etc/nginx/conf.d/ladyzenko-seo-logging.conf').exists():
+        text=text.replace('    server_name ladyzenko.ru;','    server_name ladyzenko.ru;\n    access_log /var/log/nginx/ladyzenko-site.access.jsonl ladyzenko_seo;')
+    return text
+
 
 def install():
     if CONF.exists() and MARKER not in CONF.read_text(): raise RuntimeError('Existing domain configuration must be reviewed first')
@@ -118,6 +123,16 @@ def activate():
     config=STATE/'config.json';shutil.copy2(config,STATE/'config.before-domain.json')
     data=json.loads(config.read_text());data['origin']='https://'+DOMAIN
     temp=STATE/'config.domain.tmp';temp.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n');temp.chmod(0o600);os.replace(temp,config)
+    try:
+        html=run('curl','--fail','--silent','--show-error','--max-time','30','--resolve',DOMAIN+':443:127.0.0.1','https://'+DOMAIN+'/')
+        if '<link rel="canonical" href="https://ladyzenko.ru/"' not in html or re.search(r'<meta[^>]*name="robots"[^>]*content="[^"]*noindex',html,re.I):
+            raise RuntimeError('Main-domain SEO verification failed')
+        new=run('curl','--silent','--show-error','--max-time','30','--head','https://new.ladyzenko.ru/')
+        if '308' not in new.splitlines()[0] or 'location: https://ladyzenko.ru/' not in new.lower():
+            raise RuntimeError('Temporary-domain redirect verification failed')
+    except Exception:
+        shutil.copy2(STATE/'config.before-domain.json',config)
+        CONF.write_text(previous);run('nginx','-t');run('systemctl','reload','nginx');raise
     (STATE/'domain-activated.json').write_text(json.dumps({'domain':DOMAIN,'activated':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime())})+'\n')
     run('systemctl','disable','--now','ladyzenko-domain.timer')
     print('Activated https://ladyzenko.ru with verified TLS. Existing payment webhook remains available on new.ladyzenko.ru.')

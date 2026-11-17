@@ -4,6 +4,9 @@ import { createHash, randomBytes } from 'node:crypto';
 import { CommerceError, stateDir, config, available } from './commerce.ts';
 import { siteAnchors } from './site-anchors.ts';
 import { lectureProducts, consultations, formatPrice } from './products.ts';
+import { applyMirrorSeo } from './mirror-seo.ts';
+import { pageSeo,authorName } from './seo.ts';
+import { queueIndexNow } from './indexnow.ts';
 
 export type MirrorBlock = { id: string; type: 'text' | 'image' | 'link'; value: string; label: string };
 export type MirrorPage = { slug: string; path: string; title: string; sourceStatus: string; blocks: MirrorBlock[] };
@@ -58,8 +61,10 @@ function atomic(f: string, data: unknown) {
 function revision(slug: string) { return digest(JSON.stringify({base:source(slug),published:read(slug),draft:read(slug,true)})); }
 export function contentPage(slug: string) {
   const base=source(slug); const published=read(slug); const draft=read(slug,true);
+  const changes=draft||published;
+  const seo=pageSeo(slug,changes,base.title,replaceChanges(fs.readFileSync(path.join(root(),'pages',slug+'.html'),'utf8'),base,changes));
   return { ...base, revision:revision(slug), published:published?.updated || null, draft: draft?.updated || null,
-    title:draft?.title ?? published?.title ?? base.title, description:draft?.description ?? published?.description ?? '', values:draft?.values ?? published?.values ?? {} };
+    title:seo.title, description:seo.description, values:draft?.values ?? published?.values ?? {} };
 }
 function validate(data: Record<string,unknown>, base: MirrorPage): Changes {
   if (typeof data.title !== 'string' || !data.title.trim() || data.title.length>500 || typeof data.description!=='string' || data.description.length>2000) throw new CommerceError(400,'Проверьте заголовок и описание.');
@@ -85,13 +90,18 @@ export function saveContent(data: Record<string,unknown>) {
     if (!fs.existsSync(history)) throw new CommerceError(404,'Предыдущая версия отсутствует.');
     const previous=JSON.parse(fs.readFileSync(history,'utf8')); const current=read(base.slug);
     atomic(history,current); const f=file(base.slug);
-    if(previous) atomic(f,previous); else if(fs.existsSync(f)) fs.unlinkSync(f);
+    atomic(f,{...(previous||{title:base.title,description:'',values:{}}),updated:new Date().toISOString()});
     const draft=file(base.slug,true); if(fs.existsSync(draft))fs.unlinkSync(draft);
+    queueIndexNow(base.path);
   } else {
     const next=validate(data,base);
     if(data.operation==='publish') {
-      atomic(path.join(content(),'history',base.slug+'.json'),read(base.slug));
-      atomic(file(base.slug),next); const draft=file(base.slug,true); if(fs.existsSync(draft))fs.unlinkSync(draft);
+      const current=read(base.slug);const original=fs.readFileSync(path.join(root(),'pages',base.slug+'.html'),'utf8');
+      const baseline=pageSeo(base.slug,current,base.title,replaceChanges(original,base,current));
+      const values=(v:Record<string,string>)=>JSON.stringify(Object.entries(v).sort(([a],[b])=>a.localeCompare(b)));
+      const same=next.title===baseline.title && next.description===baseline.description && values(next.values)===values(current?.values||{});
+      if(!same){atomic(path.join(content(),'history',base.slug+'.json'),current);atomic(file(base.slug),next);queueIndexNow(base.path);}
+      const draft=file(base.slug,true); if(fs.existsSync(draft))fs.unlinkSync(draft);
     } else atomic(file(base.slug,true),next);
   }
   return contentPage(base.slug);
@@ -112,9 +122,6 @@ export function renderMirror(slug: string, origin: string, preview=false) {
   const base=source(slug); let html=fs.readFileSync(path.join(root(),'pages',slug+'.html'),'utf8');
   html=replaceChanges(html,base,preview?(read(slug,true) || read(slug)):read(slug));
   html=protectSchoolVideos(html);
-  html=html.replace(/<link\b[^>]*rel="canonical"[^>]*>/gi,'').replace(/<meta\b[^>]*property="og:url"[^>]*>/gi,'');
-  const canonical=escapeHtml(origin+base.path);
-  html=html.replace('</head>','<link rel="canonical" href="'+canonical+'"><meta property="og:url" content="'+canonical+'">'+(new URL(origin).hostname.startsWith('new.')||preview?'<meta name="robots" content="noindex, follow">':'')+'</head>');
   // Replace Tilda cart with the existing secure single-product checkout.
   html=html.replace(/<a\b[^>]*href="#order"[^>]*>[\s\S]*?<\/a>/g,tag=>tag.replace('href="#order"','href="/lectures"'));
   html=html.replace(/<a\b[^>]*href="#order:[^"]*"[^>]*>[\s\S]*?<\/a>/g,tag=>tag.replace(/href="[^"]*"/,'href="/lectures"').replace(/Купить/g,'Выбрать лекцию'));
@@ -145,7 +152,7 @@ export function renderMirror(slug: string, origin: string, preview=false) {
     html=html.replace(target,tag=>tag+'<a id="'+anchor.id+'" name="'+anchor.id+'" data-legacy-anchors="'+anchor.aliases.join(' ')+'" aria-hidden="true" style="display:block;height:0"></a>');
   }
   if(preview) html=html.replace('<body','<body data-content-preview="true"');
-  return html;
+  return applyMirrorSeo(html,slug,base.title,origin,preview?(read(slug,true)||read(slug)):read(slug),preview);
 }
 export function localFeed(params: URLSearchParams) {
   const requested=params.get(params.get('action')==='post'?'postuid':'feeduid') || '';
@@ -156,6 +163,7 @@ export function localFeed(params: URLSearchParams) {
   if(!fs.existsSync(f))throw new CommerceError(404,'Публикация не найдена.');
   const data=JSON.parse(fs.readFileSync(f,'utf8'));
   const overlay=(post:Record<string,any>)=>{
+    post={...post,authorname:authorName,authorurl:'/obo_mne'};
     const page=mirrorPages().find(p=>p.path===post.url);
     if(!page)return post;
     const changes=read(page.slug);if(!changes)return post;

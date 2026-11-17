@@ -4,6 +4,7 @@ import { randomBytes, timingSafeEqual } from 'node:crypto';
 import { isIP } from 'node:net';
 import { config, stateDir, CommerceError, available, mediaDelivery } from './commerce.ts';
 import { lectureProducts } from './products.ts';
+import { queueIndexNow } from './indexnow.ts';
 
 type Job = { product:string; version:string; url:string; status:'queued'|'processing'|'ready'|'error'; updated:number; error?:string; bytes?:number; duration?:number };
 const file = () => path.join(stateDir(),'recording-imports.json');
@@ -32,6 +33,7 @@ export function saveRecordingImport(data:Record<string,unknown>) {
   write(file(),all);
   const c=config();c.lectureSalesDisabled=[...(c.lectureSalesDisabled||[]).filter(id=>id!==p.id),...(data.selling?[]:[p.id])];
   write(path.join(stateDir(),'config.json'),c);
+  queueIndexNow('/recordings/'+p.id);queueIndexNow('/lectures');
   return recordingImports();
 }
 export function importAuthorized(value:string) {
@@ -61,5 +63,6 @@ export async function importAction(data:Record<string,unknown>) {
   const latest=jobs();if(latest[job.product]?.version!==job.version)throw new CommerceError(409,'Ссылка изменилась во время загрузки.');
   const c=config();c.lectureRemoteFiles={...c.lectureRemoteFiles,[job.product]:name};write(path.join(stateDir(),'config.json'),c);
   latest[job.product]={...job,status:'ready',updated:Date.now(),bytes:Number(data.bytes),duration:Number(data.duration)};write(file(),latest);
+  queueIndexNow('/recordings/'+job.product);queueIndexNow('/lectures');
   return {ok:true};
 }
