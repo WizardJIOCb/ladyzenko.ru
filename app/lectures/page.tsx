@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getLecturePages } from "@/lib/content";
 import { lectureProducts, formatPrice } from "@/lib/products";
-import { available, config } from '@/lib/commerce';
+import { available, config, listedLectures } from '@/lib/commerce';
 export const dynamic='force-dynamic';
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function LecturesPage() {
   const lectures = getLecturePages();
-  const c=config();const sorted=[...lectureProducts].sort((a,b)=>Number(available(b,c))-Number(available(a,c)));
+  const c=config();const sorted=listedLectures(c).sort((a,b)=>Number(available(b,c))-Number(available(a,c)));
 
   return (
     <div className="page-stack">

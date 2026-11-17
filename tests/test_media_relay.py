@@ -73,7 +73,7 @@ class MediaRelayTests(unittest.TestCase):
             self.assertEqual(caught.exception.code, 416)
 
     def test_paths_and_source_url_injection_are_rejected(self):
-        for suffix in ['../config.json', 'school-lecture-01.mp4', 'school-lecture-02.mp4?url=https://elsewhere.test']:
+        for suffix in ['../config.json', 'school-lecture-00.mp4', 'school-lecture-02.mp4?url=https://elsewhere.test']:
             with self.assertRaises(urllib.error.HTTPError) as caught:
                 urllib.request.urlopen(self.request(self.url.rsplit('/', 1)[0] + '/' + suffix))
             self.assertEqual(caught.exception.code, 404)

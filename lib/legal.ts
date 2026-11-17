@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import type { Config } from './commerce.ts';
 
-export const legalVersion = '2026-11-14.3';
+export const legalVersion = '2026-11-17.1';
 export const sellerStatuses = { selfemployed: 'Самозанятый, плательщик НПД', ip: 'Индивидуальный предприниматель', company: 'Юридическое лицо' };
 export const profileKeys = ['seller', 'inn', 'sellerStatus', 'registrationNumber', 'postalAddress', 'contactEmail', 'contactPhone', 'sellerBasis', 'sellerBasisConfirmed'] as const;
 export function profile(c: Config) {

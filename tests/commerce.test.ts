@@ -104,8 +104,8 @@ test('remote recordings require a safe configured filename and paid ownership; e
   assert.equal((await GET(request(),ctx)).status,403);
   const obj={...providerObjects.get(row.provider_id!),status:'succeeded',paid:true};settle(row.id,obj);
   assert.equal(row.amount,100000);
-  const response=await GET(request(),ctx);assert.equal(response.status,200);
-  assert.equal(response.headers.get('x-accel-redirect'),'/commerce-remote/school-lecture-02.mp4');
+  // A paid order capability alone no longer opens the media; viewer.test covers OTP + lease.
+  const response=await GET(request(),ctx);assert.equal(response.status,403);
   assert.match(response.headers.get('cache-control')!,/no-store/);
   db().prepare('UPDATE orders SET expires=? WHERE id=?').run(Math.floor(Date.now()/1000)-1,row.id);
   assert.equal((await GET(request(),ctx)).status,403);

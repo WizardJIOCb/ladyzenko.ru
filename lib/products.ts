@@ -2,7 +2,7 @@ import lectures from './lecture-products.json' with { type: 'json' };
 import schoolLectures from './school-products.json' with { type: 'json' };
 
 export type Product = { id: string; kind: string; title: string; amount: number;
-  description: string; image?: string; accessDays?: number; duration?: string };
+  description: string; image?: string; accessDays?: number; duration?: string; hiddenUntilConnected?: boolean };
 export const consultations: Product[] = [
   { id: 'diagnostic', kind: 'consultation', title: 'Диагностическое интервью', amount: 200000,
     duration: '1 час', description: 'Прояснение запроса, определение эмоциональных ресурсов и поиск вариантов достижения цели.' },
@@ -12,6 +12,8 @@ export const consultations: Product[] = [
     duration: '1 час', description: 'Диагностическое тестирование. Конкретную методику, дату и формат необходимо согласовать до оплаты.' },
 ];
 export const schoolProducts: Product[] = schoolLectures;
-export const lectureProducts: Product[] = [...lectures, ...schoolProducts];
+export const additionalProducts: Product[] = [{id:'lecture-1794913200000',kind:'lecture',title:'Дополнительная лекция Людмилы Ладыженко',amount:100000,hiddenUntilConnected:true,
+  description:'Отдельная запись выступления Людмилы Ладыженко. Продолжительность — 1 час 15 минут. Доступ для личного просмотра на 30 дней.',accessDays:30,duration:'1 ч 15 мин',image:'/stuff/block-3.jpg'}];
+export const lectureProducts: Product[] = [...lectures, ...schoolProducts, ...additionalProducts];
 export const products: Product[] = [...consultations, ...lectureProducts];
 export const formatPrice = (amount: number) => new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }).format(amount / 100);

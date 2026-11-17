@@ -24,6 +24,17 @@ test('all source pages and full feed bodies are preserved without asset download
   assert.equal(mirrorPages().length,114);assert.equal(report.assetErrors.length,0);
   for(const f of report.feeds){const data=localFeed(new URLSearchParams({feeduid:f.uid,size:'480'}));assert.equal(data.posts.length,f.posts);for(const post of data.posts){const full=localFeed(new URLSearchParams({postuid:post.uid,action:'post'}));assert.ok(full.post.text.length>0);}}
 });
+
+test('paid school recordings cannot be played through legacy public embeds while free previews remain',()=>{
+  const course=fs.readFileSync('mirror/pages/sckolaotzov.html','utf8');
+  const ids=[...course.matchAll(/data-rutubeid="([a-f0-9]{32})/g)].map(m=>m[1]);assert.equal(new Set(ids).size,13);
+  for(const page of mirrorPages()){
+    const html=renderMirror(page.slug,'https://new.ladyzenko.ru');
+    for(const id of ids)assert.equal(html.includes(id),false,'Full recording leaked on '+page.slug);
+  }
+  const first=renderMirror('lekciya_1','https://new.ladyzenko.ru');assert.ok(first.includes('/recordings/school-lecture-01'));
+  assert.ok(renderMirror('index','https://new.ladyzenko.ru').includes('data-videolazy-type="rutube"'));
+});
 test('draft is private, publish applies escaped edits, stale writes fail and restore recovers original',()=>{
   const base=contentPage('index');const id=base.blocks.find(b=>b.type==='text')!.id;
   const marker='Migration <script>alert(1)</script>';

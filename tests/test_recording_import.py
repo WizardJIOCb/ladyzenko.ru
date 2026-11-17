@@ -9,6 +9,14 @@ spec.loader.exec_module(worker)
 
 
 class ImportNetworkTests(unittest.TestCase):
+    def test_google_drive_file_links_resolve_without_accepting_folder_or_path_injection(self):
+        ident='drive_fixture_file_12345'
+        expected='https://drive.usercontent.google.com/download?id='+ident+'&export=download&confirm=t'
+        for url in ['https://drive.google.com/file/d/'+ident+'/view?usp=sharing','https://drive.google.com/open?id='+ident]:
+            self.assertEqual(worker.resolve_download(url),expected)
+        for path in ['/drive/folders/'+ident,'/file/d/..%2Fsecret/view','/open?id=short']:
+            with self.assertRaises(worker.ImportFailure):worker.resolve_download('https://drive.google.com'+path)
+
     def test_rejects_private_mixed_loopback_linklocal_and_multicast_addresses(self):
         for addresses in [('127.0.0.1',), ('169.254.169.254',), ('10.0.0.1',), ('::1',), ('fe80::1',), ('224.0.0.1',), ('8.8.8.8', '192.168.1.1')]:
             with patch.object(socket, 'getaddrinfo', return_value=[(socket.AF_INET, socket.SOCK_STREAM, 0, '', (a, 443)) for a in addresses]):

@@ -11,6 +11,35 @@ type Changes = { title: string; description: string; values: Record<string,strin
 const root = () => path.join(process.cwd(), 'mirror');
 const content = () => path.join(stateDir(), 'content');
 const digest = (value: string) => createHash('sha256').update(value).digest('hex');
+let schoolVideos: Map<string,string> | undefined;
+function schoolVideoProducts() {
+  if (schoolVideos) return schoolVideos;
+  schoolVideos=new Map();
+  const course=fs.readFileSync(path.join(root(),'pages','sckolaotzov.html'),'utf8');
+  const all=new Set([...course.matchAll(/data-rutubeid="([a-f0-9]{32})[^\"]*"/g)].map(m=>m[1]));
+  for(let n=1;n<=13;n++) {
+    const page=path.join(root(),'pages','lekciya_'+n+'.html');
+    if(!fs.existsSync(page))continue;
+    const ids=[...fs.readFileSync(page,'utf8').matchAll(/data-rutubeid="([a-f0-9]{32})[^\"]*"/g)];
+    for(const m of ids)if(all.has(m[1]))schoolVideos.set(m[1],'school-lecture-'+String(n).padStart(2,'0'));
+  }
+  const remaining=[...all].filter(id=>!schoolVideos!.has(id));
+  // The exported course has no separate page for lecture seven.
+  if(remaining.length===1&&schoolVideos.size===12)schoolVideos.set(remaining[0],'school-lecture-07');
+  return schoolVideos;
+}
+function protectSchoolVideos(html:string) {
+  const ids=schoolVideoProducts();let changed=false;
+  html=html.replace(/<div\b[^>]*\b(?:data-rutubeid|data-videolazy-id)="([^\"]+)"[^>]*>\s*<\/div>/g,(tag,value:string)=>{
+    const product=ids.get(value.split('?')[0]);if(!product)return tag;changed=true;
+    return '<div class="protected-recording"><a href="/recordings/'+product+'">Полная запись: описание и покупка доступа на 30 дней</a></div>';
+  });
+  html=html.replace(/href="(?:https?:\/\/(?:www\.)?rutube\.ru\/[^\"]+|[a-f0-9]{32}\?[^\"]*)"/g,tag=>{
+    for(const [id,product] of ids)if(tag.includes(id)){changed=true;return 'href="/recordings/'+product+'"';}return tag;
+  });
+  if(changed&&!html.includes('href="/commerce-catalog.css"'))html=html.replace('</head>','<link rel="stylesheet" href="/commerce-catalog.css"></head>');
+  return html;
+}
 export const escapeHtml = (s: string) => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 export function mirrorPages(): Omit<MirrorPage,'blocks'>[] { return JSON.parse(fs.readFileSync(path.join(root(),'manifest.json'),'utf8')); }
 function source(slug: string): MirrorPage {
@@ -82,6 +111,7 @@ function replaceChanges(html: string, base: MirrorPage, changes: Changes | null)
 export function renderMirror(slug: string, origin: string, preview=false) {
   const base=source(slug); let html=fs.readFileSync(path.join(root(),'pages',slug+'.html'),'utf8');
   html=replaceChanges(html,base,preview?(read(slug,true) || read(slug)):read(slug));
+  html=protectSchoolVideos(html);
   html=html.replace(/<link\b[^>]*rel="canonical"[^>]*>/gi,'').replace(/<meta\b[^>]*property="og:url"[^>]*>/gi,'');
   const canonical=escapeHtml(origin+base.path);
   html=html.replace('</head>','<link rel="canonical" href="'+canonical+'"><meta property="og:url" content="'+canonical+'">'+(new URL(origin).hostname.startsWith('new.')||preview?'<meta name="robots" content="noindex, follow">':'')+'</head>');

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { authorized, capability, checkout, CommerceError, config, mediaDelivery, order, publicOrder, reconcile, webhook, trustedOrigin } from '@/lib/commerce';
+import { viewerCookie, viewerState, sendViewerCode, verifyViewerCode, startWatching, keepWatching, stopWatching, logoutViewer, canStream } from '@/lib/viewer';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -49,13 +50,27 @@ async function handle(req: NextRequest, ctx: { params: Promise<{parts: string[]}
       }
       if (!authorized(id, key)) throw new CommerceError(403, 'Откройте личную ссылку из письма или того браузера, где оформляли заказ.');
       const row = order(id); if (!row) throw new CommerceError(404, 'Заказ не найден.');
-      if (parts[2] === 'refresh' && req.method === 'POST') { await reconcile(id); return NextResponse.json(publicOrder(order(id)!), {headers}); }
+      const viewer=req.cookies.get(viewerCookie)?.value||'';
+      const view=()=>({...publicOrder(order(id)!),viewer:viewerState(row,viewer)});
+      if (parts[2]==='login-code' && req.method==='POST')return NextResponse.json(await sendViewerCode(row,req.headers.get('x-real-ip')||'unknown'),{headers});
+      if (parts[2]==='verify-code' && req.method==='POST'){
+        const token=verifyViewerCode(row,data.code,req.headers.get('x-real-ip')||'unknown');const response=NextResponse.json({ok:true},{headers});
+        response.cookies.set(viewerCookie,token,{httpOnly:true,secure:config().origin.startsWith('https:'),sameSite:'strict',path:'/api/commerce',maxAge:30*86400});return response;
+      }
+      if(parts[2]==='watch'&&req.method==='POST'){
+        const play=typeof data.play==='string'?data.play:'';
+        return NextResponse.json(data.action==='heartbeat'?keepWatching(row,viewer,play):data.action==='stop'?stopWatching(viewer,play):startWatching(row,viewer,data.takeover===true),{headers});
+      }
+      if(parts[2]==='logout'&&req.method==='POST'){
+        logoutViewer(viewer);const response=NextResponse.json({ok:true},{headers});response.cookies.set(viewerCookie,'',{path:'/api/commerce',httpOnly:true,secure:config().origin.startsWith('https:'),sameSite:'strict',maxAge:0});return response;
+      }
+      if (parts[2] === 'refresh' && req.method === 'POST') { await reconcile(id); return NextResponse.json(view(), {headers}); }
       if (parts[2] === 'media' && req.method === 'GET') {
         const view = publicOrder(row); const delivery = mediaDelivery(row.product);
-        if (!view.canWatch || !delivery) throw new CommerceError(403, 'Доступ к записи не оплачен или истёк.');
+        if (!view.canWatch || !delivery || !canStream(row,viewer,req.nextUrl.searchParams.get('play')||'')) throw new CommerceError(403, 'Для просмотра подтвердите почту и откройте плеер на странице заказа.');
         return new NextResponse(null, { headers: { ...headers, 'Content-Type': 'video/mp4', 'X-Accel-Redirect': delivery } });
       }
-      if (parts.length === 2 && req.method === 'GET') return NextResponse.json(publicOrder(row), {headers});
+      if (parts.length === 2 && req.method === 'GET') return NextResponse.json(view(), {headers});
     }
     throw new CommerceError(404, 'Страница не найдена.');
   } catch (error) {

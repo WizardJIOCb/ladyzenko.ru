@@ -3,7 +3,7 @@ import { createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import nodemailer from 'nodemailer';
-import { products, type Product } from './products.ts';
+import { products, lectureProducts, type Product } from './products.ts';
 import { legalVersion, legalFingerprint, profile, profileGaps } from './legal.ts';
 
 export type Config = {
@@ -89,6 +89,7 @@ export function mediaDelivery(productId: string, c = config()) {
 export function available(product: Product, c = config()) {
   return ready(c) && !c.lectureSalesDisabled?.includes(product.id) && (product.kind === 'consultation' || Boolean(mediaDelivery(product.id, c)));
 }
+export function listedLectures(c=config()){return lectureProducts.filter(p=>!p.hiddenUntilConnected||Boolean(mediaDelivery(p.id,c)));}
 export type Order = { id: string; product: string; email: string; amount: number; mode: string; created: number;
   status: string; provider_id: string | null; confirmation: string | null; request: string;
   paid_at: number | null; expires: number | null; access_days: number | null; consent: string };
@@ -217,7 +218,7 @@ export async function work() {
     try {
       await transport.sendMail({ from: c.smtp.from, to: row.email, subject: 'Оплата подтверждена: ' + p.title,
         text: `Оплата ${p.title} подтверждена.\nНомер заказа: ${row.id}\n` +
-          (p.kind === 'lecture' ? 'Доступ к записи: 30 дней с момента оплаты.\n' : 'Встреча пройдёт в согласованное с Людмилой время.\n') +
+          (p.kind === 'lecture' ? 'Доступ к записи: 30 дней с момента оплаты. Для просмотра подтвердите почту покупки одноразовым кодом. Одновременно доступен один сеанс.\n' : 'Встреча пройдёт в согласованное с Людмилой время.\n') +
           `Ваша личная страница заказа: ${url}\nНе передавайте ссылку другим людям.\n` +
           (c.fiscalizationMethod === 'npd_manual' ? 'Чек продавец сформирует вручную в сервисе «Мой налог» и направит на почту покупки отдельно от этого подтверждения.\n' : '') +
           `Поддержка: ${c.contactEmail}` });

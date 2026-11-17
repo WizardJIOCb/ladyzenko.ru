@@ -68,6 +68,13 @@ def public_get(url):
 
 def resolve_download(url):
     u = urlsplit(url)
+    if u.hostname in ('drive.google.com', 'www.drive.google.com'):
+        from urllib.parse import parse_qs
+        match = re.fullmatch(r'/file/d/([A-Za-z0-9_-]{10,100})(?:/view)?/?', u.path)
+        ident = match[1] if match else parse_qs(u.query).get('id', [''])[0] if u.path in ('/uc', '/open') else ''
+        if not re.fullmatch(r'[A-Za-z0-9_-]{10,100}', ident):
+            raise ImportFailure('download')
+        return 'https://drive.usercontent.google.com/download?' + urlencode({'id': ident, 'export': 'download', 'confirm': 't'})
     if u.hostname in ('disk.yandex.ru', 'yadi.sk', 'disk.360.yandex.ru') and u.path.startswith(('/d/', '/i/')):
         conn, response = public_get('https://cloud-api.yandex.net/v1/disk/public/resources/download?' + urlencode({'public_key': url}))
         try:
@@ -157,7 +164,7 @@ def main():
     if not job:
         return
     ident, version = job['product'], job['version']
-    if not re.fullmatch(r'(lecture-\d{13}|school-lecture-(0[2-9]|1[0-3]))', ident) or not re.fullmatch(r'[a-f0-9]{16}', version):
+    if not re.fullmatch(r'(lecture-\d{13}|school-lecture-(0[1-9]|1[0-3]))', ident) or not re.fullmatch(r'[a-f0-9]{16}', version):
         raise RuntimeError('Invalid job')
     base = pathlib.Path('/var/lib/new-ladyzenko-recordings')
     output = base / (ident + '-' + version + '.mp4')

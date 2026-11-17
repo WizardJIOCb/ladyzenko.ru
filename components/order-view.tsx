@@ -1,7 +1,8 @@
 'use client';
 import { useCallback, useEffect, useState } from 'react';
 import { formatPrice } from '@/lib/products';
-type View = {product:string; title:string; kind:string; amount:number; status:string; test:boolean; confirmation:string|null; expires:number|null; canWatch:boolean; mailSent:boolean};
+import { ViewerPlayer } from './viewer-player';
+type View = {product:string; title:string; kind:string; amount:number; status:string; test:boolean; confirmation:string|null; expires:number|null; canWatch:boolean; mailSent:boolean;viewer?:{verified:boolean;email:string}};
 export function OrderView({id}:{id:string}) {
   const [view,setView] = useState<View>(); const [error,setError] = useState(''); const [busy,setBusy] = useState(false);
   const refresh = useCallback(async (provider = false) => {
@@ -31,7 +32,7 @@ export function OrderView({id}:{id:string}) {
       {view.status === 'succeeded' && !view.test && view.kind === 'consultation' ? <p>Встреча пройдёт в согласованное с Людмилой время. По вопросам встречи и возврата свяжитесь по контактам сайта, указав номер заказа.</p> : null}
       {view.status === 'succeeded' && !view.test ? <p>{view.mailSent ? 'Подтверждение отправлено на вашу почту.' : 'Письмо с подтверждением готовится к отправке. Эта страница уже показывает подтверждённый статус.'}</p> : null}
       {view.expires ? <p>Срок доступа до {new Date(view.expires*1000).toLocaleString('ru-RU', {timeZone:'Asia/Yekaterinburg'})} (Екатеринбург).</p> : null}
-      {view.canWatch ? <video controls controlsList="nodownload" src={'/api/commerce/orders/' + id + '/media'} /> : null}
+      {view.canWatch ? <ViewerPlayer id={id} viewer={view.viewer} /> : null}
       {view.confirmation ? <a className="commerce-button" href={view.confirmation}>Продолжить оплату в ЮKassa</a> : null}</> : null}
     <button type="button" className="commerce-button" disabled={busy} onClick={()=>void refresh(true)}>{busy ? 'Проверяем…' : 'Проверить статус'}</button>
     <p>Номер заказа: <code>{id}</code>. Личная ссылка из письма открывает заказ — не передавайте её другим людям.</p>

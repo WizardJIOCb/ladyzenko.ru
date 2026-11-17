@@ -8,11 +8,11 @@ import sys
 
 directory = pathlib.Path('/var/lib/new-ladyzenko-recordings')
 results = []
-for metadata in sorted(directory.glob('school-lecture-*.verified.json')):
+for metadata in sorted(directory.glob('*.verified.json')):
     record = json.loads(metadata.read_text())
     if len(sys.argv) > 1 and record['id'] not in sys.argv[1:]:
         continue
-    video = directory / (record['id'] + '.mp4')
+    video = directory / record.get('filename', record['id'] + '.mp4')
     if record['bytes'] != video.stat().st_size:
         raise RuntimeError('Imported file changed: ' + record['id'])
     probe = subprocess.run(['ffprobe', '-v', 'error', '-show_entries',

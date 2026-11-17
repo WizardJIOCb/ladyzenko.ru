@@ -30,7 +30,7 @@ export function RecordingsAdmin() {
   async function refresh(){try{const r=await fetch('/api/admin/recordings',{cache:'no-store'});if(!r.ok)throw new Error('Не удалось загрузить записи. Обновите страницу или войдите снова.');setRows(await r.json());setError('');}catch(e){setError(e instanceof Error?e.message:'Не удалось загрузить записи.');}}
   useEffect(()=>{void refresh();const timer=setInterval(()=>void refresh(),15000);return()=>clearInterval(timer);},[]);
   return <section className="admin-section" id="recordings"><h2>Записи и продажи лекций</h2>
-    <p>Укажите прямую HTTPS ссылку на MP4 или публичную ссылку Яндекс Диска на один видеофайл. Ссылка должна скачиваться без входа в аккаунт. Нужны видео H.264 и звук AAC.</p>
+    <p>Укажите прямую HTTPS ссылку на MP4, публичную ссылку Google Drive или Яндекс Диска на один видеофайл. Ссылка должна скачиваться без входа в аккаунт. Нужны видео H.264 и звук AAC.</p>
     <p>Сайт скачает запись на закрытый видеосервер, проверит воспроизведение и автоматически включит покупку. Ссылка на исходный файл покупателям не показывается. Обновление статусов происходит автоматически.</p>
     {error?<p role="alert">{error}</p>:null}{rows.map(item=><Row key={item.id} item={item} onSaved={setRows}/>)}
   </section>;

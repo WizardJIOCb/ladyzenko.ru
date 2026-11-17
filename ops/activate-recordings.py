@@ -21,7 +21,8 @@ records = json.load(sys.stdin)
 if not records:
     raise ValueError('No verified recordings')
 for record in records:
-    if not re.fullmatch(r'school-lecture-(0[2-9]|1[0-3])', record['id']) or record.get('decodedSamples') != 3:
+    name = record.setdefault('filename', record['id'] + '.mp4')
+    if not re.fullmatch(r'(school-lecture-(0[1-9]|1[0-3])|lecture-\d{13})', record['id']) or not re.fullmatch(re.escape(record['id']) + r'(-[a-f0-9]{16})?\.mp4', name) or record.get('decodedSamples') != 3:
         raise ValueError('Unexpected or unverified recording')
 sock = socket.socket()
 sock.bind(('127.0.0.1', 0))
@@ -49,14 +50,14 @@ try:
         for sample in record['rangeSamples']:
             start = sample['offset']
             end = start + 1023
-            request = urllib.request.Request('http://127.0.0.1:' + str(port) + '/probe/' + record['id'] + '.mp4',
+            request = urllib.request.Request('http://127.0.0.1:' + str(port) + '/probe/' + record['filename'],
                                              headers={'Range': f'bytes={start}-{end}'})
             with urllib.request.urlopen(request, timeout=45) as response:
                 if response.status != 206 or response.headers['Content-Range'] != f'bytes {start}-{end}/{record["bytes"]}' or hashlib.sha256(response.read()).hexdigest() != sample['sha256']:
                     raise RuntimeError('Range verification failed')
         for url in ('https://video.ladyzenko.ru/commerce-source/', 'https://new.ladyzenko.ru/commerce-remote/'):
             try:
-                urllib.request.urlopen(url + record['id'] + '.mp4', timeout=20).close()
+                urllib.request.urlopen(url + record['filename'], timeout=20).close()
             except urllib.error.HTTPError as error:
                 if error.code == 404:
                     continue
@@ -68,7 +69,7 @@ try:
     backup = config.with_name('config.before-recordings-' + stamp + '.json')
     backup.write_bytes(content)
     backup.chmod(0o600)
-    current.setdefault('lectureRemoteFiles', {}).update({r['id']: r['id'] + '.mp4' for r in records})
+    current.setdefault('lectureRemoteFiles', {}).update({r['id']: r['filename'] for r in records})
     temporary = config.with_name('config.recordings.tmp')
     temporary.write_text(json.dumps(current, ensure_ascii=False, indent=2) + '\n')
     temporary.chmod(0o600)
