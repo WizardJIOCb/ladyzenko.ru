@@ -38,7 +38,11 @@ trap rollback ERR
 mkdir "$release"
 tar -xzf "$archive" -C "$release"
 if [[ -n "${3:-}" ]]; then tar -xzf "$3" -C "$release"; fi
-cmp "$release/package-lock.json" "$previous/package-lock.json"
+python3 - "$release/package-lock.json" "$previous/package-lock.json" <<'PY'
+import pathlib,sys
+first,second=[pathlib.Path(p).read_bytes().replace(b'\r\n',b'\n') for p in sys.argv[1:]]
+if first!=second:raise SystemExit('Dependency lockfile changed; a fresh dependency install is required')
+PY
 # Immutable dependencies are identical; share their files without another npm install.
 cp -al "$previous/node_modules" "$release/node_modules"
 cd "$release"
