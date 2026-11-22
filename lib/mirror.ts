@@ -4,7 +4,7 @@ import path from 'node:path';
 import { createHash, randomBytes } from 'node:crypto';
 import { CommerceError, stateDir, config, available } from './commerce.ts';
 import { siteAnchors } from './site-anchors.ts';
-import { consultations, formatPrice } from './products.ts';
+import { formatPrice } from './products.ts';
 import { applyMirrorSeo } from './mirror-seo.ts';
 import { pageSeo,authorName } from './seo.ts';
 import { queueIndexNow } from './indexnow.ts';
@@ -119,6 +119,21 @@ function replaceChanges(html: string, base: MirrorPage, changes: Changes | null)
   if(changes.description) html=html.replace(/<meta\b[^>]*name="description"[^>]*>/gi,'').replace(/<\/head>/i,()=>'<meta name="description" content="'+escapeHtml(changes.description)+'"></head>');
   return html;
 }
+// Keep the exported CMS blocks intact while publishing only the selected service.
+function individualConsultationOnly(html: string) {
+  const rows=[...html.matchAll(/<div class="t681__row t-row">/g)];
+  for(const row of rows.reverse()) {
+    const start=row.index!;const tags=/<\/?div\b[^>]*>/g;tags.lastIndex=start;
+    let depth=0;let end=start;
+    for(let tag=tags.exec(html);tag;tag=tags.exec(html)) {
+      depth+=tag[0].startsWith('</')?-1:1;
+      if(depth===0){end=tags.lastIndex;break;}
+    }
+    const block=html.slice(start,end);
+    if(/field="li_title__132967078821(?:0|2)"/.test(block))html=html.slice(0,start)+html.slice(end);
+  }
+  return html;
+}
 export function renderMirror(slug: string, origin: string, preview=false) {
   const base=source(slug); let html=fs.readFileSync(path.join(root(),'pages',slug+'.html'),'utf8');
   html=replaceChanges(html,base,preview?(read(slug,true) || read(slug)):read(slug));
@@ -131,8 +146,7 @@ export function renderMirror(slug: string, origin: string, preview=false) {
   if(base.slug==='index') {
     const catalog='<section class="live-recordings" aria-labelledby="live-recordings-title"><h2 id="live-recordings-title">Купить лекции в записи</h2><p>Доступ на 30 дней после оплаты. Видео откроется на личной странице заказа, ссылка придёт на почту.</p><div class="live-recordings-grid">'+buyable.map(p=>'<article>'+(p.image?'<img class="live-recording-cover" src="'+escapeHtml(p.image)+'" alt="'+escapeHtml(p.title)+'" loading="lazy">':'')+'<h3><a href="/recordings/'+p.id+'">'+escapeHtml(p.title)+'</a></h3><p>'+escapeHtml(p.duration||'Запись лекции')+'</p><a class="live-purchase" href="/checkout/'+p.id+'">Купить за '+escapeHtml(formatPrice(p.amount))+'</a></article>').join('')+'</div><p><a href="/lectures">Все лекции и доступность записей</a></p></section>';
     html=html.replace(/(<div\b[^>]*\bid="rec1043768191"[^>]*>)/,(_match,tag)=>tag+catalog);
-    const services='<div class="live-recordings"><p>Оплата консультации после согласования даты и формата встречи:</p><div class="live-recordings-grid">'+consultations.filter(p=>available(p,commerce)).map(p=>'<a class="live-purchase" href="/checkout/'+p.id+'">'+escapeHtml(p.title)+' · '+escapeHtml(formatPrice(p.amount))+'</a>').join('')+'</div></div>';
-    html=html.replace(/(<div\b[^>]*\bid="rec1161429401"[^>]*>)/,(_match,tag)=>tag+services);
+    html=individualConsultationOnly(html);
     html=html.replace('</head>','<link rel="stylesheet" href="/commerce-catalog.css"></head>');
   }
   html=html.replace(/<a\b[^>]*href="\/checkout\/([^"/]+)"[^>]*>[\s\S]*?<\/a>/g,(tag,id:string)=>{
