@@ -15,7 +15,7 @@ const original=global.fetch;let posted=0;let provider:any;
 global.fetch=async(_url,init)=>{if(init?.method==='POST'){posted++;const body=JSON.parse(String(init.body));provider={...body,id:'fixture-payment-12345',test:true,status:'pending',paid:false,recipient:{account_id:'123'},confirmation:{confirmation_url:'https://yoomoney.ru/checkout/payments/v2/contract?fixture'}};}return Response.json(provider);};
 after(()=>{global.fetch=original;db().close();fs.rmSync(dir,{recursive:true,force:true});});
 const current=()=>getLectureProducts().find(p=>p.id===product)!;
-function details(extra:Record<string,unknown>={}){const p=current();return {product,version:detailsVersion(p),title:p.title,description:p.description,amount:p.amount,image:p.image||'',...extra};}
+function details(extra:Record<string,unknown>={}){const p=current();return {product,version:detailsVersion(p),title:p.title,description:p.description,amount:p.amount,image:p.coverImage||'',...extra};}
 test('only the administrator may edit a lecture, stale writes fail, and covers must be uploaded images',async()=>{
  setupAdmin('catalogue-test-password-only');const token=login('catalogue-test-password-only');
  const req=(origin:string,cookie:string)=>new NextRequest('https://new.ladyzenko.ru/api/admin/recording-details',{method:'POST',headers:{origin,cookie,'Content-Type':'application/json'},body:JSON.stringify(details({title:'Новое название'}))});
