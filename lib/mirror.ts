@@ -8,6 +8,7 @@ import { formatPrice } from './products.ts';
 import { applyMirrorSeo } from './mirror-seo.ts';
 import { pageSeo,authorName } from './seo.ts';
 import { queueIndexNow } from './indexnow.ts';
+import { newsletterForm } from './newsletter.ts';
 
 export type MirrorBlock = { id: string; type: 'text' | 'image' | 'link'; value: string; label: string };
 export type MirrorPage = { slug: string; path: string; title: string; sourceStatus: string; blocks: MirrorBlock[] };
@@ -144,6 +145,9 @@ export function renderMirror(slug: string, origin: string, preview=false) {
   const commerce=config();
   const buyable=getLectureProducts().filter(p=>available(p,commerce));
   if(base.slug==='index') {
+    html=html.replace(/<form\b[^>]*\bid="form967078911"[^>]*>[\s\S]*?<\/form>/, newsletterForm)
+      .replace('</head>', '<link rel="stylesheet" href="/footer-newsletter.css"></head>')
+      .replace('src="/mirror-runtime.js"', 'src="/mirror-runtime.js?v=newsletter1"');
     const catalog='<section class="live-recordings" aria-labelledby="live-recordings-title"><h2 id="live-recordings-title">Купить лекции в записи</h2><p>Доступ на 30 дней после оплаты. Видео откроется на личной странице заказа, ссылка придёт на почту.</p><div class="live-recordings-grid">'+buyable.map(p=>'<article>'+(p.image?'<img class="live-recording-cover" src="'+escapeHtml(p.image)+'" alt="'+escapeHtml(p.title)+'" loading="lazy">':'')+'<h3><a href="/recordings/'+p.id+'">'+escapeHtml(p.title)+'</a></h3><p>'+escapeHtml(p.duration||'Запись лекции')+'</p><a class="live-purchase" href="/checkout/'+p.id+'">Купить за '+escapeHtml(formatPrice(p.amount))+'</a></article>').join('')+'</div><p><a href="/lectures">Все лекции и доступность записей</a></p></section>';
     html=html.replace(/(<div\b[^>]*\bid="rec1043768191"[^>]*>)/,(_match,tag)=>tag+catalog);
     html=individualConsultationOnly(html);

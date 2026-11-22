@@ -43,6 +43,8 @@ export function db() {
         access_days INTEGER, consent TEXT NOT NULL);
       CREATE TABLE IF NOT EXISTS refunds(id TEXT PRIMARY KEY, order_id TEXT NOT NULL, amount INTEGER NOT NULL);
       CREATE TABLE IF NOT EXISTS outbox(order_id TEXT PRIMARY KEY, sent INTEGER, attempts INTEGER NOT NULL DEFAULT 0, retry_at INTEGER NOT NULL DEFAULT 0);
+      CREATE TABLE IF NOT EXISTS newsletter_subscribers(email TEXT PRIMARY KEY, created TEXT NOT NULL, version TEXT NOT NULL,
+        mail_consent TEXT NOT NULL, data_consent TEXT NOT NULL);
       CREATE TABLE IF NOT EXISTS rate_limits(key TEXT PRIMARY KEY, count INTEGER NOT NULL, window INTEGER NOT NULL);`);
     fs.chmodSync(path.join(stateDir(), 'orders.sqlite'), 0o600);
   }

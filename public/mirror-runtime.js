@@ -48,12 +48,12 @@
   }, true);
   document.addEventListener('submit', async function (e) {
     var form = e.target;
-    if (!form.matches('form[data-local-form]')) return;
+    if (!form.matches('form[data-local-form], form[data-newsletter]')) return;
     e.preventDefault(); e.stopImmediatePropagation();
     var button = form.querySelector('[type=submit]');
     if (button.disabled) return;
     var email = (form.querySelector('[name=email]') || {}).value || '';
-    var box = form.querySelector('.js-successbox') || document.createElement('p');
+    var box = form.querySelector('.signup-status, .js-successbox') || document.createElement('p');
     if (!box.parentNode) form.appendChild(box);
     box.setAttribute('role', 'status'); box.textContent = ''; box.style.display = 'block';
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { box.textContent = 'Укажите корректный email.'; return; }
@@ -61,12 +61,17 @@
     if (!consent || !consent.checked) { box.textContent = 'Подтвердите согласие на обработку данных.'; return; }
     button.disabled = true;
     try {
-      var response = await fetch('/api/site/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email, consent: true, page: location.pathname }) });
+      var payload = { email: email, consent: true, page: location.pathname };
+      if (form.dataset.newsletter) {
+        payload.newsletter = form.dataset.newsletter;
+        payload.mailConsent = form.elements.mailConsent.checked;
+      }
+      var response = await fetch('/api/site/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
       var data = await response.json();
       if (!response.ok) throw new Error(data.error || 'Не удалось сохранить заявку.');
-      box.textContent = 'Заявка сохранена. Спасибо!'; form.reset();
+      box.textContent = form.dataset.newsletter ? 'Спасибо! Вы подписались на рассылку.' : 'Заявка сохранена. Спасибо!'; form.reset();
       document.dispatchEvent(new Event('site:subscription'));
-    } catch (error) { box.textContent = error.message; }
+    } catch (error) { box.textContent = error instanceof TypeError ? 'Не удалось подключиться. Попробуйте ещё раз.' : error.message; }
     finally { button.disabled = false; }
   }, true);
   document.addEventListener('DOMContentLoaded', function () {

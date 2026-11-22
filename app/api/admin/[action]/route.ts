@@ -5,6 +5,7 @@ import { mirrorPages,contentPage,saveContent,submissions,storeImage } from '@/li
 import { recordingImports, saveRecordingImport } from '@/lib/recording-imports';
 import { recordingPoster, recordingVideo } from '@/lib/recording-media';
 import {saveLectureDetails} from '@/lib/catalogue';
+import { subscribers, subscriberCsv, removeSubscriber } from '@/lib/newsletter';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 const headers = { 'Cache-Control': 'private, no-store', 'Referrer-Policy': 'no-referrer', 'X-Content-Type-Options': 'nosniff', 'X-Robots-Tag': 'noindex, nofollow' };
@@ -15,6 +16,10 @@ async function handle(req: NextRequest, ctx: { params: Promise<{ action: string 
     if (req.method === 'POST' && action === 'login') rateLimit('admin-login:' + (req.headers.get('x-real-ip') || 'unknown'));
     const authenticated = adminAuthorized(req.cookies.get(adminCookie)?.value || '');
     if (action !== 'login' && !authenticated) throw new CommerceError(401, 'Войдите в админку.');
+    if (action === 'subscribers' && req.method === 'GET') return NextResponse.json(subscribers(), {headers});
+    if (action === 'subscribers-csv' && req.method === 'GET') return new NextResponse(subscriberCsv(), {
+      headers: {...headers, 'Content-Type':'text/csv; charset=utf-8', 'Content-Disposition':'attachment; filename="subscribers.csv"'}
+    });
     if(action==='recording-poster'&&req.method==='GET')return new NextResponse(recordingPoster(req.nextUrl.searchParams.get('product')||''),{headers:{...headers,'Content-Type':'image/jpeg','X-Frame-Options':'DENY'}});
     if(action==='recording-video'&&req.method==='GET')return new NextResponse(null,{headers:{...headers,'Content-Type':'video/mp4','X-Accel-Redirect':recordingVideo(req.nextUrl.searchParams.get('product')||'')}});
     if(action==='content-image' && req.method==='POST'){
@@ -50,6 +55,10 @@ async function handle(req: NextRequest, ctx: { params: Promise<{ action: string 
       const response = NextResponse.json({ ok: true }, { headers }); response.cookies.set(adminCookie, '', { path: '/', maxAge: 0, httpOnly: true, secure: config().origin.startsWith('https:'), sameSite: 'strict' }); return response;
     }
     if (action === 'settings' && req.method === 'GET') return NextResponse.json(adminState(), { headers });
+    if (action === 'unsubscribe' && req.method === 'POST') {
+      removeSubscriber(data.email);
+      return NextResponse.json({ok:true}, {headers});
+    }
     if (action === 'recordings' && req.method === 'GET') return NextResponse.json(recordingImports(), {headers});
     if (action === 'recordings' && req.method === 'POST') return NextResponse.json(saveRecordingImport(data), {headers});
     if(action==='recording-details'&&req.method==='POST'){saveLectureDetails(data);return NextResponse.json(recordingImports(),{headers});}

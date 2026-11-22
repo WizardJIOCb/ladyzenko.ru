@@ -1,0 +1,37 @@
+.t447__col:has(.footer-signup) .t447__title {
+  color: #fff !important;
+  font-size: 19px;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+  text-transform: none;
+  margin-bottom: 16px;
+}
+.footer-signup {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+  font: 15px/1.45 "TildaSans", Arial, sans-serif;
+  color: #f8f5f1;
+}
+.footer-signup .signup-caption { font-size: 14px; font-weight: 600; margin-bottom: -6px; }
+.footer-signup input[type=email], .footer-signup button {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 46px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font: inherit;
+}
+.footer-signup input[type=email] { background: #222; color: #fff; border: 1px solid #686561; font-size: 16px; }
+.footer-signup input::placeholder { color: #bcb7b1; }
+.footer-signup .signup-choice { display: grid; grid-template-columns: 17px 1fr; gap: 9px; align-items: start; color: #dedbd6; cursor: pointer; font-size: 14px; line-height: 1.45; }
+.footer-signup input[type=checkbox] { width: 17px; height: 17px; margin: 2px 0 0; accent-color: #ffc294; }
+#allrecords .footer-signup a { color: #ffcaab; text-decoration: underline; text-underline-offset: 3px; }
+.footer-signup button { display: flex; align-items: center; justify-content: space-between; border: 0; background: #ffd1b2; color: #241b15; font-weight: 650; cursor: pointer; }
+.footer-signup button span { font-size: 21px; line-height: 1; }
+.footer-signup button:hover { background: #ffe1cd; }
+.footer-signup button:disabled { opacity: .7; cursor: wait; }
+.footer-signup :focus-visible { outline: 2px solid #ffe2c9; outline-offset: 3px; }
+.footer-signup .signup-status { margin: 0; color: #fff; font-size: 14px; }
+.footer-signup .signup-status:empty { display: none; }
