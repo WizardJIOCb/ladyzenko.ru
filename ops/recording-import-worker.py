@@ -4,6 +4,7 @@ then ask the commerce host to verify its protected delivery before activation.
 URLs and credentials never appear in logs or subprocess arguments.
 """
 import http.client
+import base64
 import ipaddress
 import json
 import os
@@ -140,6 +141,15 @@ def verify(file, duration):
             raise ImportFailure('format')
 
 
+def preview_payload(product, file):
+    info=json.loads(subprocess.check_output(['ffprobe','-v','error','-protocol_whitelist','file','-show_entries','format=duration:stream=codec_type,width,height','-of','json',str(file)],timeout=60))
+    video=next(s for s in info['streams'] if s['codec_type']=='video')
+    duration=float(info['format']['duration'])
+    poster=subprocess.check_output(['ffmpeg','-v','error','-nostdin','-protocol_whitelist','file','-ss',str(min(30,duration/10)),'-i',str(file),'-frames:v','1','-vf','scale=640:-2','-q:v','6','-f','image2pipe','-vcodec','mjpeg','pipe:1'],timeout=120)
+    if len(poster)>80*1024:raise ImportFailure('format')
+    return {'action':'preview','product':product,'fileName':file.name,'bytes':file.stat().st_size,'duration':duration,'width':video['width'],'height':video['height'],'poster':base64.b64encode(poster).decode()}
+
+
 def main():
     os.umask(0o077)
     credentials = pathlib.Path(os.environ['CREDENTIALS_DIRECTORY']) / 'source'
@@ -191,6 +201,11 @@ def main():
         duration = probe(output)
         verify(output, duration)
         api({**common, 'action': 'complete', 'bytes': output.stat().st_size, 'duration': duration, 'decodedSamples': 3})
+        try:
+            api(preview_payload(ident, output))
+        except Exception:
+            # A missing poster must not undo a verified, playable recording.
+            print(json.dumps({'product':ident,'preview':'pending'}))
         print(json.dumps({'product': ident, 'status': 'ready'}))
     except Exception as error:
         code = str(error) if isinstance(error, ImportFailure) else 'format'

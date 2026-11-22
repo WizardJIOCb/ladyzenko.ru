@@ -3,6 +3,7 @@ import { adminAuthorized, adminCookie, adminState, login, saveAdmin, changePassw
 import { CommerceError, config, rateLimit, trustedOrigin } from '@/lib/commerce';
 import { mirrorPages,contentPage,saveContent,submissions,storeImage } from '@/lib/mirror';
 import { recordingImports, saveRecordingImport } from '@/lib/recording-imports';
+import { recordingPoster, recordingVideo } from '@/lib/recording-media';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 const headers = { 'Cache-Control': 'private, no-store', 'Referrer-Policy': 'no-referrer', 'X-Content-Type-Options': 'nosniff', 'X-Robots-Tag': 'noindex, nofollow' };
@@ -13,6 +14,8 @@ async function handle(req: NextRequest, ctx: { params: Promise<{ action: string 
     if (req.method === 'POST' && action === 'login') rateLimit('admin-login:' + (req.headers.get('x-real-ip') || 'unknown'));
     const authenticated = adminAuthorized(req.cookies.get(adminCookie)?.value || '');
     if (action !== 'login' && !authenticated) throw new CommerceError(401, 'Войдите в админку.');
+    if(action==='recording-poster'&&req.method==='GET')return new NextResponse(recordingPoster(req.nextUrl.searchParams.get('product')||''),{headers:{...headers,'Content-Type':'image/jpeg','X-Frame-Options':'DENY'}});
+    if(action==='recording-video'&&req.method==='GET')return new NextResponse(null,{headers:{...headers,'Content-Type':'video/mp4','X-Accel-Redirect':recordingVideo(req.nextUrl.searchParams.get('product')||'')}});
     if(action==='content-image' && req.method==='POST'){
       const limit=8*1024*1024;if(Number(req.headers.get('content-length'))>limit)throw new CommerceError(413,'Изображение больше 8 МБ.');
       const reader=req.body?.getReader();if(!reader)throw new CommerceError(400,'Выберите изображение.');

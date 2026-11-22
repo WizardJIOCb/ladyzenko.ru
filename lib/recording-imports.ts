@@ -5,6 +5,7 @@ import { isIP } from 'node:net';
 import { config, stateDir, CommerceError, available, mediaDelivery } from './commerce.ts';
 import { lectureProducts } from './products.ts';
 import { queueIndexNow } from './indexnow.ts';
+import { recordingMedia, saveRecordingPreview } from './recording-media.ts';
 
 type Job = { product:string; version:string; url:string; status:'queued'|'processing'|'ready'|'error'; updated:number; error?:string; bytes?:number; duration?:number };
 const file = () => path.join(stateDir(),'recording-imports.json');
@@ -15,7 +16,7 @@ function write(file:string, value:unknown) {
 }
 export function recordingImports() {
   const all=jobs(), c=config();
-  return lectureProducts.map(p=>({id:p.id,title:p.title,amount:p.amount,connected:Boolean(mediaDelivery(p.id,c)),selling:!c.lectureSalesDisabled?.includes(p.id),available:available(p,c),job:all[p.id]||null}));
+  return lectureProducts.map(p=>({id:p.id,title:p.title,amount:p.amount,duration:p.duration||'',media:recordingMedia(p.id),connected:Boolean(mediaDelivery(p.id,c)),selling:!c.lectureSalesDisabled?.includes(p.id),available:available(p,c),job:all[p.id]||null}));
 }
 export function saveRecordingImport(data:Record<string,unknown>) {
   const p=lectureProducts.find(p=>p.id===data.product);
@@ -42,6 +43,7 @@ export function importAuthorized(value:string) {
   return typeof secret==='string' && Buffer.byteLength(value)===Buffer.byteLength(secret) && timingSafeEqual(Buffer.from(value),Buffer.from(secret));
 }
 export async function importAction(data:Record<string,unknown>) {
+  if(data.action==='preview')return saveRecordingPreview(data);
   const all=jobs();
   if(data.action==='claim') {
     const job=Object.values(all).find(j=>j.status==='queued'||(j.status==='processing'&&j.updated<Date.now()-6*3600000));
