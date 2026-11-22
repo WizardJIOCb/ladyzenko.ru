@@ -47,7 +47,12 @@
 .recording-admin-row .commerce-check { display: flex; gap: 12px; align-items: flex-start; }
 .recording-admin-row .commerce-check input { width: 20px; padding: 0; margin-top: 4px; }
 .admin-section { scroll-margin-top: 64px; }
-@media(min-width:761px){#site-header .site-nav{width:100%;max-width:100%;overflow-x:auto;justify-content:flex-start;justify-content:safe center}#site-header .t229__padding40px{display:none}}
+@media(min-width:761px){
+  #site-header .t229__maincontainer{height:auto;min-height:var(--header-height)}
+  #site-header .site-nav{width:100%;max-width:100%;justify-content:center;flex-wrap:wrap;padding:8px 0;min-height:var(--header-height)}
+  #site-header .site-nav a{line-height:24px;padding:0 15px}
+  #site-header .t229__padding40px{display:none}
+}
 .commerce-error { color: #9e2020; }
 .commerce-page video { display: block; width: 100%; }
 .viewer-access{display:grid;gap:16px;margin:24px 0;padding:24px;border:1px solid var(--line)}
