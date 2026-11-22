@@ -17,7 +17,7 @@ function write(file:string, value:unknown) {
 }
 export function recordingImports() {
   const all=jobs(), c=config();
-  return getLectureProducts().map(p=>({id:p.id,title:p.title,description:p.description,amount:p.amount,image:p.image||'',detailsVersion:detailsVersion(p),duration:p.duration||'',media:recordingMedia(p.id),connected:Boolean(mediaDelivery(p.id,c)),selling:!c.lectureSalesDisabled?.includes(p.id),available:available(p,c),job:all[p.id]||null}));
+  return getLectureProducts().map(p=>({id:p.id,title:p.title,description:p.description,amount:p.amount,image:p.coverImage||'',coverUrl:p.image||'',detailsVersion:detailsVersion(p),duration:p.duration||'',media:recordingMedia(p.id),connected:Boolean(mediaDelivery(p.id,c)),selling:!c.lectureSalesDisabled?.includes(p.id),available:available(p,c),job:all[p.id]||null}));
 }
 export function saveRecordingImport(data:Record<string,unknown>) {
   const p=lectureProducts.find(p=>p.id===data.product);

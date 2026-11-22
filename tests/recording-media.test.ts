@@ -6,6 +6,9 @@ import {GET} from '../app/api/admin/[action]/route.ts';
 import {setupAdmin,login,adminCookie} from '../lib/admin.ts';
 import {recordingMedia,saveRecordingPreview} from '../lib/recording-media.ts';
 import {recordingImports,importAction} from '../lib/recording-imports.ts';
+import {getLectureProducts,saveLectureDetails,detailsVersion} from '../lib/catalogue.ts';
+import {GET as coverGET} from '../app/api/site/recording-cover/[id]/route.ts';
+import {storeImage} from '../lib/mirror.ts';
 const state=fs.mkdtempSync(path.join(os.tmpdir(),'lady-preview-'));process.env.COMMERCE_STATE=state;
 const product='school-lecture-01',fileName=product+'.mp4';
 function mapping(name=fileName){fs.writeFileSync(path.join(state,'config.json'),JSON.stringify({lectureRemoteFiles:{[product]:name},lectureFiles:{},shopKey:'private_fixture_key'}));}
@@ -29,6 +32,11 @@ test('preview metadata follows the exact file, cannot replace video mappings, an
  await importAction(payload);
  const media=recordingImports().find(r=>r.id===product)!.media!;assert.equal(media.fileName,fileName);assert.equal(media.durationSeconds,4584.7);assert.equal(media.sizeBytes,1234567);assert.ok(media.posterUrl);
  const token=login('private-preview-test-password');const response=await request('recording-poster',token);assert.equal(response.status,200);assert.equal(response.headers.get('content-type'),'image/jpeg');assert.deepEqual(Buffer.from(await response.arrayBuffer()),image);
+  const p=()=>getLectureProducts().find(p=>p.id===product)!;assert.match(p().image!,/^\/api\/site\/recording-cover\//);assert.equal(p().coverImage,'');
+  const cover=await coverGET(new Request('https://new.ladyzenko.ru/api/site/recording-cover/'+product),{params:Promise.resolve({id:product})});assert.equal(cover.status,200);assert.equal(cover.headers.get('content-type'),'image/jpeg');assert.deepEqual(Buffer.from(await cover.arrayBuffer()),image);
+  const custom=storeImage(Buffer.from('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7','base64'));
+  saveLectureDetails({product,version:detailsVersion(p()),title:p().title,description:p().description,amount:p().amount,image:custom});assert.equal(p().image,custom);
+  saveLectureDetails({product,version:detailsVersion(p()),title:p().title,description:p().description,amount:p().amount,image:''});assert.match(p().image!,/^\/api\/site\/recording-cover\//);
  const json=JSON.stringify(recordingImports());assert.equal(json.includes('private_fixture_key'),false);assert.equal(json.includes('/var/lib'),false);
  mapping(product+'-aaaaaaaaaaaaaaaa.mp4');assert.equal(recordingMedia(product)?.posterUrl,null);assert.equal((await request('recording-poster',token)).status,404);
 });
