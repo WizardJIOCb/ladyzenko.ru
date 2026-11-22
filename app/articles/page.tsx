@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getArticlePages } from "@/lib/content";
+import { articleList } from "@/lib/mirror";
 
 export const metadata: Metadata = {
   title: "Статьи | Людмила Ладыженко",
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function ArticlesPage() {
-  const articles = getArticlePages();
+  const articles = articleList();
 
   return (
     <div className="page-stack">
@@ -29,7 +29,7 @@ export default function ArticlesPage() {
             <h2>
               <Link href={article.path}>{article.title}</Link>
             </h2>
-            <p>{article.excerpt}</p>
+            <p>{article.description}</p>
           </article>
         ))}
       </div>

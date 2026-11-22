@@ -1,0 +1,7 @@
+.authored-article{max-width:760px;margin:0 auto;padding:clamp(24px,6vw,80px) 20px;color:#252c28;font:19px/1.65 Georgia,serif}
+.authored-article nav,.authored-article .seo-byline{font:15px/1.6 Arial,sans-serif}
+.authored-article a,.t-redactor__text a{color:#315e4c}
+.authored-article h1{font-size:clamp(32px,5vw,52px);line-height:1.12;margin:.7em 0 .35em}
+.authored-article .seo-byline{margin-bottom:32px}
+.t-redactor__text{overflow-wrap:anywhere}.t-redactor__text img{max-width:100%;height:auto}.t-redactor__text p{margin:0 0 1em}.t-redactor__text h2,.t-redactor__text h3{line-height:1.25;margin:1.3em 0 .55em}.t-redactor__text blockquote{margin:1.25em 0;padding:.2em 1em;border-left:3px solid #5d826d}.t-redactor__text ol,.t-redactor__text ul{padding-left:1.6em}
+

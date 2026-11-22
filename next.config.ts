@@ -46,7 +46,7 @@ const nextConfig: NextConfig = {
     ];
   },
   async rewrites() {
-    return {beforeFiles:[...routes].map(([source,slug])=>({source,destination:'/api/site/page/'+slug})),afterFiles:[],fallback:[]};
+    return {beforeFiles:[...routes].map(([source,slug])=>({source,destination:'/api/site/page/'+slug})),afterFiles:[{source:'/tpost/:article(cms[a-f0-9]{14}-[a-z0-9-]+)',destination:'/api/site/page/tpost-:article'}],fallback:[]};
   },
 };
 
