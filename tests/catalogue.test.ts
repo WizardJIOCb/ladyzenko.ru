@@ -1,0 +1,40 @@
+import {test,after} from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';import os from 'node:os';import path from 'node:path';import {randomBytes} from 'node:crypto';
+import {NextRequest} from 'next/server';
+import {getLectureProducts,detailsVersion,saveLectureDetails} from '../lib/catalogue.ts';
+import {checkout,order,publicOrder,db,capability} from '../lib/commerce.ts';
+import {setupAdmin,login,adminCookie,adminState} from '../lib/admin.ts';
+import {POST} from '../app/api/admin/[action]/route.ts';
+import {storeImage,renderMirror} from '../lib/mirror.ts';
+import {productSeo,graph} from '../lib/seo.ts';
+const dir=fs.mkdtempSync(path.join(os.tmpdir(),'lady-catalogue-'));process.env.COMMERCE_STATE=dir;
+const product='school-lecture-01';
+fs.writeFileSync(path.join(dir,'config.json'),JSON.stringify({origin:'https://new.ladyzenko.ru',enabled:true,mode:'test',shopId:'123',shopKey:'test_fixture',seller:'Fixture',inn:'123',lectureFiles:{},lectureRemoteFiles:{[product]:product+'.mp4'},smtp:{host:'fixture',user:'fixture',password:'fixture',from:'fixture@example.test'}}));
+const original=global.fetch;let posted=0;let provider:any;
+global.fetch=async(_url,init)=>{if(init?.method==='POST'){posted++;const body=JSON.parse(String(init.body));provider={...body,id:'fixture-payment-12345',test:true,status:'pending',paid:false,recipient:{account_id:'123'},confirmation:{confirmation_url:'https://yoomoney.ru/checkout/payments/v2/contract?fixture'}};}return Response.json(provider);};
+after(()=>{global.fetch=original;db().close();fs.rmSync(dir,{recursive:true,force:true});});
+const current=()=>getLectureProducts().find(p=>p.id===product)!;
+function details(extra:Record<string,unknown>={}){const p=current();return {product,version:detailsVersion(p),title:p.title,description:p.description,amount:p.amount,image:p.image||'',...extra};}
+test('only the administrator may edit a lecture, stale writes fail, and covers must be uploaded images',async()=>{
+ setupAdmin('catalogue-test-password-only');const token=login('catalogue-test-password-only');
+ const req=(origin:string,cookie:string)=>new NextRequest('https://new.ladyzenko.ru/api/admin/recording-details',{method:'POST',headers:{origin,cookie,'Content-Type':'application/json'},body:JSON.stringify(details({title:'Новое название'}))});
+ const ctx={params:Promise.resolve({action:'recording-details'})};assert.equal((await POST(req('https://new.ladyzenko.ru',''),ctx)).status,401);assert.equal((await POST(req('https://other.test',adminCookie+'='+token),ctx)).status,403);
+ for(const extra of [{amount:0},{amount:1.5},{title:' '},{description:''},{image:'https://other.test/cover.jpg'},{product:'diagnostic'}])assert.throws(()=>saveLectureDetails(details(extra)));
+ const before=fs.readFileSync(path.join(dir,'config.json'));
+ const image=storeImage(Buffer.from('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7','base64'));
+ const old=details();saveLectureDetails(details({title:'Авторская лекция <новая>',description:'Сохранённое описание без домыслов.',amount:123450,image}));
+ assert.throws(()=>saveLectureDetails(old),/изменилась/);assert.deepEqual(fs.readFileSync(path.join(dir,'config.json')),before);
+ const p=current();assert.equal(p.amount,123450);assert.equal(productSeo(p).headline,p.title);assert.equal((graph(productSeo(p),'https://new.ladyzenko.ru',p,true)['@graph'].at(-1) as any).offers.price,'1234.50');
+ const html=renderMirror('index','https://new.ladyzenko.ru');assert.ok(html.includes('Авторская лекция &lt;новая&gt;'));assert.ok(html.includes(image));assert.ok(html.includes('1\u00a0234,50')||html.includes('1\u202f234,50'));
+});
+test('price edits reject stale checkout pages and leave existing provider requests and order titles unchanged',async()=>{
+ const p=current(),id=randomBytes(16).toString('hex');const data={requestId:id,product,email:'buyer@example.test',accepted:true,privacyAccepted:true,offerVersion:detailsVersion(p)};
+ const first=await checkout({...data,amount:1},'fixture');assert.equal(first.amount,123450);const snapshot=first.request;
+ saveLectureDetails(details({title:'Другое название',amount:456700}));
+ assert.equal(publicOrder(first).title,p.title);assert.equal(publicOrder(first).amount,123450);
+ await assert.rejects(checkout({...data,requestId:randomBytes(16).toString('hex')},'stale'),/изменилась/);assert.equal(posted,1);
+ await checkout(data,'resume',capability(id));assert.equal(order(id)!.request,snapshot);assert.equal(posted,1);
+ db().prepare("UPDATE orders SET mode='live',status='succeeded',paid_at=created WHERE id=?").run(id);
+ const admin=adminState();assert.equal(admin.paidOrders[0].title,p.title);assert.equal('request' in admin.paidOrders[0],false);assert.equal('consent' in admin.paidOrders[0],false);
+});

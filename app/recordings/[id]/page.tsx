@@ -1,12 +1,13 @@
+import {getLectureProducts} from '@/lib/catalogue';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { lectureProducts, formatPrice } from '@/lib/products';
+import { formatPrice } from '@/lib/products';
 import { available } from '@/lib/commerce';
 import { config } from '@/lib/commerce';
 import { graph,jsonLd,productSeo } from '@/lib/seo';
 export const dynamic='force-dynamic';
 export default async function Recording({params}:{params:Promise<{id:string}>}) {
-  const {id} = await params; const p = lectureProducts.find(p=>p.id===id); if (!p) notFound();
+  const {id} = await params; const p = getLectureProducts().find(p=>p.id===id); if (!p) notFound();
   return <article className="commerce-page"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:jsonLd(graph(productSeo(p),config().origin,p,available(p)))}}/><Link href="/lectures">← Все записи</Link><h1>{p.title}</h1>
     <p>Автор: <Link href="/obo_mne" rel="author">Людмила Ивановна Ладыженко</Link></p>
     {p.image ? <img src={p.image} alt={p.title} width="480" /> : null}

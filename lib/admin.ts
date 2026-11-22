@@ -1,9 +1,10 @@
+import {getProducts} from './catalogue.ts';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash, createHmac, randomBytes, scryptSync, timingSafeEqual } from 'node:crypto';
-import { CommerceError, config, stateDir, mediaDelivery, ready, db, type Config } from './commerce.ts';
+import { CommerceError, config, stateDir, mediaDelivery, ready, db, orderTitle, type Config } from './commerce.ts';
 import { profile, profileGaps, profileKeys, legalVersion } from './legal.ts';
-import { products } from './products.ts';
+
 
 export const adminCookie = 'ladyzenko_admin';
 const lifetime = 8 * 3600;
@@ -47,9 +48,9 @@ export function adminState() {
     version: legalVersion, gaps: profileGaps(c), legalApproved: c.legalApproved,
     payment: { enabled: c.enabled, mode: c.mode, shopId: c.shopId, keyConfigured: Boolean(c.shopKey), fiscalizationConfirmed: c.fiscalizationConfirmed, fiscalizationMethod: c.fiscalizationMethod || '',
       smtpConfigured: Boolean(c.smtp?.host && c.smtp?.user && c.smtp?.password && c.smtp?.from), ready: ready(c) },
-    lectures: products.filter(p => p.kind === 'lecture').map(p => ({ id: p.id, title: p.title, connected: Boolean(mediaDelivery(p.id, c)), accessDays: 30 })),
-    paidOrders: (db().prepare("SELECT id,product,email,amount,status,paid_at FROM orders WHERE mode='live' AND status IN ('succeeded','refunded') ORDER BY paid_at DESC LIMIT 50").all() as {id:string;product:string;email:string;amount:number;status:string;paid_at:number}[])
-      .map(o => ({ ...o, title: products.find(p => p.id === o.product)?.title || o.product })) };
+    lectures: getProducts().filter(p => p.kind === 'lecture').map(p => ({ id: p.id, title: p.title, connected: Boolean(mediaDelivery(p.id, c)), accessDays: 30 })),
+    paidOrders: (db().prepare("SELECT id,product,email,amount,status,paid_at,request,consent FROM orders WHERE mode='live' AND status IN ('succeeded','refunded') ORDER BY paid_at DESC LIMIT 50").all() as {id:string;product:string;email:string;amount:number;status:string;paid_at:number;request:string;consent:string}[])
+      .map(({request,consent,...o}) => ({ ...o, title: orderTitle({...o,request,consent}) })) };
 }
 export function saveAdmin(data: Record<string, unknown>) {
   const allowed = [...profileKeys, 'productionShopId', 'adminNotes', 'legalApproved', 'revision'];

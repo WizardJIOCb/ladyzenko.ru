@@ -1,8 +1,9 @@
+import {getLectureProducts} from '@/lib/catalogue';
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RestartableGif } from "@/components/restartable-gif";
 import { getArticlePages, getHomeData, getLecturePages, getPageBySlug } from "@/lib/content";
-import { consultations, lectureProducts, formatPrice } from "@/lib/products";
+import { consultations, formatPrice } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Людмила Ладыженко | Психолог",
@@ -72,7 +73,7 @@ export default function HomePage() {
   const photoPage = getPageBySlug("foto");
   const diplomaPage = getPageBySlug("diplom");
   const videoPage = getPageBySlug("video");
-  const lecturePages = lectureProducts;
+  const lecturePages = getLectureProducts();
   const featuredLecturePages = getLecturePages().filter((page) => ["lekciya_1", "lekciya_2"].includes(page.slug));
   const articlePages = getArticlePages().slice(0, 12);
   const newsImages = (photoPage?.images.length ? photoPage.images : ["/stuff/black-2.jpg"]).slice(0, 12);

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useEffect, useState, type FormEvent } from 'react';
 import type { Product } from '@/lib/products';
 
-export function CheckoutForm({ product, enabled, test }: {product: Product; enabled: boolean; test: boolean}) {
+export function CheckoutForm({ product, enabled, test, offerVersion }: {product: Product; enabled: boolean; test: boolean;offerVersion?:string}) {
   const [error, setError] = useState(''); const [busy, setBusy] = useState(false);
   const [orderId, setOrderId] = useState('');
   useEffect(()=>{ try{setOrderId(sessionStorage.getItem('purchase:' + product.id) || '');}catch{/* Storage may be blocked by browser privacy settings. */} },[product.id]);
@@ -26,7 +26,7 @@ export function CheckoutForm({ product, enabled, test }: {product: Product; enab
         throw new Error('Предыдущая попытка недоступна в этом браузере. Нажмите «Перейти к оплате» ещё раз, чтобы начать заново.');
       }
       const response = await fetch('/api/commerce/checkout', { method: 'POST', headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({ requestId: id, product: product.id, email: form.get('email'), accepted: form.get('accepted') === 'on', privacyAccepted: form.get('privacyAccepted') === 'on', scheduled: form.get('scheduled') === 'on' }) });
+        body: JSON.stringify({ requestId: id, product: product.id, offerVersion, email: form.get('email'), accepted: form.get('accepted') === 'on', privacyAccepted: form.get('privacyAccepted') === 'on', scheduled: form.get('scheduled') === 'on' }) });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error);
       document.dispatchEvent(new Event('site:checkout'));

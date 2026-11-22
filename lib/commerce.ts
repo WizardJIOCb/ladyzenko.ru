@@ -1,9 +1,10 @@
+import {getProducts,getLectureProducts,detailsVersion,hasLectureDetails} from './catalogue.ts';
 import { DatabaseSync } from 'node:sqlite';
 import { createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import nodemailer from 'nodemailer';
-import { products, lectureProducts, type Product } from './products.ts';
+import { products as seedProducts,type Product } from './products.ts';
 import { legalVersion, legalFingerprint, profile, profileGaps } from './legal.ts';
 
 export type Config = {
@@ -89,7 +90,7 @@ export function mediaDelivery(productId: string, c = config()) {
 export function available(product: Product, c = config()) {
   return ready(c) && !c.lectureSalesDisabled?.includes(product.id) && (product.kind === 'consultation' || Boolean(mediaDelivery(product.id, c)));
 }
-export function listedLectures(c=config()){return lectureProducts.filter(p=>!p.hiddenUntilConnected||Boolean(mediaDelivery(p.id,c)));}
+export function listedLectures(c=config()){return getLectureProducts().filter(p=>!p.hiddenUntilConnected||Boolean(mediaDelivery(p.id,c)));}
 export type Order = { id: string; product: string; email: string; amount: number; mode: string; created: number;
   status: string; provider_id: string | null; confirmation: string | null; request: string;
   paid_at: number | null; expires: number | null; access_days: number | null; consent: string };
@@ -142,7 +143,7 @@ export async function checkout(data: Record<string, unknown>, client: string, re
   const c = config();
   if (!ready(c)) fail(503, 'Онлайн оплата готовится к запуску. Для записи свяжитесь с Людмилой.');
   const id = data.requestId;
-  const product = products.find(p => p.id === data.product);
+  const product = getProducts().find(p => p.id === data.product);
   if (typeof id !== 'string' || !/^[a-f0-9]{32}$/.test(id) || !product) fail(400, 'Обновите страницу и выберите услугу.');
   if (!available(product, c)) fail(409, 'Эта запись пока недоступна для покупки.');
   const email = typeof data.email === 'string' ? data.email.trim().toLowerCase() : '';
@@ -153,6 +154,7 @@ export async function checkout(data: Record<string, unknown>, client: string, re
   if (existing && !authorized(id, resumeToken)) fail(403, 'Для продолжения заказа откройте его личную страницу.');
   if (existing && (existing.email !== email || existing.product !== product.id)) fail(409, 'Этот номер заказа уже используется.');
   if (!existing) {
+    if(product.kind==='lecture'&&(data.offerVersion!==undefined||hasLectureDetails(product.id))&&data.offerVersion!==detailsVersion(product))fail(409,'Карточка лекции изменилась. Обновите страницу перед оплатой.');
     const body: Record<string, unknown> = {
       amount: { value: (product.amount / 100).toFixed(2), currency: 'RUB' }, capture: true,
       confirmation: { type: 'redirect', return_url: c.origin + '/orders/' + id + '#key=' + capability(id) },
@@ -164,18 +166,23 @@ export async function checkout(data: Record<string, unknown>, client: string, re
     db().prepare(`INSERT INTO orders(id,product,email,amount,mode,created,status,request,access_days,consent)
       VALUES(?,?,?,?,?,?,'creating',?,?,?)`).run(id, product.id, email, product.amount, c.mode, Math.floor(Date.now() / 1000),
         JSON.stringify(body), product.kind === 'lecture' ? 30 : null, JSON.stringify({ offer: legalVersion, privacy: legalVersion, consent: legalVersion,
-          fingerprint: legalFingerprint(c), seller: profile(c), accepted: true, privacyAccepted: true, scheduled: data.scheduled === true }));
+          fingerprint: legalFingerprint(c), seller: profile(c), product:{title:product.title,description:product.description,amount:product.amount,image:product.image||''},accepted: true, privacyAccepted: true, scheduled: data.scheduled === true }));
   }
   await reconcile(id);
   return order(id)!;
 }
 export function publicOrder(row: Order) {
-  const product = products.find(p => p.id === row.product)!;
+  const product = getProducts().find(p => p.id === row.product)!;
   const active = row.mode === 'live' && row.status === 'succeeded' && (!row.expires || row.expires > Date.now() / 1000);
-  return { id: row.id, product: product.id, title: product.title, kind: product.kind, amount: row.amount, status: row.status,
+  return { id: row.id, product: product.id, title: orderTitle(row), kind: product.kind, amount: row.amount, status: row.status,
     test: row.mode === 'test', confirmation: row.status === 'pending' ? row.confirmation : null,
     expires: row.expires, canWatch: active && product.kind === 'lecture' && Boolean(mediaDelivery(product.id)),
     mailSent: Boolean((db().prepare('SELECT sent FROM outbox WHERE order_id=?').get(row.id) as {sent: number} | undefined)?.sent) };
+}
+export function orderTitle(row:Pick<Order,'product'|'request'|'consent'>){
+  try{const title=JSON.parse(row.consent).product?.title;if(typeof title==='string'&&title)return title;}catch{}
+  try{const title=JSON.parse(row.request).description;if(typeof title==='string'&&title){const seed=seedProducts.find(p=>p.id===row.product);return seed?.title.slice(0,128)===title?seed.title:title;}}catch{}
+  return getProducts().find(p=>p.id===row.product)?.title||row.product;
 }
 export async function webhook(data: Record<string, any>) {
   if (data.type !== 'notification') fail(400, 'Некорректное уведомление.');
@@ -213,11 +220,11 @@ export async function work() {
     const claimed = db().prepare('UPDATE outbox SET attempts=attempts+1,retry_at=? WHERE order_id=? AND sent IS NULL AND retry_at<?')
       .run(Math.floor(Date.now()/1000)+300, row.id, Math.floor(Date.now()/1000));
     if (!claimed.changes) continue;
-    const p = products.find(p => p.id === row.product)!;
+    const p = getProducts().find(p => p.id === row.product)!;
     const url = c.origin + '/orders/' + row.id + '#key=' + capability(row.id);
     try {
-      await transport.sendMail({ from: c.smtp.from, to: row.email, subject: 'Оплата подтверждена: ' + p.title,
-        text: `Оплата ${p.title} подтверждена.\nНомер заказа: ${row.id}\n` +
+      await transport.sendMail({ from: c.smtp.from, to: row.email, subject: 'Оплата подтверждена: ' + orderTitle(row),
+        text: `Оплата ${orderTitle(row)} подтверждена.\nНомер заказа: ${row.id}\n` +
           (p.kind === 'lecture' ? 'Доступ к записи: 30 дней с момента оплаты. Для просмотра подтвердите почту покупки одноразовым кодом. Одновременно доступен один сеанс.\n' : 'Встреча пройдёт в согласованное с Людмилой время.\n') +
           `Ваша личная страница заказа: ${url}\nНе передавайте ссылку другим людям.\n` +
           (c.fiscalizationMethod === 'npd_manual' ? 'Чек продавец сформирует вручную в сервисе «Мой налог» и направит на почту покупки отдельно от этого подтверждения.\n' : '') +

@@ -4,6 +4,7 @@ import { CommerceError, config, rateLimit, trustedOrigin } from '@/lib/commerce'
 import { mirrorPages,contentPage,saveContent,submissions,storeImage } from '@/lib/mirror';
 import { recordingImports, saveRecordingImport } from '@/lib/recording-imports';
 import { recordingPoster, recordingVideo } from '@/lib/recording-media';
+import {saveLectureDetails} from '@/lib/catalogue';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 const headers = { 'Cache-Control': 'private, no-store', 'Referrer-Policy': 'no-referrer', 'X-Content-Type-Options': 'nosniff', 'X-Robots-Tag': 'noindex, nofollow' };
@@ -29,7 +30,7 @@ async function handle(req: NextRequest, ctx: { params: Promise<{ action: string 
     }
     let data: Record<string, unknown> = {};
     if (req.method === 'POST') {
-      const limit=action==='content'?2*1024*1024:16384;
+      const limit=action==='content'?2*1024*1024:action==='recording-details'?65536:16384;
       if (Number(req.headers.get('content-length')) > limit) throw new CommerceError(413, 'Слишком большой запрос.');
       const body = await req.text(); if (body.length > limit) throw new CommerceError(413, 'Слишком большой запрос.');
       try { data = JSON.parse(body); } catch { throw new CommerceError(400, 'Некорректный запрос.'); }
@@ -51,6 +52,7 @@ async function handle(req: NextRequest, ctx: { params: Promise<{ action: string 
     if (action === 'settings' && req.method === 'GET') return NextResponse.json(adminState(), { headers });
     if (action === 'recordings' && req.method === 'GET') return NextResponse.json(recordingImports(), {headers});
     if (action === 'recordings' && req.method === 'POST') return NextResponse.json(saveRecordingImport(data), {headers});
+    if(action==='recording-details'&&req.method==='POST'){saveLectureDetails(data);return NextResponse.json(recordingImports(),{headers});}
     if (action === 'settings' && req.method === 'POST') return NextResponse.json(saveAdmin(data), { headers });
     if (action === 'content' && req.method === 'POST') return NextResponse.json(saveContent(data), { headers });
     throw new CommerceError(404, 'Раздел не найден.');

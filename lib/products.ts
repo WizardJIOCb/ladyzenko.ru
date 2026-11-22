@@ -16,4 +16,4 @@ export const additionalProducts: Product[] = [{id:'lecture-1794913200000',kind:'
   description:'Отдельная запись выступления Людмилы Ладыженко. Продолжительность — 1 час 15 минут. Доступ для личного просмотра на 30 дней.',accessDays:30,duration:'1 ч 15 мин',image:'/stuff/block-3.jpg'}];
 export const lectureProducts: Product[] = [...lectures, ...schoolProducts, ...additionalProducts];
 export const products: Product[] = [...consultations, ...lectureProducts];
-export const formatPrice = (amount: number) => new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }).format(amount / 100);
+export const formatPrice = (amount: number) => new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits:amount%100?2:0, maximumFractionDigits:amount%100?2:0 }).format(amount / 100);

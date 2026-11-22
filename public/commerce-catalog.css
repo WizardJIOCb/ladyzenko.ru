@@ -13,3 +13,5 @@
 .live-recordings a:focus-visible{outline:3px solid #0f5d88;outline-offset:4px}
 @media(max-width:960px){.live-recordings-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.live-recordings-grid{grid-template-columns:1fr}.live-recordings{padding:24px 16px}}
+
+.live-recording-cover{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#f3f3f3;margin-bottom:16px}

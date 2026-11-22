@@ -1,15 +1,16 @@
+import {getProducts} from '@/lib/catalogue';
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 import { headers } from 'next/headers';
 import { config } from '@/lib/commerce';
-import { products } from '@/lib/products';
+
 import { noindex, productSeo, graph, jsonLd, privatePath } from '@/lib/seo';
 import { SiteRuntime } from '@/components/site-runtime';
 
 export async function generateMetadata():Promise<Metadata>{
   const h=await headers();const origin=config().origin;const pathname=h.get('x-site-path')||'/';
-  const product=products.find(p=>pathname==='/recordings/'+p.id);
+  const product=getProducts().find(p=>pathname==='/recordings/'+p.id);
   const seo=product?productSeo(product):{title:'Людмила Ладыженко',description:'Сайт Людмилы Ладыженко: психолог, лекции, статьи, видео и консультации.',path:pathname};
   return {metadataBase:new URL(origin),title:seo.title,description:seo.description,alternates:{canonical:origin+pathname},robots:{index:!noindex(origin,pathname,h.get('x-site-host')||''),follow:true},openGraph:{type:'website',locale:'ru_RU',url:origin+pathname,title:seo.title,description:seo.description,images:[product?.image||'/stuff/block-3.jpg']},referrer:'strict-origin-when-cross-origin'};
 }

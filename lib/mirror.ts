@@ -1,9 +1,10 @@
+import {getLectureProducts} from './catalogue.ts';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash, randomBytes } from 'node:crypto';
 import { CommerceError, stateDir, config, available } from './commerce.ts';
 import { siteAnchors } from './site-anchors.ts';
-import { lectureProducts, consultations, formatPrice } from './products.ts';
+import { consultations, formatPrice } from './products.ts';
 import { applyMirrorSeo } from './mirror-seo.ts';
 import { pageSeo,authorName } from './seo.ts';
 import { queueIndexNow } from './indexnow.ts';
@@ -126,16 +127,16 @@ export function renderMirror(slug: string, origin: string, preview=false) {
   html=html.replace(/<a\b[^>]*href="#order"[^>]*>[\s\S]*?<\/a>/g,tag=>tag.replace('href="#order"','href="/lectures"'));
   html=html.replace(/<a\b[^>]*href="#order:[^"]*"[^>]*>[\s\S]*?<\/a>/g,tag=>tag.replace(/href="[^"]*"/,'href="/lectures"').replace(/Купить/g,'Выбрать лекцию'));
   const commerce=config();
-  const buyable=lectureProducts.filter(p=>available(p,commerce));
+  const buyable=getLectureProducts().filter(p=>available(p,commerce));
   if(base.slug==='index') {
-    const catalog='<section class="live-recordings" aria-labelledby="live-recordings-title"><h2 id="live-recordings-title">Купить лекции в записи</h2><p>Доступ на 30 дней после оплаты. Видео откроется на личной странице заказа, ссылка придёт на почту.</p><div class="live-recordings-grid">'+buyable.map(p=>'<article><h3><a href="/recordings/'+p.id+'">'+escapeHtml(p.title)+'</a></h3><p>'+escapeHtml(p.duration||'Запись лекции')+'</p><a class="live-purchase" href="/checkout/'+p.id+'">Купить за '+escapeHtml(formatPrice(p.amount))+'</a></article>').join('')+'</div><p><a href="/lectures">Все лекции и доступность записей</a></p></section>';
+    const catalog='<section class="live-recordings" aria-labelledby="live-recordings-title"><h2 id="live-recordings-title">Купить лекции в записи</h2><p>Доступ на 30 дней после оплаты. Видео откроется на личной странице заказа, ссылка придёт на почту.</p><div class="live-recordings-grid">'+buyable.map(p=>'<article>'+(p.image?'<img class="live-recording-cover" src="'+escapeHtml(p.image)+'" alt="'+escapeHtml(p.title)+'" loading="lazy">':'')+'<h3><a href="/recordings/'+p.id+'">'+escapeHtml(p.title)+'</a></h3><p>'+escapeHtml(p.duration||'Запись лекции')+'</p><a class="live-purchase" href="/checkout/'+p.id+'">Купить за '+escapeHtml(formatPrice(p.amount))+'</a></article>').join('')+'</div><p><a href="/lectures">Все лекции и доступность записей</a></p></section>';
     html=html.replace(/(<div\b[^>]*\bid="rec1043768191"[^>]*>)/,(_match,tag)=>tag+catalog);
     const services='<div class="live-recordings"><p>Оплата консультации после согласования даты и формата встречи:</p><div class="live-recordings-grid">'+consultations.filter(p=>available(p,commerce)).map(p=>'<a class="live-purchase" href="/checkout/'+p.id+'">'+escapeHtml(p.title)+' · '+escapeHtml(formatPrice(p.amount))+'</a>').join('')+'</div></div>';
     html=html.replace(/(<div\b[^>]*\bid="rec1161429401"[^>]*>)/,(_match,tag)=>tag+services);
     html=html.replace('</head>','<link rel="stylesheet" href="/commerce-catalog.css"></head>');
   }
   html=html.replace(/<a\b[^>]*href="\/checkout\/([^"/]+)"[^>]*>[\s\S]*?<\/a>/g,(tag,id:string)=>{
-    const p=lectureProducts.find(p=>p.id===id);return p&&!available(p,commerce)?tag.replace(/Купить/g,'Проверить доступность'):tag;
+    const p=getLectureProducts().find(p=>p.id===id);return p&&!available(p,commerce)?tag.replace(/Купить/g,'Проверить доступность'):tag;
   });
   // Apply after CMS edits so published links use the same readable section URLs.
   html=html.replace(/href="([^"]*)"/g,(attribute,href:string)=>{

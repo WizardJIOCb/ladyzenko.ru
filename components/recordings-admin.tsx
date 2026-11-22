@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState, type FormEvent } from 'react';
 import type { recordingImports } from '@/lib/recording-imports';
+import {RecordingDetailsEditor} from './recording-details-editor';
 type Recording=ReturnType<typeof recordingImports>[number];
 const statuses={queued:'Ожидает загрузки',processing:'Скачивание и проверка видео',ready:'Запись подключена',error:'Не удалось подключить запись'};
 function duration(seconds:number|null,fallback:string){if(!seconds)return fallback||'Длительность уточняется';const n=Math.round(seconds);return [Math.floor(n/3600),Math.floor(n/60)%60,n%60].map((x,i)=>i?String(x).padStart(2,'0'):String(x)).join(':');}
@@ -30,6 +31,7 @@ function Row({item,onSaved,playing,onPlay}:{item:Recording;onSaved:(rows:Recordi
     </div>
     {mediaError?<p role="alert" className="commerce-error">{mediaError}</p>:null}
     {item.job&&item.job.status!=='ready'?<p role="status">{statuses[item.job.status]}{item.connected?' · Сейчас используется прежняя подключённая запись.':''}{item.job.error?' — '+item.job.error:''}</p>:null}
+    <RecordingDetailsEditor item={item} onSaved={onSaved}/>
     <details className="recording-settings"><summary>{item.connected?'Заменить видео или изменить продажи':'Подключить полную запись'}</summary><form onSubmit={save}>
       {item.connected?<p className="admin-hint">Видео уже находится на сервере. Новая ссылка нужна только для замены записи.</p>:null}
       <label>{item.connected?'Ссылка для замены видео':'Ссылка на скачивание полной записи'}<input type="url" value={url} onChange={e=>{setUrl(e.target.value);setDirty(true);}} placeholder="https://…" maxLength={4096} disabled={busy}/></label>

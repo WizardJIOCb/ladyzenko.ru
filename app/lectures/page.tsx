@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getLecturePages } from "@/lib/content";
-import { lectureProducts, formatPrice } from "@/lib/products";
+import { formatPrice } from "@/lib/products";
 import { available, config, listedLectures } from '@/lib/commerce';
 export const dynamic='force-dynamic';
 
@@ -28,7 +28,7 @@ export default function LecturesPage() {
 
       <div className="content-list">
         {sorted.map(product => <article className="content-card" key={product.id}>
-          <p className="content-type">{available(product,c)?'Можно купить · доступ на 30 дней':'Запись готовится к продаже'}</p>
+          {product.image?<img className="lecture-catalog-cover" src={product.image} alt={product.title} loading="lazy"/>:null}<p className="content-type">{available(product,c)?'Можно купить · доступ на 30 дней':'Запись готовится к продаже'}</p>
           <h2><Link href={`/recordings/${product.id}`}>{product.title}</Link></h2>
           <p>{product.description.slice(0,220)}</p><p>{formatPrice(product.amount)}</p>
           <Link className="commerce-button" href={available(product,c)?`/checkout/${product.id}`:`/recordings/${product.id}`}>{available(product,c)?'Купить запись':'Подробнее о лекции'}</Link>
