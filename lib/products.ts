@@ -13,7 +13,9 @@ export const consultations: Product[] = [
 ];
 export const schoolProducts: Product[] = schoolLectures;
 export const additionalProducts: Product[] = [{id:'lecture-1794913200000',kind:'lecture',title:'Дополнительная лекция Людмилы Ладыженко',amount:100000,hiddenUntilConnected:true,
-  description:'Отдельная запись выступления Людмилы Ладыженко. Продолжительность — 1 час 15 минут. Доступ для личного просмотра на 30 дней.',accessDays:30,duration:'1 ч 15 мин',image:'/stuff/block-3.jpg'}];
+  description:'Отдельная запись выступления Людмилы Ладыженко. Продолжительность — 1 час 15 минут. Доступ для личного просмотра на 30 дней.',accessDays:30,duration:'1 ч 15 мин',image:'/stuff/block-3.jpg'},
+  {id:'lecture-1793381808567',kind:'lecture',title:'Лекция «Тень»',amount:111100,hiddenUntilConnected:true,
+  description:'Полная запись лекции Людмилы Ивановны Ладыженко «Тень». Продолжительность: 1 час 22 минуты. Доступ для личного просмотра на 30 дней после оплаты.',accessDays:30,duration:'1 ч 22 мин'}];
 export const lectureProducts: Product[] = [...lectures, ...schoolProducts, ...additionalProducts];
 export const products: Product[] = [...consultations, ...lectureProducts];
 export const formatPrice = (amount: number) => new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits:amount%100?2:0, maximumFractionDigits:amount%100?2:0 }).format(amount / 100);
