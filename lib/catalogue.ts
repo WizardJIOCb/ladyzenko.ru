@@ -4,7 +4,7 @@ import {createHash,randomBytes} from 'node:crypto';
 import {lectureProducts,schoolProducts,consultations,type Product} from './products.ts';
 import {CommerceError,stateDir} from './commerce.ts';
 import {queueIndexNow} from './indexnow.ts';
-type Details=Pick<Product,'title'|'description'|'amount'|'image'>;
+type Details=Pick<Product,'title'|'description'|'amount'|'image'|'modified'>;
 const file=()=>path.join(stateDir(),'lecture-details.json');
 function overrides():Record<string,Details>{return fs.existsSync(file())?JSON.parse(fs.readFileSync(file(),'utf8')):{};}
 export function getLectureProducts():Product[]{const all=overrides();return lectureProducts.map(p=>({...p,...all[p.id]}));}
@@ -24,7 +24,7 @@ export function saveLectureDetails(data:Record<string,unknown>){
   }
   const next={...current,title:data.title.trim(),description:data.description.trim(),amount:Number(data.amount),image};
   if(detailsVersion(next)===detailsVersion(current))return next;
-  const all=overrides();all[current.id]={title:next.title,description:next.description,amount:next.amount,image};
+  const all=overrides();all[current.id]={title:next.title,description:next.description,amount:next.amount,image,modified:new Date().toISOString()};
   fs.mkdirSync(stateDir(),{recursive:true,mode:0o700});if(fs.existsSync(file())){fs.copyFileSync(file(),file()+'.previous');fs.chmodSync(file()+'.previous',0o600);}const temp=file()+'.'+randomBytes(8).toString('hex');fs.writeFileSync(temp,JSON.stringify(all,null,2)+'\n',{flag:'wx',mode:0o600});fs.renameSync(temp,file());
   queueIndexNow('/recordings/'+current.id);queueIndexNow('/lectures');queueIndexNow('/');
   return next;

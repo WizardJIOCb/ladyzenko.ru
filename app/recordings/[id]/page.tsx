@@ -12,6 +12,7 @@ export default async function Recording({params}:{params:Promise<{id:string}>}) 
     <p>Автор: <Link href="/obo_mne" rel="author">Людмила Ивановна Ладыженко</Link></p>
     {p.image ? <img src={p.image} alt={p.title} width="480" /> : null}
     {p.description.split('\n').map((text,i)=><p key={i}>{text}</p>)}
+    {p.modified?<p className="admin-hint">Обновлено: <time dateTime={p.modified}>{new Date(p.modified).toLocaleDateString('ru-RU',{timeZone:'Asia/Yekaterinburg'})}</time></p>:null}
     {p.duration ? <p>Продолжительность: {p.duration}.</p> : null}
     <p className="commerce-price">{formatPrice(p.amount)}</p><p>Доступ к записи: 30 дней с момента оплаты. После подтверждения оплаты запись откроется на личной странице заказа; ссылка придёт на указанную почту.</p>
     {available(p)?<Link className="commerce-button" href={'/checkout/'+id}>Купить запись</Link>:<><p className="commerce-notice">Полная запись ещё не подключена. Покупка откроется после её проверки.</p><Link href="/lectures">Выбрать доступную запись</Link></>}</article>;

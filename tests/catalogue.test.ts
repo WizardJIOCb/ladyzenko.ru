@@ -26,6 +26,8 @@ test('only the administrator may edit a lecture, stale writes fail, and covers m
  const old=details();saveLectureDetails(details({title:'Авторская лекция <новая>',description:'Сохранённое описание без домыслов.',amount:123450,image}));
  assert.throws(()=>saveLectureDetails(old),/изменилась/);assert.deepEqual(fs.readFileSync(path.join(dir,'config.json')),before);
  const p=current();assert.equal(p.amount,123450);assert.equal(productSeo(p).headline,p.title);assert.equal((graph(productSeo(p),'https://new.ladyzenko.ru',p,true)['@graph'].at(-1) as any).offers.price,'1234.50');
+  assert.ok(p.modified);assert.equal((graph(productSeo(p),'https://new.ladyzenko.ru',p,true)['@graph'].find(x=>x['@type']==='WebPage') as any).dateModified,p.modified);
+  saveLectureDetails(details());assert.equal(current().modified,p.modified);
  const html=renderMirror('index','https://new.ladyzenko.ru');assert.ok(html.includes('Авторская лекция &lt;новая&gt;'));assert.ok(html.includes(image));assert.ok(html.includes('1\u00a0234,50')||html.includes('1\u202f234,50'));
 });
 test('price edits reject stale checkout pages and leave existing provider requests and order titles unchanged',async()=>{

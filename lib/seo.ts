@@ -23,7 +23,7 @@ export function pageSeo(slug:string, changes?:{title:string;description:string;u
   return {...base,headline,title,description:changes?.description || (body?excerpt(textOnly(body)):base.description),modified:changes?.updated || base.modified};
 }
 export function productSeo(p:Product):PageSeo {
-  return {path:'/recordings/'+p.id,headline:p.title,title:p.title+' | Людмила Ладыженко',description:excerpt(p.description),image:p.image};
+  return {path:'/recordings/'+p.id,headline:p.title,title:p.title+' | Людмила Ладыженко',description:excerpt(p.description),image:p.image,modified:p.modified};
 }
 export function graph(seo:PageSeo, origin:string, product?:Product, buyable=false) {
   const url=origin+seo.path;
@@ -32,7 +32,7 @@ export function graph(seo:PageSeo, origin:string, product?:Product, buyable=fals
   const nodes:Record<string,unknown>[]=[
     {'@type':'Person','@id':person,name:authorName,url:origin+'/obo_mne',jobTitle:'Психолог',description:'Частная практика с 1996 года.',sameAs:['https://t.me/psy_ladyzenko','https://vk.com/mamotime']},
     {'@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:'Людмила Ладыженко',inLanguage:'ru-RU',publisher:{'@id':person}},
-    {'@type':'WebPage','@id':url+'#webpage',url,name:seo.headline,description:seo.description,inLanguage:'ru-RU',isPartOf:{'@id':origin+'/#website'},about:{'@id':person},primaryImageOfPage:{'@type':'ImageObject',url:image}},
+    {'@type':'WebPage','@id':url+'#webpage',url,name:seo.headline,description:seo.description,inLanguage:'ru-RU',isPartOf:{'@id':origin+'/#website'},about:{'@id':person},primaryImageOfPage:{'@type':'ImageObject',url:image},...(product&&seo.modified?{dateModified:seo.modified}:{})},
   ];
   if(seo.article)nodes.push({'@type':'BlogPosting','@id':url+'#article',mainEntityOfPage:{'@id':url+'#webpage'},headline:seo.headline,description:seo.description,image:[image],author:{'@id':person},publisher:{'@id':person},inLanguage:'ru-RU',...(seo.published?{datePublished:seo.published}:{}),...(seo.modified?{dateModified:seo.modified}:{})});
   if(product)nodes.push({'@type':'Product','@id':url+'#product',name:product.title,description:product.description,image:[image],url,...(buyable?{offers:{'@type':'Offer',url,price:(product.amount/100).toFixed(2),priceCurrency:'RUB',availability:'https://schema.org/InStock'}}:{})});
