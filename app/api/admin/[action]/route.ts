@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { adminAuthorized, adminCookie, adminState, login, saveAdmin, changePassword } from '@/lib/admin';
 import { CommerceError, config, rateLimit, trustedOrigin } from '@/lib/commerce';
-import { mirrorPages,contentPage,saveContent,submissions,storeImage } from '@/lib/mirror';
+import { articleList, articleEditor, saveArticle, mirrorPages,contentPage,saveContent,submissions,storeImage } from '@/lib/mirror';
 import { recordingImports, saveRecordingImport } from '@/lib/recording-imports';
 import { recordingPoster, recordingVideo } from '@/lib/recording-media';
 import {saveLectureDetails} from '@/lib/catalogue';
@@ -29,13 +29,17 @@ async function handle(req: NextRequest, ctx: { params: Promise<{ action: string 
       while(true){const chunk=await reader.read();if(chunk.done)break;size+=chunk.value.byteLength;if(size>limit){await reader.cancel();throw new CommerceError(413,'Изображение больше 8 МБ.');}chunks.push(chunk.value);}
       return NextResponse.json({url:storeImage(Buffer.concat(chunks))},{headers});
     }
+    if (action === 'articles' && req.method === 'GET') {
+      const slug=req.nextUrl.searchParams.get('slug');
+      return NextResponse.json(slug?articleEditor(slug):articleList(true),{headers});
+    }
     if (action === 'content' && req.method === 'GET') {
       const slug=req.nextUrl.searchParams.get('slug');
       return NextResponse.json(slug?contentPage(slug):{pages:mirrorPages(),submissions:submissions()},{headers});
     }
     let data: Record<string, unknown> = {};
     if (req.method === 'POST') {
-      const limit=action==='content'?2*1024*1024:action==='recording-details'?65536:16384;
+      const limit=(action==='content'||action==='articles')?2*1024*1024:action==='recording-details'?65536:16384;
       if (Number(req.headers.get('content-length')) > limit) throw new CommerceError(413, 'Слишком большой запрос.');
       const body = await req.text(); if (body.length > limit) throw new CommerceError(413, 'Слишком большой запрос.');
       try { data = JSON.parse(body); } catch { throw new CommerceError(400, 'Некорректный запрос.'); }
@@ -63,6 +67,7 @@ async function handle(req: NextRequest, ctx: { params: Promise<{ action: string 
     if (action === 'recordings' && req.method === 'POST') return NextResponse.json(saveRecordingImport(data), {headers});
     if(action==='recording-details'&&req.method==='POST'){saveLectureDetails(data);return NextResponse.json(recordingImports(),{headers});}
     if (action === 'settings' && req.method === 'POST') return NextResponse.json(saveAdmin(data), { headers });
+    if (action === 'articles' && req.method === 'POST') return NextResponse.json(saveArticle(data),{headers});
     if (action === 'content' && req.method === 'POST') return NextResponse.json(saveContent(data), { headers });
     throw new CommerceError(404, 'Раздел не найден.');
   } catch (e) {

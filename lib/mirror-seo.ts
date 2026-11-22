@@ -21,7 +21,7 @@ export function applyMirrorSeo(html:string, slug:string, originalTitle:string, o
   const image=new URL(seo.image||'/stuff/block-3.jpg',origin).href;
   html=html.replace('</head>',()=>`<meta name="description" content="${escape(seo.description)}"><meta name="robots" content="${robots}"><meta name="referrer" content="strict-origin-when-cross-origin"><link rel="canonical" href="${escape(canonical)}"><meta property="og:url" content="${escape(canonical)}"><meta property="og:title" content="${escape(seo.title)}"><meta property="og:description" content="${escape(seo.description)}"><meta property="og:type" content="${seo.article?'article':'website'}"><meta property="og:image" content="${escape(image)}"><script type="application/ld+json">${jsonLd(graph(seo,origin))}</script><link rel="stylesheet" href="/site-seo.css"><script defer src="/site-analytics.js"></script></head>`);
   if(seo.article) {
-    const updated=changes?.updated ? ` · Обновлено <time datetime="${escape(changes.updated)}">${date(changes.updated)}</time>`:'';
+    const updated=changes?.updated && changes.updated!==seo.published ? ` · Обновлено <time datetime="${escape(changes.updated)}">${date(changes.updated)}</time>`:'';
     const published=seo.published?` · <time datetime="${escape(seo.published)}">${date(seo.published)}</time>`:'';
     html=html.replace(/<\/h1>/i,()=>`</h1><p class="seo-byline t-descr">Автор: <a rel="author" href="/obo_mne">${authorName}</a>${published}${updated}</p>`);
   } else if(!/<h1\b/i.test(html)) {

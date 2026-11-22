@@ -14,8 +14,10 @@ export function stagingOrigin(origin:string) { return new URL(origin).hostname !
 export function noindex(origin:string, pathname:string, host='') {
   return stagingOrigin(origin) || host.split(':')[0]==='new.ladyzenko.ru' || privatePath(pathname) || legacyDuplicate(pathname);
 }
-export function pageSeo(slug:string, changes?:{title:string;description:string;updated:string}|null, originalTitle='', html=''): PageSeo {
-  const base=seoPages()[slug];
+export function pageSeo(slug:string, changes?:{title:string;description:string;updated:string;firstPublished?:string}|null, originalTitle='', html=''): PageSeo {
+  const base:PageSeo|undefined=seoPages()[slug] || (/^tpost-cms[a-f0-9]{14}-[a-z0-9-]{1,70}$/.test(slug) ? {
+    path:'/tpost/'+slug.slice(6),headline:'',title:'',description:'',article:true,published:changes?.firstPublished,
+  } : undefined);
   if(!base)throw new Error('SEO page not found');
   const headline=base.article ? textOnly(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1]||base.headline) : base.headline;
   const title=changes?.title && ![originalTitle,base.title].includes(changes.title) ? changes.title : (base.article && headline!==base.headline ? headline+' | Людмила Ладыженко' : base.title);
