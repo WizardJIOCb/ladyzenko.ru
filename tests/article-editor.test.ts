@@ -4,12 +4,24 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { articleEditor,articleList,contentPage,localFeed,renderMirror,saveArticle,saveContent } from '../lib/mirror.ts';
+import { articleCountLabel } from '../lib/article-count.ts';
 
 const origin='https://new.ladyzenko.ru';
 const dir=fs.mkdtempSync(path.join(os.tmpdir(),'lady-articles-'));
 process.env.COMMERCE_STATE=dir;
 after(()=>fs.rmSync(dir,{recursive:true,force:true}));
 
+test('article counts use Russian plural forms',()=>{
+  assert.equal(articleCountLabel(1),'1 статья');
+  assert.equal(articleCountLabel(22),'22 статьи');
+  assert.equal(articleCountLabel(111),'111 статей');
+});
+
+test('home page links to the article catalogue above the feed',()=>{
+  const html=renderMirror('index',origin);
+  assert.match(html, /id="rec1003027546"[^>]*>\s*<div class="all-articles-link"><a href="\/articles">/);
+  assert.match(html, new RegExp(`class="all-articles-count">${articleList().length} статей</span>`));
+});
 test('all archived articles open in the rich editor and unchanged publication preserves the original',()=>{
   const library=articleList(true);
   assert.equal(library.length,85);
@@ -18,6 +30,7 @@ test('all archived articles open in the rich editor and unchanged publication pr
     assert.ok(article.sections.length,p.slug);
     assert.ok(article.headline.trim(),p.slug);
     const before=renderMirror(p.slug,origin);
+    assert.match(before, /class="t-popup__close"[^>]*href="\/articles"/);
     saveArticle({...article,edits:{},operation:'publish'});
     assert.equal(contentPage(p.slug).published,null,p.slug);
     assert.ok(renderMirror(p.slug,origin)===before,p.slug);
@@ -65,5 +78,16 @@ test('new articles stay private until publication, feed and catalogue update, re
   const abandoned=saveArticle({headline:'Другой материал',title:'',description:'',operation:'draft',edits:{}})!;
   saveArticle({...abandoned,operation:'discard'});
   assert.ok(!articleList(true).some(p=>p.slug===abandoned.slug));
+});
+
+test('article list uses the published image and does not expose draft changes',()=>{
+  const image='/api/site/image/0123456789abcdef0123456789abcdef.jpg';
+  const draft=saveArticle({headline:'Обложка для проверки',title:'',description:'',operation:'draft',edits:{0:`<p>Текст</p><img src="${image}">`}})!;
+  assert.equal(articleList(true).find(p=>p.slug===draft.slug)?.image,image);
+  const live=saveArticle({...draft,operation:'publish',edits:{}})!;
+  assert.equal(articleList().find(p=>p.slug===live.slug)?.image,image);
+  saveArticle({...live,operation:'draft',edits:{0:'<p>Новый текст без обложки</p>'}});
+  assert.equal(articleList().find(p=>p.slug===live.slug)?.image,image);
+  assert.equal(articleList(true).find(p=>p.slug===live.slug)?.image,'');
 });
 

@@ -11,6 +11,7 @@ import { articlePath, editableRegions, isNewArticle, newArticleHtml, newArticleS
 import { excerpt, textOnly, seoPages } from './seo.ts';
 import { queueIndexNow } from './indexnow.ts';
 import { newsletterForm } from './newsletter.ts';
+import { articleCountLabel } from './article-count.ts';
 
 export type MirrorBlock = { id: string; type: 'text' | 'image' | 'link'; value: string; label: string };
 export type MirrorPage = { slug: string; path: string; title: string; sourceStatus: string; blocks: MirrorBlock[] };
@@ -163,6 +164,10 @@ export function renderMirror(slug: string, origin: string, preview=false) {
   const changes=(preview && read(slug,true))||read(slug);
   if(isNewArticle(slug) && !changes)throw new CommerceError(404,'Статья не найдена.');
   let html=replaceChanges(originalHtml(slug),base,changes);
+  if(base.path.startsWith('/tpost/') && !isNewArticle(slug)) {
+    html=html.replace(/(<a\b(?=[^>]*\bclass="[^"]*\bt-popup__close\b)[^>]*\bhref=")[^"]*(")/i,'$1/articles$2')
+      .replace('src="/mirror-runtime.js"','src="/mirror-runtime.js?v=article-back1"');
+  }
   if(isNewArticle(slug)||Object.keys(changes?.rich||{}).length)html=html.replace('</head>','<link rel="stylesheet" href="/article-layout.css"></head>');
   html=protectSchoolVideos(html);
   // Replace Tilda cart with the existing secure single-product checkout.
@@ -174,6 +179,9 @@ export function renderMirror(slug: string, origin: string, preview=false) {
     html=html.replace(/<form\b[^>]*\bid="form967078911"[^>]*>[\s\S]*?<\/form>/, newsletterForm)
       .replace('</head>', '<link rel="stylesheet" href="/footer-newsletter.css"></head>')
       .replace('src="/mirror-runtime.js"', 'src="/mirror-runtime.js?v=newsletter1"');
+    const count=articleCountLabel(articleList().length);
+    html=html.replace(/(<div\b[^>]*\bid="rec1003027546"[^>]*>)/, '$1<div class="all-articles-link"><a href="/articles">Все статьи и публикации <span class="all-articles-count">'+count+'</span> →</a></div>')
+      .replace('</head>', '<style>#rec4078656801{padding-top:64px!important}@media(max-width:640px){#rec4078656801{padding-top:48px!important}}.all-articles-link{text-align:center;margin:0 20px 36px}.all-articles-link a{display:inline-flex;align-items:center;gap:10px;padding:10px 16px 10px 24px;border:1px solid #2d7c0d;border-radius:30px;color:#2d7c0d;text-decoration:none;font:500 16px/1.4 Arial,sans-serif}.all-articles-count{padding:4px 10px;border-radius:20px;background:#edf6e8;font-size:14px;white-space:nowrap}.all-articles-link a:hover,.all-articles-link a:focus-visible{color:#fff;background:#2d7c0d}.all-articles-link a:hover .all-articles-count,.all-articles-link a:focus-visible .all-articles-count{color:#2d7c0d}.all-articles-link a:focus-visible{outline:3px solid #f58220;outline-offset:3px}</style></head>');
     const catalog='<section class="live-recordings" aria-labelledby="live-recordings-title"><h2 id="live-recordings-title">Купить лекции в записи</h2><p>Доступ на 30 дней после оплаты. Видео откроется на личной странице заказа, ссылка придёт на почту.</p><div class="live-recordings-grid">'+buyable.map(p=>'<article>'+(p.image?'<img class="live-recording-cover" src="'+escapeHtml(p.image)+'" alt="'+escapeHtml(p.title)+'" loading="lazy">':'')+'<h3><a href="/recordings/'+p.id+'">'+escapeHtml(p.title)+'</a></h3><p>'+escapeHtml(p.duration||'Запись лекции')+'</p><a class="live-purchase" href="/checkout/'+p.id+'">Купить за '+escapeHtml(formatPrice(p.amount))+'</a></article>').join('')+'</div><p><a href="/lectures">Все лекции и доступность записей</a></p></section>';
     html=html.replace(/(<div\b[^>]*\bid="rec1043768191"[^>]*>)/,(_match,tag)=>tag+catalog);
     html=individualConsultationOnly(html);
@@ -216,7 +224,10 @@ export function articleList(admin=false) {
     const title=(titleBlock && changes?.values[titleBlock.id]) || seo?.headline || p.title;
     const description=changes?.description || (changes?.rich?excerpt(textOnly(Object.values(changes.rich).join(' '))):'') || seo?.description || '';
     const published=live?.firstPublished || seo?.published || '';
-    return {slug:p.slug,path:p.path,title,description,published,modified:live?.updated||seo?.modified||'',draft:!!draft,live:!!live||!isNewArticle(p.slug)};
+    const richImage=Object.values(changes?.rich||{}).join(' ').match(/<img\b[^>]*\bsrc="([^"]+)"/i)?.[1];
+    const coverBlock=seo?.image && !isNewArticle(p.slug) ? source(p.slug).blocks.find(b=>b.type==='image' && b.value===seo.image) : undefined;
+    const image=richImage || (coverBlock && changes?.values[coverBlock.id]) || seo?.image || '';
+    return {slug:p.slug,path:p.path,title,description,image,published,modified:live?.updated||seo?.modified||'',draft:!!draft,live:!!live||!isNewArticle(p.slug)};
   }).sort((a,b)=>(b.published||'9999').localeCompare(a.published||'9999')||a.title.localeCompare(b.title,'ru'));
 }
 export function articleEditor(slug:string) {
