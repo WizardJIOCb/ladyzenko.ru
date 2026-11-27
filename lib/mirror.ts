@@ -212,7 +212,10 @@ export function articleList(admin=false) {
     const title=(titleBlock && changes?.values[titleBlock.id]) || seo?.headline || p.title;
     const description=changes?.description || (changes?.rich?excerpt(textOnly(Object.values(changes.rich).join(' '))):'') || seo?.description || '';
     const published=live?.firstPublished || seo?.published || '';
-    return {slug:p.slug,path:p.path,title,description,published,modified:live?.updated||seo?.modified||'',draft:!!draft,live:!!live||!isNewArticle(p.slug)};
+    const richImage=Object.values(changes?.rich||{}).join(' ').match(/<img\b[^>]*\bsrc="([^"]+)"/i)?.[1];
+    const coverBlock=seo?.image && !isNewArticle(p.slug) ? source(p.slug).blocks.find(b=>b.type==='image' && b.value===seo.image) : undefined;
+    const image=richImage || (coverBlock && changes?.values[coverBlock.id]) || seo?.image || '';
+    return {slug:p.slug,path:p.path,title,description,image,published,modified:live?.updated||seo?.modified||'',draft:!!draft,live:!!live||!isNewArticle(p.slug)};
   }).sort((a,b)=>(b.published||'9999').localeCompare(a.published||'9999')||a.title.localeCompare(b.title,'ru'));
 }
 export function articleEditor(slug:string) {

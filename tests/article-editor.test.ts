@@ -67,3 +67,14 @@ test('new articles stay private until publication, feed and catalogue update, re
   assert.ok(!articleList(true).some(p=>p.slug===abandoned.slug));
 });
 
+test('article list uses the published image and does not expose draft changes',()=>{
+  const image='/api/site/image/0123456789abcdef0123456789abcdef.jpg';
+  const draft=saveArticle({headline:'Обложка для проверки',title:'',description:'',operation:'draft',edits:{0:`<p>Текст</p><img src="${image}">`}})!;
+  assert.equal(articleList(true).find(p=>p.slug===draft.slug)?.image,image);
+  const live=saveArticle({...draft,operation:'publish',edits:{}})!;
+  assert.equal(articleList().find(p=>p.slug===live.slug)?.image,image);
+  saveArticle({...live,operation:'draft',edits:{0:'<p>Новый текст без обложки</p>'}});
+  assert.equal(articleList().find(p=>p.slug===live.slug)?.image,image);
+  assert.equal(articleList(true).find(p=>p.slug===live.slug)?.image,'');
+});
+

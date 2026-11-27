@@ -25,6 +25,11 @@ export default function ArticlesPage() {
       <div className="content-list">
         {articles.map((article) => (
           <article className="content-card" key={article.slug}>
+            {article.image && (
+              <Link className="content-card__image" href={article.path} tabIndex={-1} aria-hidden="true">
+                <img src={article.image} alt="" loading="lazy" />
+              </Link>
+            )}
             <p className="content-type">Статья</p>
             <h2>
               <Link href={article.path}>{article.title}</Link>
