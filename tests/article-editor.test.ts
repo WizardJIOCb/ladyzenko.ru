@@ -4,15 +4,23 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { articleEditor,articleList,contentPage,localFeed,renderMirror,saveArticle,saveContent } from '../lib/mirror.ts';
+import { articleCountLabel } from '../lib/article-count.ts';
 
 const origin='https://new.ladyzenko.ru';
 const dir=fs.mkdtempSync(path.join(os.tmpdir(),'lady-articles-'));
 process.env.COMMERCE_STATE=dir;
 after(()=>fs.rmSync(dir,{recursive:true,force:true}));
 
+test('article counts use Russian plural forms',()=>{
+  assert.equal(articleCountLabel(1),'1 статья');
+  assert.equal(articleCountLabel(22),'22 статьи');
+  assert.equal(articleCountLabel(111),'111 статей');
+});
+
 test('home page links to the article catalogue above the feed',()=>{
   const html=renderMirror('index',origin);
   assert.match(html, /id="rec1003027546"[^>]*>\s*<div class="all-articles-link"><a href="\/articles">/);
+  assert.match(html, new RegExp(`class="all-articles-count">${articleList().length} статей</span>`));
 });
 test('all archived articles open in the rich editor and unchanged publication preserves the original',()=>{
   const library=articleList(true);
