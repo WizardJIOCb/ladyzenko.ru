@@ -163,6 +163,10 @@ export function renderMirror(slug: string, origin: string, preview=false) {
   const changes=(preview && read(slug,true))||read(slug);
   if(isNewArticle(slug) && !changes)throw new CommerceError(404,'Статья не найдена.');
   let html=replaceChanges(originalHtml(slug),base,changes);
+  if(base.path.startsWith('/tpost/') && !isNewArticle(slug)) {
+    html=html.replace(/(<a\b(?=[^>]*\bclass="[^"]*\bt-popup__close\b)[^>]*\bhref=")[^"]*(")/i,'$1/articles$2')
+      .replace('src="/mirror-runtime.js"','src="/mirror-runtime.js?v=article-back1"');
+  }
   if(isNewArticle(slug)||Object.keys(changes?.rich||{}).length)html=html.replace('</head>','<link rel="stylesheet" href="/article-layout.css"></head>');
   html=protectSchoolVideos(html);
   // Replace Tilda cart with the existing secure single-product checkout.

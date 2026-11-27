@@ -20,6 +20,11 @@
     if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     var link = event.target.closest && event.target.closest('a[href]');
     if (!link) return;
+    if (location.pathname.indexOf('/tpost/') === 0 && link.matches('.t-feed__post-popup__close-wrapper a.t-popup__close')) {
+      event.preventDefault(); event.stopImmediatePropagation();
+      location.assign('/articles');
+      return;
+    }
     var url; try { url = new URL(link.href, location.href); } catch (_) { return; }
     if (url.origin !== location.origin || url.pathname !== location.pathname || url.search !== location.search) return;
     var anchor = document.getElementById(url.hash.slice(1));

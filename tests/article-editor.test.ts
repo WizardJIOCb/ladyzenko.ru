@@ -30,6 +30,7 @@ test('all archived articles open in the rich editor and unchanged publication pr
     assert.ok(article.sections.length,p.slug);
     assert.ok(article.headline.trim(),p.slug);
     const before=renderMirror(p.slug,origin);
+    assert.match(before, /class="t-popup__close"[^>]*href="\/articles"/);
     saveArticle({...article,edits:{},operation:'publish'});
     assert.equal(contentPage(p.slug).published,null,p.slug);
     assert.ok(renderMirror(p.slug,origin)===before,p.slug);
