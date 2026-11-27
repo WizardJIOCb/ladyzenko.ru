@@ -1,2 +1,6 @@
 import { work } from '../lib/commerce.ts';
-await work();
+
+work().catch(() => {
+  console.error('Commerce worker failed.');
+  process.exitCode = 1;
+});
