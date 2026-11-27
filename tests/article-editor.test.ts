@@ -10,6 +10,10 @@ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'lady-articles-'));
 process.env.COMMERCE_STATE=dir;
 after(()=>fs.rmSync(dir,{recursive:true,force:true}));
 
+test('home page links to the article catalogue above the feed',()=>{
+  const html=renderMirror('index',origin);
+  assert.match(html, /id="rec1003027546"[^>]*>\s*<div class="all-articles-link"><a href="\/articles">/);
+});
 test('all archived articles open in the rich editor and unchanged publication preserves the original',()=>{
   const library=articleList(true);
   assert.equal(library.length,85);
