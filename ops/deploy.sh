@@ -37,6 +37,9 @@ tar -xzf "$archive" -C "$release"
 if [[ -n "${3:-}" ]]; then tar -xzf "$3" -C "$release"; fi
 cd "$release"
 npm ci --no-audit --no-fund > "$backup/install.log" 2>&1
+# Fail before activation if the worker startup regression test is absent or fails.
+test -f tests/commerce-worker.test.ts
+node --import tsx --test tests/commerce-worker.test.ts > "$backup/commerce-worker-test.log" 2>&1
 node --import tsx --test tests/*.test.ts > "$backup/tests.log" 2>&1
 npm run build > "$backup/build.log" 2>&1
 install -d -m 710 /var/lib/new-ladyzenko-commerce

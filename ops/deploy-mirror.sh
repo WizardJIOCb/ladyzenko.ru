@@ -46,6 +46,9 @@ PY
 # Immutable dependencies are identical; share their files without another npm install.
 cp -al "$previous/node_modules" "$release/node_modules"
 cd "$release"
+# Fail before activation if the worker startup regression test is absent or fails.
+test -f tests/commerce-worker.test.ts
+node --import tsx --test tests/commerce-worker.test.ts > "$backup/commerce-worker-test.log" 2>&1
 node --import tsx --test tests/*.test.ts > "$backup/tests.log" 2>&1
 python3 - <<'PY'
 from pathlib import Path
